@@ -1,0 +1,9 @@
+<Plan xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/YuQuan.Models">
+    <Cost>5000-10000</Cost>
+    <Criteria>第一诊断是高胆固醇血症</Criteria>
+    <Duration>1~7天</Duration>
+    <Id>0</Id>
+    <Name>高胆固醇血症</Name>
+    <Objective>Objective</Objective>
+    <Phase />
+</Plan>

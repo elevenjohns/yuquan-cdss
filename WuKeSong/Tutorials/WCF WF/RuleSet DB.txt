@@ -1,0 +1,6 @@
+﻿Across related projects, these parameters must be consistent with DB:
+
+1. connection string name BE "RuleSetStoreConnectionString"
+2. table name BE "TriggerRule"
+
+If change DB settings, must update these parameters.

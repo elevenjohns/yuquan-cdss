@@ -1,0 +1,226 @@
+﻿@using YuQuan.Models
+@model YuQuan.Models.Encounter
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div id="patient_info" style="float:inherit">
+@*    <div>
+        Bed NO.
+        @Html.DisplayFor(x=>x.Id)
+    </div>*@
+    <div>
+        Encounter/Visit NO.
+        @Html.DisplayFor(x=>x.FK_EMR_Encounter_Id)
+    </div>
+    @*<legend>病人信息</legend>
+    <div>
+        <img style=" border-style:double" src="@Model.PatientPhotoURL" alt="@Model.PatientPhotoURL" height="100px"/>
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.PatientName):
+        @Html.DisplayFor(x => x.PatientName)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.PatientGender):
+        @Html.DisplayFor(x => x.PatientGender)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Admission):
+        @if (Model.Admission.HasValue)
+        { @Model.Admission.Value.ToLongDateString()}
+    </div>
+        
+    <div>
+        @Html.LabelFor(x => x.Diagnosis):
+        @Html.DisplayFor(x=>x.Diagnosis)
+    </div>
+</fieldset>*@
+</div>
+
+<div id="clinical_event" style="float:inherit;">
+    <div>
+    <fieldset>
+        <legend>临床事件及相关报告</legend>
+
+        <table>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Event Type
+                </th>
+                <th>
+                    Report Item
+                </th>
+                <th>
+                    Time Stamp
+                </th>
+                <th />
+            </tr>
+
+        @foreach (var evt in Model.Event)
+        {
+            <tr>
+                <td><a style="text-decoration:underline; color:ThreeDDarkShadow" href="@Url.Action("Details", "Event",
+                new { id = evt.Id })">@evt.Name</a></td>
+                <td style="text-align:center">@evt.EventType</td>
+                <td>
+                @foreach (var report in evt.Report)
+                {
+                    <div>
+                        <a style="text-decoration:underline; color:Olive; font-style:italic" href="@Url.Action("Details", "Report",
+                    new { id = report.Id })">
+                        @report.TimeStamp
+                        @report.ReportType
+                        </a>
+                    </div>
+                }
+                </td>
+                <td>@evt.TimeStamp</td>
+                <td>                
+                @using (Html.BeginForm("Notify","Home"))
+                {                    
+                    <input type="hidden" name="id" value="@evt.Id" />
+                    <span>&nbsp;&nbsp;</span>
+                    <input type="submit" value="Notify" style="margin-bottom:5px"/>
+                    <span>&nbsp;&nbsp;</span>
+                }
+                </td>
+            </tr>
+        }
+        </table>
+    </fieldset>
+    </div>
+
+    <fieldset>
+        <legend>触发的临床问题</legend>
+        <table>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    State
+                </th>
+                <th>
+                    Facts & Reports
+                </th>
+                <th />
+            </tr>
+
+        @foreach (var item in Model.ClinicalProblemInstance)
+        {
+            <tr>
+                <td><a style="text-decoration:underline; color:ThreeDDarkShadow" href="@Url.Action("Details", "ProblemInstance",
+                new { id = item.Id })">@item.ClinicalProblemDefinition.Name</a></td>
+                <td style="text-align:center">@item.State</td>
+                
+                <td>
+                <div>
+                    <table>
+                    <tr>
+                        <th>Fact</th>
+                        <th>Value</th>
+                        <th>参考范围</th>
+                    </tr>
+                    @foreach (var fact in item.Facts)
+                    {        
+                        <tr>
+                            <td>
+                                @fact.ContextItemDefinition.Name
+                            </td>
+                            @if (fact.IsAbnormal == false)
+                            {
+                            <td style=" color:Black">
+                                @fact.ValueString()
+                            </td>
+                            }
+                            else
+                            {
+                            <td style=" color:Red">
+                                @fact.ValueString()
+                            </td>     
+                            }
+                            <td>
+                            @if (string.IsNullOrEmpty(fact.ContextItemDefinition.ReferenceRange) == false)
+                            {
+                                @fact.ContextItemDefinition.ReferenceRange
+                            }
+                            else
+                            {
+                                @YuQuan.Helpers.RandomNumberHelper.GetRandomNumber(0, 50)
+                                <span>~</span>
+                                @YuQuan.Helpers.RandomNumberHelper.GetRandomNumber(100, 150)
+                            }                
+                            </td>
+                        </tr>            
+                    }
+                    </table>
+                </div> 
+
+                <div>
+                    <table>
+                    <tr>
+                        <th>report</th>
+                    </tr>
+                    @foreach (var report in item.Reports)
+                    {        
+                        <tr>
+                            <td>
+                                <a style="text-decoration:underline; color:Olive; font-style:italic" href="@Url.Action("Details", "Report",
+                            new { id = report.Id })">
+                                @report.TimeStamp
+                                @report.ReportType
+                                </a>
+                            </td>
+                        </tr>            
+                    }
+                    </table>
+                </div>
+                </td>
+
+                <td>
+                @using (Html.BeginForm("UpdateProblemState", "Home"))
+                {                    
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <br />
+                    @EnumStateTransition.Solve.ToString()
+                    <span>|</span>
+                    @EnumStateTransition.Dismiss.ToString()
+                    <span>|</span>
+                    @EnumStateTransition.Revive.ToString()
+                    <br />
+                    <input type="text" name="operation" value="@EnumStateTransition.Solve.ToString()" />
+                    <br/><br />
+                    <span>User</span>   
+                    <br />  
+                    <input type="text" name="user" value="" />
+                    <br />
+                    <span>&nbsp;&nbsp;</span>
+                    <br />
+                    <input type="submit" value="UpdateProblemState" style="margin-bottom:5px"/>
+                    <span>&nbsp;&nbsp;</span>
+                }
+                </td>
+            </tr>
+        }
+        </table>
+    @if (Model.ClinicalProblemInstance.Count > 0)
+    {
+        using (Html.BeginForm("ClearUp", "Home"))
+        {
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input type="submit" value="Clear Up Generated Problems" style="margin-bottom:5px"/>
+        }
+    }
+    </fieldset>
+</div>

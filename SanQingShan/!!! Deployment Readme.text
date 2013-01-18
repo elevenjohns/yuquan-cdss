@@ -1,0 +1,1 @@
+﻿In deployment, copy 301 folder to /Data, which is configured in Web.app

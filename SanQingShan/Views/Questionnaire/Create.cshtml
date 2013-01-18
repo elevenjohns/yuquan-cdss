@@ -1,0 +1,32 @@
+﻿@model SanQingShan.Models.Answer
+           
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Model.Question.Questionnaire.Name</h3>
+@*<p>
+<span>问卷包含</span>@Model.Question.Questionnaire.Question.Count()<span>个问题</span>
+</p>*@
+
+@{int i;
+  for (i = 0; i < Model.Question.Questionnaire.Question.Count(); i++)
+  {
+      <div style="color:Black">
+        <div>@(i+1)&nbsp;&nbsp;@Model.Question.Questionnaire.Question.ElementAt(i).Literal
+        </div>
+        <br />
+        <div>
+            @foreach (var choice in Model.Choice)
+            {
+                <div>
+                @Html.CheckBoxFor(model=>choice.IsSelected)
+                @Html.DisplayFor(model=>choice.Option.Literal)
+                </div> 
+            }
+            <div>其它原因：@Html.EditorFor(model=>model.FreeText)</div>
+        </div>
+      </div>
+  }
+}

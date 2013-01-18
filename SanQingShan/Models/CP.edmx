@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CPModelStoreContainer">
+    <EntitySet Name="CP_EXAM" EntityType="CPModel.Store.CP_EXAM" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CP_ORDER" EntityType="CPModel.Store.CP_ORDER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CP_VITAL_SIGN" EntityType="CPModel.Store.CP_VITAL_SIGN" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CP_MEDICAL_DOC" EntityType="CPModel.Store.CP_MEDICAL_DOC" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CP_LAB_TEST" EntityType="CPModel.Store.CP_LAB_TEST" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CP_VISIT" EntityType="CPModel.Store.CP_VISIT" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CP_EXAM">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOSPITAL_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="OUTPATIENT_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CP_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="EXAM_CLASS" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EXAM_SUB_CLASS" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EXAM_TIME" Type="datetime" Nullable="true" />
+    <Property Name="RESULT_PARAGRAPH" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RESULT_DESCRIPTION" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RESULT_IMPRESSION" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IS_ABNORMAL" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ORDER_ID" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CP_ORDER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOSPITAL_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CP_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="OUTPATIENT_ID" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ORDER_TYPE_ID" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ORDER_CONTENT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DOSAGE" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UNIT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="METHOD" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="START_TIME" Type="datetime" Nullable="true" />
+    <Property Name="END_TIME" Type="datetime" Nullable="true" />
+    <Property Name="FREQ" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FREQ_UNIT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EXPECTED_EXECUTIVE_TIME" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ISSUER" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TERMINATOR" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EXECUTOR" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CHECKER" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="REAL_EXECUTIVE_TIME" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CP_VITAL_SIGN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOSPITAL_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="OUTPATIENT_ID" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CP_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="VISIT_ID" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MEASURING_TIME" Type="datetime" Nullable="true" />
+    <Property Name="VITAL_SIGN_NAME" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RESULT_VALUE" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RESULT_UNIT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ORDER_ID" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CP_MEDICAL_DOC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CP_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="FULL_PATH" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FILE_EXTENSION" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CP_LAB_TEST">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOSPITAL_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="OUTPATIENT_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CP_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="REPORT_ITEM_NAME" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RESULT_VALUE" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RESULT_UNIT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ABNORMAL_INDICATOR" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="REPORT_TIME" Type="datetime" Nullable="true" />
+    <Property Name="TEST_NO" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ITEM_NO" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="VID" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ORDER_ID" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CP_VISIT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOSPITAL_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="OUTPATIENT_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="INPATIENT_NO" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CP_ID" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="VISIT_NO" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ADMISSION_TIME" Type="datetime" Nullable="true" />
+    <Property Name="DISCHARGE_TIME" Type="datetime" Nullable="true" />
+    <Property Name="DISCHARGE_TYPE" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DIAGNOSIS" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="STRUCTURED_DIAGNOSIS" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DIAGNOSIS_TIME" Type="datetime" Nullable="true" />
+    <Property Name="BIRTHDAY" Type="datetime" Nullable="true" />
+    <Property Name="GENDER" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="OCCUPATION" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CONDITION" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DEPARTMENT" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="TOTAL_COSTS" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="TOTAL_PAYMENTS" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DOCTOR" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CP_EXAM" EntityType="CPModel.CP_EXAM" />
+          <EntitySet Name="CP_ORDER" EntityType="CPModel.CP_ORDER" />
+          <EntitySet Name="CP_VITAL_SIGN" EntityType="CPModel.CP_VITAL_SIGN" />
+          <EntitySet Name="CP_MEDICAL_DOC" EntityType="CPModel.CP_MEDICAL_DOC" />
+          <EntitySet Name="CP_LAB_TEST" EntityType="CPModel.CP_LAB_TEST" />
+          <EntitySet Name="CP_VISIT" EntityType="CPModel.CP_VISIT" />
+          </EntityContainer>
+        <EntityType Name="CP_EXAM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOSPITAL_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="OUTPATIENT_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="CP_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EXAM_CLASS" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="EXAM_SUB_CLASS" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="EXAM_TIME" Type="DateTime" Nullable="true" />
+          <Property Name="RESULT_PARAGRAPH" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="RESULT_DESCRIPTION" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="RESULT_IMPRESSION" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="IS_ABNORMAL" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="ORDER_ID" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CP_ORDER">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOSPITAL_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="CP_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OUTPATIENT_ID" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="ORDER_TYPE_ID" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="ORDER_CONTENT" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="DOSAGE" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="UNIT" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="METHOD" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="START_TIME" Type="DateTime" Nullable="true" />
+          <Property Name="END_TIME" Type="DateTime" Nullable="true" />
+          <Property Name="FREQ" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="FREQ_UNIT" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="EXPECTED_EXECUTIVE_TIME" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="ISSUER" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="TERMINATOR" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="EXECUTOR" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="CHECKER" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="REAL_EXECUTIVE_TIME" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CP_VITAL_SIGN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOSPITAL_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="OUTPATIENT_ID" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="CP_ID" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
+          <Property Name="VISIT_ID" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="MEASURING_TIME" Type="DateTime" Nullable="true" />
+          <Property Name="VITAL_SIGN_NAME" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="RESULT_VALUE" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="RESULT_UNIT" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="ORDER_ID" Type="String" Unicode="true" FixedLength="false" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CP_MEDICAL_DOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CP_ID" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="FULL_PATH" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="FILE_EXTENSION" Nullable="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CP_LAB_TEST">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="HOSPITAL_ID" MaxLength="50" FixedLength="false" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="OUTPATIENT_ID" MaxLength="50" FixedLength="false" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="CP_ID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="REPORT_ITEM_NAME" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="RESULT_VALUE" Unicode="true" Nullable="true" />
+          <Property Type="String" Name="RESULT_UNIT" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="ABNORMAL_INDICATOR" FixedLength="false" Nullable="true" Unicode="true" />
+          <Property Type="DateTime" Name="REPORT_TIME" Nullable="true" />
+          <Property Type="String" Name="TEST_NO" FixedLength="false" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="ITEM_NO" MaxLength="50" FixedLength="false" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="VID" FixedLength="false" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="ORDER_ID" FixedLength="false" Unicode="true" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CP_VISIT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="HOSPITAL_ID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OUTPATIENT_ID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INPATIENT_NO" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CP_ID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VISIT_NO" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ADMISSION_TIME" />
+          <Property Type="DateTime" Name="DISCHARGE_TIME" />
+          <Property Type="String" Name="DISCHARGE_TYPE" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DIAGNOSIS" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="STRUCTURED_DIAGNOSIS" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DIAGNOSIS_TIME" />
+          <Property Type="DateTime" Name="BIRTHDAY" />
+          <Property Type="String" Name="GENDER" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OCCUPATION" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CONDITION" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DEPARTMENT" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TOTAL_COSTS" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TOTAL_PAYMENTS" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DOCTOR" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CPModelStoreContainer" CdmEntityContainer="CPEntities">
+    <EntitySetMapping Name="CP_EXAM">
+      <EntityTypeMapping TypeName="IsTypeOf(CPModel.CP_EXAM)">
+        <MappingFragment StoreEntitySet="CP_EXAM">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HOSPITAL_ID" ColumnName="HOSPITAL_ID" />
+          <ScalarProperty Name="OUTPATIENT_ID" ColumnName="OUTPATIENT_ID" />
+          <ScalarProperty Name="CP_ID" ColumnName="CP_ID" />
+          <ScalarProperty Name="EXAM_CLASS" ColumnName="EXAM_CLASS" />
+          <ScalarProperty Name="EXAM_SUB_CLASS" ColumnName="EXAM_SUB_CLASS" />
+          <ScalarProperty Name="EXAM_TIME" ColumnName="EXAM_TIME" />
+          <ScalarProperty Name="RESULT_PARAGRAPH" ColumnName="RESULT_PARAGRAPH" />
+          <ScalarProperty Name="RESULT_DESCRIPTION" ColumnName="RESULT_DESCRIPTION" />
+          <ScalarProperty Name="RESULT_IMPRESSION" ColumnName="RESULT_IMPRESSION" />
+          <ScalarProperty Name="IS_ABNORMAL" ColumnName="IS_ABNORMAL" />
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CP_ORDER">
+      <EntityTypeMapping TypeName="IsTypeOf(CPModel.CP_ORDER)">
+        <MappingFragment StoreEntitySet="CP_ORDER">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HOSPITAL_ID" ColumnName="HOSPITAL_ID" />
+          <ScalarProperty Name="CP_ID" ColumnName="CP_ID" />
+          <ScalarProperty Name="OUTPATIENT_ID" ColumnName="OUTPATIENT_ID" />
+          <ScalarProperty Name="ORDER_TYPE_ID" ColumnName="ORDER_TYPE_ID" />
+          <ScalarProperty Name="ORDER_CONTENT" ColumnName="ORDER_CONTENT" />
+          <ScalarProperty Name="DOSAGE" ColumnName="DOSAGE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="METHOD" ColumnName="METHOD" />
+          <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+          <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+          <ScalarProperty Name="FREQ" ColumnName="FREQ" />
+          <ScalarProperty Name="FREQ_UNIT" ColumnName="FREQ_UNIT" />
+          <ScalarProperty Name="EXPECTED_EXECUTIVE_TIME" ColumnName="EXPECTED_EXECUTIVE_TIME" />
+          <ScalarProperty Name="ISSUER" ColumnName="ISSUER" />
+          <ScalarProperty Name="TERMINATOR" ColumnName="TERMINATOR" />
+          <ScalarProperty Name="EXECUTOR" ColumnName="EXECUTOR" />
+          <ScalarProperty Name="CHECKER" ColumnName="CHECKER" />
+          <ScalarProperty Name="REAL_EXECUTIVE_TIME" ColumnName="REAL_EXECUTIVE_TIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CP_VITAL_SIGN">
+      <EntityTypeMapping TypeName="IsTypeOf(CPModel.CP_VITAL_SIGN)">
+        <MappingFragment StoreEntitySet="CP_VITAL_SIGN">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HOSPITAL_ID" ColumnName="HOSPITAL_ID" />
+          <ScalarProperty Name="OUTPATIENT_ID" ColumnName="OUTPATIENT_ID" />
+          <ScalarProperty Name="CP_ID" ColumnName="CP_ID" />
+          <ScalarProperty Name="VISIT_ID" ColumnName="VISIT_ID" />
+          <ScalarProperty Name="MEASURING_TIME" ColumnName="MEASURING_TIME" />
+          <ScalarProperty Name="VITAL_SIGN_NAME" ColumnName="VITAL_SIGN_NAME" />
+          <ScalarProperty Name="RESULT_VALUE" ColumnName="RESULT_VALUE" />
+          <ScalarProperty Name="RESULT_UNIT" ColumnName="RESULT_UNIT" />
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CP_MEDICAL_DOC">
+      <EntityTypeMapping TypeName="IsTypeOf(CPModel.CP_MEDICAL_DOC)">
+        <MappingFragment StoreEntitySet="CP_MEDICAL_DOC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CP_ID" ColumnName="CP_ID" />
+          <ScalarProperty Name="FULL_PATH" ColumnName="FULL_PATH" />
+          <ScalarProperty Name="FILE_EXTENSION" ColumnName="FILE_EXTENSION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CP_LAB_TEST">
+      <EntityTypeMapping TypeName="IsTypeOf(CPModel.CP_LAB_TEST)">
+        <MappingFragment StoreEntitySet="CP_LAB_TEST">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HOSPITAL_ID" ColumnName="HOSPITAL_ID" />
+          <ScalarProperty Name="OUTPATIENT_ID" ColumnName="OUTPATIENT_ID" />
+          <ScalarProperty Name="CP_ID" ColumnName="CP_ID" />
+          <ScalarProperty Name="REPORT_ITEM_NAME" ColumnName="REPORT_ITEM_NAME" />
+          <ScalarProperty Name="RESULT_VALUE" ColumnName="RESULT_VALUE" />
+          <ScalarProperty Name="RESULT_UNIT" ColumnName="RESULT_UNIT" />
+          <ScalarProperty Name="ABNORMAL_INDICATOR" ColumnName="ABNORMAL_INDICATOR" />
+          <ScalarProperty Name="REPORT_TIME" ColumnName="REPORT_TIME" />
+          <ScalarProperty Name="TEST_NO" ColumnName="TEST_NO" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="VID" ColumnName="VID" />
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CP_VISIT">
+      <EntityTypeMapping TypeName="IsTypeOf(CPModel.CP_VISIT)">
+        <MappingFragment StoreEntitySet="CP_VISIT">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HOSPITAL_ID" ColumnName="HOSPITAL_ID" />
+          <ScalarProperty Name="OUTPATIENT_ID" ColumnName="OUTPATIENT_ID" />
+          <ScalarProperty Name="INPATIENT_NO" ColumnName="INPATIENT_NO" />
+          <ScalarProperty Name="CP_ID" ColumnName="CP_ID" />
+          <ScalarProperty Name="VISIT_NO" ColumnName="VISIT_NO" />
+          <ScalarProperty Name="ADMISSION_TIME" ColumnName="ADMISSION_TIME" />
+          <ScalarProperty Name="DISCHARGE_TIME" ColumnName="DISCHARGE_TIME" />
+          <ScalarProperty Name="DISCHARGE_TYPE" ColumnName="DISCHARGE_TYPE" />
+          <ScalarProperty Name="DIAGNOSIS" ColumnName="DIAGNOSIS" />
+          <ScalarProperty Name="STRUCTURED_DIAGNOSIS" ColumnName="STRUCTURED_DIAGNOSIS" />
+          <ScalarProperty Name="DIAGNOSIS_TIME" ColumnName="DIAGNOSIS_TIME" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="OCCUPATION" ColumnName="OCCUPATION" />
+          <ScalarProperty Name="CONDITION" ColumnName="CONDITION" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="TOTAL_COSTS" ColumnName="TOTAL_COSTS" />
+          <ScalarProperty Name="TOTAL_PAYMENTS" ColumnName="TOTAL_PAYMENTS" />
+          <ScalarProperty Name="DOCTOR" ColumnName="DOCTOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CP" ZoomLevel="85">
+        <EntityTypeShape EntityType="CPModel.CP_EXAM" Width="1.875" PointX="0.75" PointY="0.75" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPModel.CP_ORDER" Width="1.5" PointX="2.75" PointY="0.75" Height="4.0575162760416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPModel.CP_VITAL_SIGN" Width="1.625" PointX="4.375" PointY="0.75" Height="2.5783902994791656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPModel.CP_MEDICAL_DOC" Width="2" PointX="6.125" PointY="0.75" Height="1.592306315104167" />
+        <EntityTypeShape EntityType="CPModel.CP_LAB_TEST" Width="1.5" PointX="8.25" PointY="0.75" Height="3.0714322916666674" />
+        <EntityTypeShape EntityType="CPModel.CP_VISIT" Width="1.5" PointX="0.75" PointY="5.75" Height="4.2218636067708317" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CDRModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CDRModelStoreContainer">
+          <EntitySet Name="EXAM_DATA" EntityType="CDRModel.Store.EXAM_DATA" store:Type="Tables" store:Schema="dbo" store:Name="EXAM_DATA">
+            <DefiningQuery>SELECT 
+      [EXAM_DATA].[EXAM_ID] AS [EXAM_ID], 
+      [EXAM_DATA].[DATA_NO] AS [DATA_NO], 
+      [EXAM_DATA].[DATA_TYPE] AS [DATA_TYPE], 
+      [EXAM_DATA].[SERIES_NO] AS [SERIES_NO], 
+      [EXAM_DATA].[IMAGE_NO] AS [IMAGE_NO], 
+      [EXAM_DATA].[IMAGE_FLAG] AS [IMAGE_FLAG], 
+      [EXAM_DATA].[FIRST_MEDIA_NAME] AS [FIRST_MEDIA_NAME], 
+      [EXAM_DATA].[FIRST_PATH] AS [FIRST_PATH], 
+      [EXAM_DATA].[SECOND_MEDIA_NAME] AS [SECOND_MEDIA_NAME], 
+      [EXAM_DATA].[SECOND_PATH] AS [SECOND_PATH]
+      FROM [dbo].[EXAM_DATA] AS [EXAM_DATA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EXAM_ITEM" EntityType="CDRModel.Store.EXAM_ITEM" store:Type="Tables" store:Schema="dbo" store:Name="EXAM_ITEM">
+            <DefiningQuery>SELECT 
+      [EXAM_ITEM].[SERIAL_NO] AS [SERIAL_NO], 
+      [EXAM_ITEM].[EXAM_REQ_ID] AS [EXAM_REQ_ID], 
+      [EXAM_ITEM].[EXAM_ID] AS [EXAM_ID], 
+      [EXAM_ITEM].[EXAM_ITEM_NO] AS [EXAM_ITEM_NO], 
+      [EXAM_ITEM].[EXAM_CLASS] AS [EXAM_CLASS], 
+      [EXAM_ITEM].[EXAM_SUB_CLASS] AS [EXAM_SUB_CLASS], 
+      [EXAM_ITEM].[EXAM_ITEM_NAME] AS [EXAM_ITEM_NAME], 
+      [EXAM_ITEM].[EXAM_ITEM_CODE] AS [EXAM_ITEM_CODE]
+      FROM [dbo].[EXAM_ITEM] AS [EXAM_ITEM]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EXAM_MASTER" EntityType="CDRModel.Store.EXAM_MASTER" store:Type="Tables" store:Schema="dbo" store:Name="EXAM_MASTER">
+            <DefiningQuery>SELECT 
+      [EXAM_MASTER].[EXAM_ID] AS [EXAM_ID], 
+      [EXAM_MASTER].[PATIENT_ID] AS [PATIENT_ID], 
+      [EXAM_MASTER].[VISIT_ID] AS [VISIT_ID], 
+      [EXAM_MASTER].[EXAM_REQ_ID] AS [EXAM_REQ_ID], 
+      [EXAM_MASTER].[HIS_EXAM_ID] AS [HIS_EXAM_ID], 
+      [EXAM_MASTER].[EXAM_DEPT_NAME] AS [EXAM_DEPT_NAME], 
+      [EXAM_MASTER].[EXAM_DEPT_CODE] AS [EXAM_DEPT_CODE], 
+      [EXAM_MASTER].[SCHEDULED_DATE_TIME] AS [SCHEDULED_DATE_TIME]
+      FROM [dbo].[EXAM_MASTER] AS [EXAM_MASTER]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EXAM_REPORT" EntityType="CDRModel.Store.EXAM_REPORT" store:Type="Tables" store:Schema="dbo" store:Name="EXAM_REPORT">
+            <DefiningQuery>SELECT 
+      [EXAM_REPORT].[EXAM_ID] AS [EXAM_ID], 
+      [EXAM_REPORT].[REPORT_NO] AS [REPORT_NO], 
+      [EXAM_REPORT].[STORAGE_MODE] AS [STORAGE_MODE], 
+      [EXAM_REPORT].[REPORT_URL] AS [REPORT_URL], 
+      [EXAM_REPORT].[EXAM_DESC] AS [EXAM_DESC], 
+      [EXAM_REPORT].[EXAM_VIEW] AS [EXAM_VIEW], 
+      [EXAM_REPORT].[EXAM_DIAG] AS [EXAM_DIAG], 
+      [EXAM_REPORT].[EXAM_MEMO] AS [EXAM_MEMO], 
+      [EXAM_REPORT].[REPORT_DATE] AS [REPORT_DATE], 
+      [EXAM_REPORT].[REPORTER_ID] AS [REPORTER_ID], 
+      [EXAM_REPORT].[REPORTER_NAME] AS [REPORTER_NAME], 
+      [EXAM_REPORT].[VERIFIER_ID] AS [VERIFIER_ID], 
+      [EXAM_REPORT].[VERIFIER_NAME] AS [VERIFIER_NAME], 
+      [EXAM_REPORT].[DATA_TYPE] AS [DATA_TYPE], 
+      [EXAM_REPORT].[FIRST_MEDIA_NAME] AS [FIRST_MEDIA_NAME], 
+      [EXAM_REPORT].[FIRST_PATH] AS [FIRST_PATH], 
+      [EXAM_REPORT].[SECOND_MEDIA_NAME] AS [SECOND_MEDIA_NAME], 
+      [EXAM_REPORT].[SECOND_PATH] AS [SECOND_PATH], 
+      [EXAM_REPORT].[IS_ABNORMAL] AS [IS_ABNORMAL]
+      FROM [dbo].[EXAM_REPORT] AS [EXAM_REPORT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAB_TEST_DATA" EntityType="CDRModel.Store.LAB_TEST_DATA" store:Type="Tables" store:Schema="dbo" store:Name="LAB_TEST_DATA">
+            <DefiningQuery>SELECT 
+      [LAB_TEST_DATA].[TEST_DATA_ID] AS [TEST_DATA_ID], 
+      [LAB_TEST_DATA].[PATIENT_ID] AS [PATIENT_ID], 
+      [LAB_TEST_DATA].[VISIT_ID] AS [VISIT_ID], 
+      [LAB_TEST_DATA].[TEST_ID] AS [TEST_ID], 
+      [LAB_TEST_DATA].[TEST_ITEM_NO] AS [TEST_ITEM_NO], 
+      [LAB_TEST_DATA].[TEST_ITEM_NAME] AS [TEST_ITEM_NAME], 
+      [LAB_TEST_DATA].[TEST_ITEM_CODE] AS [TEST_ITEM_CODE], 
+      [LAB_TEST_DATA].[RESULT] AS [RESULT], 
+      [LAB_TEST_DATA].[UNITS] AS [UNITS], 
+      [LAB_TEST_DATA].[ABNORMAL_INDICATOR] AS [ABNORMAL_INDICATOR], 
+      [LAB_TEST_DATA].[NORMAL_REFERENCE_VALUES] AS [NORMAL_REFERENCE_VALUES], 
+      [LAB_TEST_DATA].[INSTRUMENT_ID] AS [INSTRUMENT_ID], 
+      [LAB_TEST_DATA].[RESULT_DATE_TIME] AS [RESULT_DATE_TIME]
+      FROM [dbo].[LAB_TEST_DATA] AS [LAB_TEST_DATA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAB_TEST_MASTER" EntityType="CDRModel.Store.LAB_TEST_MASTER" store:Type="Tables" store:Schema="dbo" store:Name="LAB_TEST_MASTER">
+            <DefiningQuery>SELECT 
+      [LAB_TEST_MASTER].[SERIAL_NO] AS [SERIAL_NO], 
+      [LAB_TEST_MASTER].[TEST_ID] AS [TEST_ID], 
+      [LAB_TEST_MASTER].[PATIENT_ID] AS [PATIENT_ID], 
+      [LAB_TEST_MASTER].[VISIT_ID] AS [VISIT_ID], 
+      [LAB_TEST_MASTER].[TEST_REQ_ID] AS [TEST_REQ_ID], 
+      [LAB_TEST_MASTER].[HIS_TEST_ID] AS [HIS_TEST_ID], 
+      [LAB_TEST_MASTER].[TEST _NO] AS [TEST _NO], 
+      [LAB_TEST_MASTER].[TEST_NAME] AS [TEST_NAME], 
+      [LAB_TEST_MASTER].[TEST_CODE] AS [TEST_CODE]
+      FROM [dbo].[LAB_TEST_MASTER] AS [LAB_TEST_MASTER]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MASTER_PATIENT_INDEX" EntityType="CDRModel.Store.MASTER_PATIENT_INDEX" store:Type="Tables" store:Schema="dbo" store:Name="MASTER_PATIENT_INDEX">
+            <DefiningQuery>SELECT 
+      [MASTER_PATIENT_INDEX].[SERIAL_NO] AS [SERIAL_NO], 
+      [MASTER_PATIENT_INDEX].[PATIENT_ID] AS [PATIENT_ID], 
+      [MASTER_PATIENT_INDEX].[NAME] AS [NAME], 
+      [MASTER_PATIENT_INDEX].[NAME_PHONETIC] AS [NAME_PHONETIC], 
+      [MASTER_PATIENT_INDEX].[GENDER] AS [GENDER], 
+      [MASTER_PATIENT_INDEX].[DATE_OF_BIRTH] AS [DATE_OF_BIRTH], 
+      [MASTER_PATIENT_INDEX].[BIRTH_PLACE] AS [BIRTH_PLACE], 
+      [MASTER_PATIENT_INDEX].[NATIONALITY] AS [NATIONALITY], 
+      [MASTER_PATIENT_INDEX].[ETHNIC_GROUP] AS [ETHNIC_GROUP], 
+      [MASTER_PATIENT_INDEX].[MARITAL_STATUS] AS [MARITAL_STATUS], 
+      [MASTER_PATIENT_INDEX].[CAREER] AS [CAREER], 
+      [MASTER_PATIENT_INDEX].[DEGREE] AS [DEGREE], 
+      [MASTER_PATIENT_INDEX].[BLOOD_TYPE_ABO] AS [BLOOD_TYPE_ABO], 
+      [MASTER_PATIENT_INDEX].[BLOOD_TYPE_RH] AS [BLOOD_TYPE_RH], 
+      [MASTER_PATIENT_INDEX].[IDENTITY_CARD_NO] AS [IDENTITY_CARD_NO], 
+      [MASTER_PATIENT_INDEX].[HOUSEHOLD_NO] AS [HOUSEHOLD_NO], 
+      [MASTER_PATIENT_INDEX].[PASSPORT_NO] AS [PASSPORT_NO], 
+      [MASTER_PATIENT_INDEX].[MILITARY_ID] AS [MILITARY_ID], 
+      [MASTER_PATIENT_INDEX].[HEALTH_INSURANCE_ID] AS [HEALTH_INSURANCE_ID], 
+      [MASTER_PATIENT_INDEX].[HEALTH_CARD_NO] AS [HEALTH_CARD_NO], 
+      [MASTER_PATIENT_INDEX].[EMAIL] AS [EMAIL], 
+      [MASTER_PATIENT_INDEX].[MAILING_ADDRESS] AS [MAILING_ADDRESS], 
+      [MASTER_PATIENT_INDEX].[ZIP_CODE] AS [ZIP_CODE], 
+      [MASTER_PATIENT_INDEX].[PHONE_NO_MOBILE] AS [PHONE_NO_MOBILE], 
+      [MASTER_PATIENT_INDEX].[PHONE_NO_HOME] AS [PHONE_NO_HOME], 
+      [MASTER_PATIENT_INDEX].[PHONE_NO_BUSINESS] AS [PHONE_NO_BUSINESS], 
+      [MASTER_PATIENT_INDEX].[DEATH_INDICATOR] AS [DEATH_INDICATOR], 
+      [MASTER_PATIENT_INDEX].[DEATH_TIME] AS [DEATH_TIME], 
+      [MASTER_PATIENT_INDEX].[CREATED_DATE] AS [CREATED_DATE], 
+      [MASTER_PATIENT_INDEX].[CREATED_BY] AS [CREATED_BY], 
+      [MASTER_PATIENT_INDEX].[LAST_MODIFY_DATE] AS [LAST_MODIFY_DATE], 
+      [MASTER_PATIENT_INDEX].[LAST_MODIFIED_BY] AS [LAST_MODIFIED_BY], 
+      [MASTER_PATIENT_INDEX].[VOIDED_INDICATOR] AS [VOIDED_INDICATOR], 
+      [MASTER_PATIENT_INDEX].[VOIDED_DATE] AS [VOIDED_DATE], 
+      [MASTER_PATIENT_INDEX].[VOIDED_BY] AS [VOIDED_BY], 
+      [MASTER_PATIENT_INDEX].[REF_PATIENT_ID] AS [REF_PATIENT_ID], 
+      [MASTER_PATIENT_INDEX].[INPATIENTNO] AS [INPATIENTNO], 
+      [MASTER_PATIENT_INDEX].[OUTPATIENTNO] AS [OUTPATIENTNO], 
+      [MASTER_PATIENT_INDEX].[EMERGENCYNO] AS [EMERGENCYNO]
+      FROM [dbo].[MASTER_PATIENT_INDEX] AS [MASTER_PATIENT_INDEX]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PATIENT_VISIT" EntityType="CDRModel.Store.PATIENT_VISIT" store:Type="Tables" store:Schema="dbo" store:Name="PATIENT_VISIT">
+            <DefiningQuery>SELECT 
+      [PATIENT_VISIT].[SERIAL_NO] AS [SERIAL_NO], 
+      [PATIENT_VISIT].[MPIML_SERIAL_NO] AS [MPIML_SERIAL_NO], 
+      [PATIENT_VISIT].[VISIT_TYPE] AS [VISIT_TYPE], 
+      [PATIENT_VISIT].[HIS_VISIT_ID] AS [HIS_VISIT_ID], 
+      [PATIENT_VISIT].[HIS_VISIT_SUB_ID] AS [HIS_VISIT_SUB_ID], 
+      [PATIENT_VISIT].[DEPARTMENT_CODE] AS [DEPARTMENT_CODE], 
+      [PATIENT_VISIT].[DEPARTMENT_NAME] AS [DEPARTMENT_NAME], 
+      [PATIENT_VISIT].[WARD_CODE] AS [WARD_CODE], 
+      [PATIENT_VISIT].[WARD_NAME] AS [WARD_NAME], 
+      [PATIENT_VISIT].[VISIT_TIME] AS [VISIT_TIME], 
+      [PATIENT_VISIT].[VISIT_ID] AS [VISIT_ID]
+      FROM [dbo].[PATIENT_VISIT] AS [PATIENT_VISIT]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.EXAM_DATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EXAM_DATA">
+          <Key>
+            <PropertyRef Name="EXAM_ID" />
+            <PropertyRef Name="DATA_NO" />
+          </Key>
+          <Property Name="EXAM_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="DATA_NO" Type="int" Nullable="false" />
+          <Property Name="DATA_TYPE" Type="varchar" MaxLength="16" />
+          <Property Name="SERIES_NO" Type="varchar" MaxLength="5" />
+          <Property Name="IMAGE_NO" Type="varchar" MaxLength="5" />
+          <Property Name="IMAGE_FLAG" Type="int" />
+          <Property Name="FIRST_MEDIA_NAME" Type="varchar" MaxLength="16" />
+          <Property Name="FIRST_PATH" Type="varchar" MaxLength="256" />
+          <Property Name="SECOND_MEDIA_NAME" Type="varchar" MaxLength="16" />
+          <Property Name="SECOND_PATH" Type="varchar" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.EXAM_ITEM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EXAM_ITEM">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="numeric" Nullable="false" Precision="30" />
+          <Property Name="EXAM_REQ_ID" Type="varchar" MaxLength="30" />
+          <Property Name="EXAM_ID" Type="varchar" MaxLength="50" />
+          <Property Name="EXAM_ITEM_NO" Type="int" />
+          <Property Name="EXAM_CLASS" Type="varchar" MaxLength="20" />
+          <Property Name="EXAM_SUB_CLASS" Type="varchar" MaxLength="50" />
+          <Property Name="EXAM_ITEM_NAME" Type="varchar" MaxLength="30" />
+          <Property Name="EXAM_ITEM_CODE" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.EXAM_MASTER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EXAM_MASTER">
+          <Key>
+            <PropertyRef Name="EXAM_ID" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="VISIT_ID" />
+          </Key>
+          <Property Name="EXAM_ID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PATIENT_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="VISIT_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="EXAM_REQ_ID" Type="varchar" MaxLength="30" />
+          <Property Name="HIS_EXAM_ID" Type="varchar" MaxLength="20" />
+          <Property Name="EXAM_DEPT_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="EXAM_DEPT_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="SCHEDULED_DATE_TIME" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.EXAM_REPORT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EXAM_REPORT">
+          <Key>
+            <PropertyRef Name="EXAM_ID" />
+            <PropertyRef Name="REPORT_NO" />
+          </Key>
+          <Property Name="EXAM_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="REPORT_NO" Type="int" Nullable="false" />
+          <Property Name="STORAGE_MODE" Type="int" />
+          <Property Name="REPORT_URL" Type="varchar" MaxLength="250" />
+          <Property Name="EXAM_DESC" Type="varchar" />
+          <Property Name="EXAM_VIEW" Type="varchar" />
+          <Property Name="EXAM_DIAG" Type="varchar" />
+          <Property Name="EXAM_MEMO" Type="varchar" />
+          <Property Name="REPORT_DATE" Type="datetime" />
+          <Property Name="REPORTER_ID" Type="varchar" MaxLength="20" />
+          <Property Name="REPORTER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="VERIFIER_ID" Type="varchar" MaxLength="20" />
+          <Property Name="VERIFIER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="DATA_TYPE" Type="varchar" MaxLength="16" />
+          <Property Name="FIRST_MEDIA_NAME" Type="varchar" MaxLength="16" />
+          <Property Name="FIRST_PATH" Type="varchar" MaxLength="256" />
+          <Property Name="SECOND_MEDIA_NAME" Type="varchar" MaxLength="16" />
+          <Property Name="SECOND_PATH" Type="varchar" MaxLength="256" />
+          <Property Name="IS_ABNORMAL" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.LAB_TEST_DATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="LAB_TEST_DATA">
+          <Key>
+            <PropertyRef Name="TEST_DATA_ID" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="VISIT_ID" />
+            <PropertyRef Name="TEST_ID" />
+            <PropertyRef Name="TEST_ITEM_NO" />
+          </Key>
+          <Property Name="TEST_DATA_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="PATIENT_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="VISIT_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="TEST_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="TEST_ITEM_NO" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="TEST_ITEM_NAME" Type="varchar" MaxLength="40" />
+          <Property Name="TEST_ITEM_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="RESULT" Type="varchar" MaxLength="20" />
+          <Property Name="UNITS" Type="varchar" MaxLength="8" />
+          <Property Name="ABNORMAL_INDICATOR" Type="varchar" MaxLength="1" />
+          <Property Name="NORMAL_REFERENCE_VALUES" Type="varchar" MaxLength="50" />
+          <Property Name="INSTRUMENT_ID" Type="varchar" MaxLength="8" />
+          <Property Name="RESULT_DATE_TIME" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.LAB_TEST_MASTER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="LAB_TEST_MASTER">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+            <PropertyRef Name="TEST_ID" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="VISIT_ID" />
+            <PropertyRef Name="TEST_REQ_ID" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="numeric" Nullable="false" Precision="30" />
+          <Property Name="TEST_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="PATIENT_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="VISIT_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="TEST_REQ_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="HIS_TEST_ID" Type="varchar" MaxLength="30" />
+          <Property Name="TEST _NO" Type="varchar" MaxLength="2" />
+          <Property Name="TEST_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="TEST_CODE" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.MASTER_PATIENT_INDEX' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MASTER_PATIENT_INDEX">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="GENDER" />
+            <PropertyRef Name="DATE_OF_BIRTH" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="numeric" Nullable="false" Precision="30" />
+          <Property Name="PATIENT_ID" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="NAME_PHONETIC" Type="varchar" MaxLength="50" />
+          <Property Name="GENDER" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="DATE_OF_BIRTH" Type="datetime" Nullable="false" />
+          <Property Name="BIRTH_PLACE" Type="varchar" MaxLength="160" />
+          <Property Name="NATIONALITY" Type="varchar" MaxLength="50" />
+          <Property Name="ETHNIC_GROUP" Type="varchar" MaxLength="10" />
+          <Property Name="MARITAL_STATUS" Type="varchar" MaxLength="8" />
+          <Property Name="CAREER" Type="varchar" MaxLength="100" />
+          <Property Name="DEGREE" Type="varchar" MaxLength="30" />
+          <Property Name="BLOOD_TYPE_ABO" Type="varchar" MaxLength="8" />
+          <Property Name="BLOOD_TYPE_RH" Type="varchar" MaxLength="8" />
+          <Property Name="IDENTITY_CARD_NO" Type="varchar" MaxLength="30" />
+          <Property Name="HOUSEHOLD_NO" Type="varchar" MaxLength="30" />
+          <Property Name="PASSPORT_NO" Type="varchar" MaxLength="30" />
+          <Property Name="MILITARY_ID" Type="varchar" MaxLength="30" />
+          <Property Name="HEALTH_INSURANCE_ID" Type="varchar" MaxLength="30" />
+          <Property Name="HEALTH_CARD_NO" Type="varchar" MaxLength="30" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="255" />
+          <Property Name="MAILING_ADDRESS" Type="varchar" MaxLength="160" />
+          <Property Name="ZIP_CODE" Type="varchar" MaxLength="6" />
+          <Property Name="PHONE_NO_MOBILE" Type="varchar" MaxLength="16" />
+          <Property Name="PHONE_NO_HOME" Type="varchar" MaxLength="16" />
+          <Property Name="PHONE_NO_BUSINESS" Type="varchar" MaxLength="16" />
+          <Property Name="DEATH_INDICATOR" Type="varchar" MaxLength="1" />
+          <Property Name="DEATH_TIME" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="30" />
+          <Property Name="LAST_MODIFY_DATE" Type="datetime" />
+          <Property Name="LAST_MODIFIED_BY" Type="varchar" MaxLength="30" />
+          <Property Name="VOIDED_INDICATOR" Type="varchar" MaxLength="1" />
+          <Property Name="VOIDED_DATE" Type="datetime" />
+          <Property Name="VOIDED_BY" Type="varchar" MaxLength="30" />
+          <Property Name="REF_PATIENT_ID" Type="varchar" MaxLength="30" />
+          <Property Name="INPATIENTNO" Type="varchar" MaxLength="30" />
+          <Property Name="OUTPATIENTNO" Type="varchar" MaxLength="30" />
+          <Property Name="EMERGENCYNO" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CDR.dbo.PATIENT_VISIT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PATIENT_VISIT">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+            <PropertyRef Name="MPIML_SERIAL_NO" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="numeric" Nullable="false" Precision="30" />
+          <Property Name="MPIML_SERIAL_NO" Type="numeric" Nullable="false" Precision="30" />
+          <Property Name="VISIT_TYPE" Type="varchar" MaxLength="3" />
+          <Property Name="HIS_VISIT_ID" Type="varchar" MaxLength="20" />
+          <Property Name="HIS_VISIT_SUB_ID" Type="varchar" MaxLength="20" />
+          <Property Name="DEPARTMENT_CODE" Type="varchar" MaxLength="10" />
+          <Property Name="DEPARTMENT_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="WARD_CODE" Type="varchar" MaxLength="10" />
+          <Property Name="WARD_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="VISIT_TIME" Type="datetime" />
+          <Property Name="VISIT_ID" Type="varchar" MaxLength="30" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CDRModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CDREntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EXAM_DATA" EntityType="CDRModel.EXAM_DATA" />
+          <EntitySet Name="EXAM_ITEM" EntityType="CDRModel.EXAM_ITEM" />
+          <EntitySet Name="EXAM_MASTER" EntityType="CDRModel.EXAM_MASTER" />
+          <EntitySet Name="EXAM_REPORT" EntityType="CDRModel.EXAM_REPORT" />
+          <EntitySet Name="LAB_TEST_DATA" EntityType="CDRModel.LAB_TEST_DATA" />
+          <EntitySet Name="LAB_TEST_MASTER" EntityType="CDRModel.LAB_TEST_MASTER" />
+          <EntitySet Name="MASTER_PATIENT_INDEX" EntityType="CDRModel.MASTER_PATIENT_INDEX" />
+          <EntitySet Name="PATIENT_VISIT" EntityType="CDRModel.PATIENT_VISIT" />
+        </EntityContainer>
+        <EntityType Name="EXAM_DATA">
+          <Key>
+            <PropertyRef Name="EXAM_ID" />
+            <PropertyRef Name="DATA_NO" />
+          </Key>
+          <Property Name="EXAM_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="DATA_NO" Type="Int32" Nullable="false" />
+          <Property Name="DATA_TYPE" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="SERIES_NO" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="IMAGE_NO" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="IMAGE_FLAG" Type="Int32" />
+          <Property Name="FIRST_MEDIA_NAME" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="FIRST_PATH" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="SECOND_MEDIA_NAME" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="SECOND_PATH" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EXAM_ITEM">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="Decimal" Nullable="false" Precision="30" Scale="0" />
+          <Property Name="EXAM_REQ_ID" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_ID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_ITEM_NO" Type="Int32" />
+          <Property Name="EXAM_CLASS" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_SUB_CLASS" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_ITEM_NAME" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_ITEM_CODE" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EXAM_MASTER">
+          <Key>
+            <PropertyRef Name="EXAM_ID" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="VISIT_ID" />
+          </Key>
+          <Property Name="EXAM_ID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PATIENT_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="VISIT_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_REQ_ID" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HIS_EXAM_ID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_DEPT_NAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_DEPT_CODE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="SCHEDULED_DATE_TIME" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="EXAM_REPORT">
+          <Key>
+            <PropertyRef Name="EXAM_ID" />
+            <PropertyRef Name="REPORT_NO" />
+          </Key>
+          <Property Name="EXAM_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="REPORT_NO" Type="Int32" Nullable="false" />
+          <Property Name="STORAGE_MODE" Type="Int32" />
+          <Property Name="REPORT_URL" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_DESC" Type="String" MaxLength="8000" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_VIEW" Type="String" MaxLength="8000" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_DIAG" Type="String" MaxLength="8000" Unicode="false" FixedLength="false" />
+          <Property Name="EXAM_MEMO" Type="String" MaxLength="8000" Unicode="false" FixedLength="false" />
+          <Property Name="REPORT_DATE" Type="DateTime" />
+          <Property Name="REPORTER_ID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="REPORTER_NAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="VERIFIER_ID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="VERIFIER_NAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DATA_TYPE" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="FIRST_MEDIA_NAME" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="FIRST_PATH" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="SECOND_MEDIA_NAME" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="SECOND_PATH" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="IS_ABNORMAL" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LAB_TEST_DATA">
+          <Key>
+            <PropertyRef Name="TEST_DATA_ID" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="VISIT_ID" />
+            <PropertyRef Name="TEST_ID" />
+            <PropertyRef Name="TEST_ITEM_NO" />
+          </Key>
+          <Property Name="TEST_DATA_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="PATIENT_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="VISIT_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="TEST_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="TEST_ITEM_NO" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="TEST_ITEM_NAME" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="TEST_ITEM_CODE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="RESULT" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="UNITS" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="ABNORMAL_INDICATOR" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="NORMAL_REFERENCE_VALUES" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="INSTRUMENT_ID" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="RESULT_DATE_TIME" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="LAB_TEST_MASTER">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+            <PropertyRef Name="TEST_ID" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="VISIT_ID" />
+            <PropertyRef Name="TEST_REQ_ID" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="Decimal" Nullable="false" Precision="30" Scale="0" />
+          <Property Name="TEST_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="PATIENT_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="VISIT_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="TEST_REQ_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HIS_TEST_ID" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="TEST__NO" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="TEST_NAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TEST_CODE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MASTER_PATIENT_INDEX">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+            <PropertyRef Name="PATIENT_ID" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="GENDER" />
+            <PropertyRef Name="DATE_OF_BIRTH" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="Decimal" Nullable="false" Precision="30" Scale="0" />
+          <Property Name="PATIENT_ID" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="NAME_PHONETIC" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="GENDER" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="DATE_OF_BIRTH" Type="DateTime" Nullable="false" />
+          <Property Name="BIRTH_PLACE" Type="String" MaxLength="160" Unicode="false" FixedLength="false" />
+          <Property Name="NATIONALITY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ETHNIC_GROUP" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="MARITAL_STATUS" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="CAREER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DEGREE" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="BLOOD_TYPE_ABO" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="BLOOD_TYPE_RH" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="IDENTITY_CARD_NO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HOUSEHOLD_NO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="PASSPORT_NO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="MILITARY_ID" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HEALTH_INSURANCE_ID" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HEALTH_CARD_NO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="MAILING_ADDRESS" Type="String" MaxLength="160" Unicode="false" FixedLength="false" />
+          <Property Name="ZIP_CODE" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="PHONE_NO_MOBILE" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="PHONE_NO_HOME" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="PHONE_NO_BUSINESS" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="DEATH_INDICATOR" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="DEATH_TIME" Type="DateTime" />
+          <Property Name="CREATED_DATE" Type="DateTime" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="LAST_MODIFY_DATE" Type="DateTime" />
+          <Property Name="LAST_MODIFIED_BY" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="VOIDED_INDICATOR" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="VOIDED_DATE" Type="DateTime" />
+          <Property Name="VOIDED_BY" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="REF_PATIENT_ID" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="INPATIENTNO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="OUTPATIENTNO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EMERGENCYNO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PATIENT_VISIT">
+          <Key>
+            <PropertyRef Name="SERIAL_NO" />
+            <PropertyRef Name="MPIML_SERIAL_NO" />
+          </Key>
+          <Property Name="SERIAL_NO" Type="Decimal" Nullable="false" Precision="30" Scale="0" />
+          <Property Name="MPIML_SERIAL_NO" Type="Decimal" Nullable="false" Precision="30" Scale="0" />
+          <Property Name="VISIT_TYPE" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="HIS_VISIT_ID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="HIS_VISIT_SUB_ID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DEPARTMENT_CODE" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="WARD_CODE" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="WARD_NAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="VISIT_TIME" Type="DateTime" />
+          <Property Name="VISIT_ID" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CDRModelStoreContainer" CdmEntityContainer="CDREntities">
+          <EntitySetMapping Name="EXAM_DATA"><EntityTypeMapping TypeName="CDRModel.EXAM_DATA"><MappingFragment StoreEntitySet="EXAM_DATA">
+            <ScalarProperty Name="EXAM_ID" ColumnName="EXAM_ID" />
+            <ScalarProperty Name="DATA_NO" ColumnName="DATA_NO" />
+            <ScalarProperty Name="DATA_TYPE" ColumnName="DATA_TYPE" />
+            <ScalarProperty Name="SERIES_NO" ColumnName="SERIES_NO" />
+            <ScalarProperty Name="IMAGE_NO" ColumnName="IMAGE_NO" />
+            <ScalarProperty Name="IMAGE_FLAG" ColumnName="IMAGE_FLAG" />
+            <ScalarProperty Name="FIRST_MEDIA_NAME" ColumnName="FIRST_MEDIA_NAME" />
+            <ScalarProperty Name="FIRST_PATH" ColumnName="FIRST_PATH" />
+            <ScalarProperty Name="SECOND_MEDIA_NAME" ColumnName="SECOND_MEDIA_NAME" />
+            <ScalarProperty Name="SECOND_PATH" ColumnName="SECOND_PATH" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EXAM_ITEM"><EntityTypeMapping TypeName="CDRModel.EXAM_ITEM"><MappingFragment StoreEntitySet="EXAM_ITEM">
+            <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+            <ScalarProperty Name="EXAM_REQ_ID" ColumnName="EXAM_REQ_ID" />
+            <ScalarProperty Name="EXAM_ID" ColumnName="EXAM_ID" />
+            <ScalarProperty Name="EXAM_ITEM_NO" ColumnName="EXAM_ITEM_NO" />
+            <ScalarProperty Name="EXAM_CLASS" ColumnName="EXAM_CLASS" />
+            <ScalarProperty Name="EXAM_SUB_CLASS" ColumnName="EXAM_SUB_CLASS" />
+            <ScalarProperty Name="EXAM_ITEM_NAME" ColumnName="EXAM_ITEM_NAME" />
+            <ScalarProperty Name="EXAM_ITEM_CODE" ColumnName="EXAM_ITEM_CODE" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EXAM_MASTER"><EntityTypeMapping TypeName="CDRModel.EXAM_MASTER"><MappingFragment StoreEntitySet="EXAM_MASTER">
+            <ScalarProperty Name="EXAM_ID" ColumnName="EXAM_ID" />
+            <ScalarProperty Name="PATIENT_ID" ColumnName="PATIENT_ID" />
+            <ScalarProperty Name="VISIT_ID" ColumnName="VISIT_ID" />
+            <ScalarProperty Name="EXAM_REQ_ID" ColumnName="EXAM_REQ_ID" />
+            <ScalarProperty Name="HIS_EXAM_ID" ColumnName="HIS_EXAM_ID" />
+            <ScalarProperty Name="EXAM_DEPT_NAME" ColumnName="EXAM_DEPT_NAME" />
+            <ScalarProperty Name="EXAM_DEPT_CODE" ColumnName="EXAM_DEPT_CODE" />
+            <ScalarProperty Name="SCHEDULED_DATE_TIME" ColumnName="SCHEDULED_DATE_TIME" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EXAM_REPORT"><EntityTypeMapping TypeName="CDRModel.EXAM_REPORT"><MappingFragment StoreEntitySet="EXAM_REPORT">
+            <ScalarProperty Name="EXAM_ID" ColumnName="EXAM_ID" />
+            <ScalarProperty Name="REPORT_NO" ColumnName="REPORT_NO" />
+            <ScalarProperty Name="STORAGE_MODE" ColumnName="STORAGE_MODE" />
+            <ScalarProperty Name="REPORT_URL" ColumnName="REPORT_URL" />
+            <ScalarProperty Name="EXAM_DESC" ColumnName="EXAM_DESC" />
+            <ScalarProperty Name="EXAM_VIEW" ColumnName="EXAM_VIEW" />
+            <ScalarProperty Name="EXAM_DIAG" ColumnName="EXAM_DIAG" />
+            <ScalarProperty Name="EXAM_MEMO" ColumnName="EXAM_MEMO" />
+            <ScalarProperty Name="REPORT_DATE" ColumnName="REPORT_DATE" />
+            <ScalarProperty Name="REPORTER_ID" ColumnName="REPORTER_ID" />
+            <ScalarProperty Name="REPORTER_NAME" ColumnName="REPORTER_NAME" />
+            <ScalarProperty Name="VERIFIER_ID" ColumnName="VERIFIER_ID" />
+            <ScalarProperty Name="VERIFIER_NAME" ColumnName="VERIFIER_NAME" />
+            <ScalarProperty Name="DATA_TYPE" ColumnName="DATA_TYPE" />
+            <ScalarProperty Name="FIRST_MEDIA_NAME" ColumnName="FIRST_MEDIA_NAME" />
+            <ScalarProperty Name="FIRST_PATH" ColumnName="FIRST_PATH" />
+            <ScalarProperty Name="SECOND_MEDIA_NAME" ColumnName="SECOND_MEDIA_NAME" />
+            <ScalarProperty Name="SECOND_PATH" ColumnName="SECOND_PATH" />
+            <ScalarProperty Name="IS_ABNORMAL" ColumnName="IS_ABNORMAL" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LAB_TEST_DATA"><EntityTypeMapping TypeName="CDRModel.LAB_TEST_DATA"><MappingFragment StoreEntitySet="LAB_TEST_DATA">
+            <ScalarProperty Name="TEST_DATA_ID" ColumnName="TEST_DATA_ID" />
+            <ScalarProperty Name="PATIENT_ID" ColumnName="PATIENT_ID" />
+            <ScalarProperty Name="VISIT_ID" ColumnName="VISIT_ID" />
+            <ScalarProperty Name="TEST_ID" ColumnName="TEST_ID" />
+            <ScalarProperty Name="TEST_ITEM_NO" ColumnName="TEST_ITEM_NO" />
+            <ScalarProperty Name="TEST_ITEM_NAME" ColumnName="TEST_ITEM_NAME" />
+            <ScalarProperty Name="TEST_ITEM_CODE" ColumnName="TEST_ITEM_CODE" />
+            <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+            <ScalarProperty Name="UNITS" ColumnName="UNITS" />
+            <ScalarProperty Name="ABNORMAL_INDICATOR" ColumnName="ABNORMAL_INDICATOR" />
+            <ScalarProperty Name="NORMAL_REFERENCE_VALUES" ColumnName="NORMAL_REFERENCE_VALUES" />
+            <ScalarProperty Name="INSTRUMENT_ID" ColumnName="INSTRUMENT_ID" />
+            <ScalarProperty Name="RESULT_DATE_TIME" ColumnName="RESULT_DATE_TIME" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LAB_TEST_MASTER"><EntityTypeMapping TypeName="CDRModel.LAB_TEST_MASTER"><MappingFragment StoreEntitySet="LAB_TEST_MASTER">
+            <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+            <ScalarProperty Name="TEST_ID" ColumnName="TEST_ID" />
+            <ScalarProperty Name="PATIENT_ID" ColumnName="PATIENT_ID" />
+            <ScalarProperty Name="VISIT_ID" ColumnName="VISIT_ID" />
+            <ScalarProperty Name="TEST_REQ_ID" ColumnName="TEST_REQ_ID" />
+            <ScalarProperty Name="HIS_TEST_ID" ColumnName="HIS_TEST_ID" />
+            <ScalarProperty Name="TEST__NO" ColumnName="TEST _NO" />
+            <ScalarProperty Name="TEST_NAME" ColumnName="TEST_NAME" />
+            <ScalarProperty Name="TEST_CODE" ColumnName="TEST_CODE" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MASTER_PATIENT_INDEX"><EntityTypeMapping TypeName="CDRModel.MASTER_PATIENT_INDEX"><MappingFragment StoreEntitySet="MASTER_PATIENT_INDEX">
+            <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+            <ScalarProperty Name="PATIENT_ID" ColumnName="PATIENT_ID" />
+            <ScalarProperty Name="NAME" ColumnName="NAME" />
+            <ScalarProperty Name="NAME_PHONETIC" ColumnName="NAME_PHONETIC" />
+            <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+            <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE_OF_BIRTH" />
+            <ScalarProperty Name="BIRTH_PLACE" ColumnName="BIRTH_PLACE" />
+            <ScalarProperty Name="NATIONALITY" ColumnName="NATIONALITY" />
+            <ScalarProperty Name="ETHNIC_GROUP" ColumnName="ETHNIC_GROUP" />
+            <ScalarProperty Name="MARITAL_STATUS" ColumnName="MARITAL_STATUS" />
+            <ScalarProperty Name="CAREER" ColumnName="CAREER" />
+            <ScalarProperty Name="DEGREE" ColumnName="DEGREE" />
+            <ScalarProperty Name="BLOOD_TYPE_ABO" ColumnName="BLOOD_TYPE_ABO" />
+            <ScalarProperty Name="BLOOD_TYPE_RH" ColumnName="BLOOD_TYPE_RH" />
+            <ScalarProperty Name="IDENTITY_CARD_NO" ColumnName="IDENTITY_CARD_NO" />
+            <ScalarProperty Name="HOUSEHOLD_NO" ColumnName="HOUSEHOLD_NO" />
+            <ScalarProperty Name="PASSPORT_NO" ColumnName="PASSPORT_NO" />
+            <ScalarProperty Name="MILITARY_ID" ColumnName="MILITARY_ID" />
+            <ScalarProperty Name="HEALTH_INSURANCE_ID" ColumnName="HEALTH_INSURANCE_ID" />
+            <ScalarProperty Name="HEALTH_CARD_NO" ColumnName="HEALTH_CARD_NO" />
+            <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+            <ScalarProperty Name="MAILING_ADDRESS" ColumnName="MAILING_ADDRESS" />
+            <ScalarProperty Name="ZIP_CODE" ColumnName="ZIP_CODE" />
+            <ScalarProperty Name="PHONE_NO_MOBILE" ColumnName="PHONE_NO_MOBILE" />
+            <ScalarProperty Name="PHONE_NO_HOME" ColumnName="PHONE_NO_HOME" />
+            <ScalarProperty Name="PHONE_NO_BUSINESS" ColumnName="PHONE_NO_BUSINESS" />
+            <ScalarProperty Name="DEATH_INDICATOR" ColumnName="DEATH_INDICATOR" />
+            <ScalarProperty Name="DEATH_TIME" ColumnName="DEATH_TIME" />
+            <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+            <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+            <ScalarProperty Name="LAST_MODIFY_DATE" ColumnName="LAST_MODIFY_DATE" />
+            <ScalarProperty Name="LAST_MODIFIED_BY" ColumnName="LAST_MODIFIED_BY" />
+            <ScalarProperty Name="VOIDED_INDICATOR" ColumnName="VOIDED_INDICATOR" />
+            <ScalarProperty Name="VOIDED_DATE" ColumnName="VOIDED_DATE" />
+            <ScalarProperty Name="VOIDED_BY" ColumnName="VOIDED_BY" />
+            <ScalarProperty Name="REF_PATIENT_ID" ColumnName="REF_PATIENT_ID" />
+            <ScalarProperty Name="INPATIENTNO" ColumnName="INPATIENTNO" />
+            <ScalarProperty Name="OUTPATIENTNO" ColumnName="OUTPATIENTNO" />
+            <ScalarProperty Name="EMERGENCYNO" ColumnName="EMERGENCYNO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PATIENT_VISIT"><EntityTypeMapping TypeName="CDRModel.PATIENT_VISIT"><MappingFragment StoreEntitySet="PATIENT_VISIT">
+            <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+            <ScalarProperty Name="MPIML_SERIAL_NO" ColumnName="MPIML_SERIAL_NO" />
+            <ScalarProperty Name="VISIT_TYPE" ColumnName="VISIT_TYPE" />
+            <ScalarProperty Name="HIS_VISIT_ID" ColumnName="HIS_VISIT_ID" />
+            <ScalarProperty Name="HIS_VISIT_SUB_ID" ColumnName="HIS_VISIT_SUB_ID" />
+            <ScalarProperty Name="DEPARTMENT_CODE" ColumnName="DEPARTMENT_CODE" />
+            <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+            <ScalarProperty Name="WARD_CODE" ColumnName="WARD_CODE" />
+            <ScalarProperty Name="WARD_NAME" ColumnName="WARD_NAME" />
+            <ScalarProperty Name="VISIT_TIME" ColumnName="VISIT_TIME" />
+            <ScalarProperty Name="VISIT_ID" ColumnName="VISIT_ID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CDR">
+        <EntityTypeShape EntityType="CDRModel.EXAM_DATA" Width="1.5" PointX="0.75" PointY="0.75" Height="2.5783902994791665" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDRModel.EXAM_ITEM" Width="1.5" PointX="2.75" PointY="0.75" Height="2.2496956380208335" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDRModel.EXAM_MASTER" Width="1.5" PointX="2.75" PointY="3.75" Height="2.2496956380208335" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDRModel.EXAM_REPORT" Width="1.5" PointX="4.75" PointY="0.75" Height="4.0575162760416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDRModel.LAB_TEST_DATA" Width="2.125" PointX="4.75" PointY="5.75" Height="3.0714322916666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDRModel.LAB_TEST_MASTER" Width="2" PointX="6.75" PointY="0.75" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDRModel.MASTER_PATIENT_INDEX" Width="2.25" PointX="0.75" PointY="6.75" Height="7.3444628906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDRModel.PATIENT_VISIT" Width="1.75" PointX="7.25" PointY="3.75" Height="2.7427376302083317" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

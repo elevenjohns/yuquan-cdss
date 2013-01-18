@@ -1,0 +1,1 @@
+﻿为相应的Controllor及Method添加[Authorize]标注即可。

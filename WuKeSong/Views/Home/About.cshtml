@@ -1,0 +1,16 @@
+﻿@model List<YuQuan.Models.Document>
+@{
+    ViewBag.Title = "ASP.NET MVC Unity";
+}
+
+<h2>About</h2>
+<ul id="doc-list">
+    @foreach (var doc in Model)
+    {
+        <li>
+            <span>@doc.Title</span>
+            <br />
+            <span>@doc.PlainText</span>
+        </li>
+    }
+</ul>

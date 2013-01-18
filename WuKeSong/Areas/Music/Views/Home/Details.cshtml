@@ -1,0 +1,42 @@
+﻿@model WuKeSong.Areas.Music.Models.Music
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Music</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Author</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author)
+    </div>
+
+    <div class="display-label">Genre</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Genre)
+    </div>
+
+    <div class="display-label">Comment</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comment)
+    </div>
+</fieldset>
+
+@if (string.IsNullOrEmpty(Model.SheetMusic) == false)
+{
+<iframe src="@Url.Content(@Model.SheetMusic)" width="900" height="500"></iframe>
+}
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

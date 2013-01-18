@@ -1,0 +1,30 @@
+﻿@model SanQingShan.Models.Questionnaire
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<p>
+<span>问卷包含</span>@Model.Question.Count()<span>个问题</span>
+</p>
+
+@{int i;
+  for(i=0;i<Model.Question.Count();i++)
+  {
+      <div>
+        <div>@(i+1)&nbsp;&nbsp;@Model.Question.ElementAt(i).Literal
+        </div>
+        <ul>
+            @foreach (var option in Model.Question.ElementAt(i).Option)
+            {
+                <li>@option.Literal</li> 
+            }
+            <li>
+                其它原因：
+            </li>
+        </ul>
+      </div>
+  }
+}

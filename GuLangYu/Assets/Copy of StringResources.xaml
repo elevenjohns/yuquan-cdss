@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="App_Title">EMR Demo Sys</system:String>
+    <system:String x:Key="ActiveProblemList_Title">Active Problems</system:String>
+    <system:String x:Key="InactiveProblemList_Title">Inactive Problems</system:String>
+    <system:String x:Key="AddNewProblem_Button">Add New Clinical Problem</system:String>
+    <system:String x:Key="ApplyOrderSet_Button">Apply Order Set</system:String>
+    <system:String x:Key="ApplyClinicalPathway_Button">Apply Clinical Pathway</system:String>
+    <system:String x:Key="BedNO">Bed NO.</system:String>
+    <system:String x:Key="PatientName">Name</system:String>
+    <system:String x:Key="AdmissionTime">Admission Time</system:String>
+    <system:String x:Key="List">List</system:String>
+    <system:String x:Key="Icon">Icon</system:String>
+    <system:String x:Key="Card">Bed Card</system:String>
+    <system:String x:Key="CurrentLogin_Demo">Current Login：Yinsheng Zhang (Intern)</system:String>
+</ResourceDictionary>

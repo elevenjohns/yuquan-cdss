@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SanQingShan.Models.CP_VISIT>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+
+<p>
+    @using (Html.BeginForm("Search","Home",FormMethod.Get)) 
+    {
+        <p>Search (by case id, outpatient id, or diagnosis): @Html.TextBox("keyword")
+        <input type="submit" value="Filter" /></p>
+    }
+</p>
+<div>病例总数 @ViewBag.TotalCase</div>
+
+@{var grid = new WebGrid(Model,rowsPerPage:15,defaultSort:"CP_ID");
+    <div id="grid">
+    @grid.GetHtml(
+    tableStyle:"grid", 
+    headerStyle: "head", 
+    alternatingRowStyle: "alt",     
+    columns: 
+    grid.Columns(
+            grid.Column("CP_ID","编号"),
+            grid.Column("DIAGNOSIS","诊断"),
+            grid.Column("ADMISSION_TIME", "入院时间"),
+            grid.Column("DISCHARGE_TIME", "出院时间"),
+            grid.Column(format: (item) => Html.ActionLink("Details", "Details", new { id = item.Id })) 
+    )    
+    ) 
+    </div>
+}
+
+
+

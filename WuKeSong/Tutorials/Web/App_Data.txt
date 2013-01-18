@@ -1,0 +1,3 @@
+﻿App_Data was meant for data files like sql express DB's files. It is protected so that you can't surf to it and grab files out of it.
+
+* Don't upload files into this folder.

@@ -1,0 +1,1542 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Rules Database Schema</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <style type="text/css">
+                    body { background-color: #fff; color: #000; font-family: Consolas, monospace}
+                    a:link { color: #03d; }
+                    a:visited { color: #039; }
+                    a:hover { color: #09f; }
+                    table { border-collapse: collapse; width: 100%; }
+                    table caption { color: #666; text-align: right; font-size: 65%; margin-bottom: .5ex; }
+                    table td, table th { border: solid 1px #666; border-collapse: collapse; padding: .3ex .5ex; vertical-align: top; }
+                    table tbody tr:hover { background-color: #ffc; }
+                    table thead th { text-align: left; background-color: #ccc; }
+                    table tbody th { text-align: left; white-space: nowrap; }
+                    .table { page-break-inside: avoid; }
+                    .pk { float: right; cursor: arrow; color: #999; }
+                    .type { white-space: nowrap; }
+                    .null { text-align: center; }
+                    .flag { white-space: nowrap; font-size: 70%; display: inline-block; border: solid 1px #ccc; padding: .25ex .5ex; background-color: #ddd; margin-right: 1ex; }
+                    .tocref { float: right; text-decoration: none; font-weight: normal; }
+                    .footer { text-align: center; margin-top: 1em; font-size: 80%;}
+                    li.view:before { content: "VIEW"; font-size: 70%; display: inline-block; border: solid 1px #ccc; padding: .25ex .5ex; background-color: #ddd; margin-right: 1ex; }
+                    @media print {
+                    body { font-size: .8em; }
+                    #toc, .tocref { display: none; }
+                    a:link, a:visited { color: #000; text-decoration: none; }
+                    }
+                </style>
+  </head>
+  <body>
+    <h1>CDS Database Schema</h1>
+    <div id="toc">
+      <ul>
+        <li class="table"><a href="#469576711">ChangeRecordSet</a></li>
+        <li class="table"><a href="#645577338">ClinicalProblemContextItem</a></li>
+        <li class="table"><a href="#357576312">ClinicalProblemInstanceSet</a></li>
+        <li class="table"><a href="#213575799">ClinicalProblemSet</a></li>
+        <li class="table"><a href="#325576198">ConceptSet</a></li>
+        <li class="table"><a href="#421576540">ContextItemSet</a></li>
+        <li class="table"><a href="#613577224">ContextItemSet_DemographicItem</a></li>
+        <li class="table"><a href="#597577167">ContextItemSet_Finding</a></li>
+        <li class="table"><a href="#565577053">ContextItemSet_LabTestItem</a></li>
+        <li class="table"><a href="#581577110">ContextItemSet_PhysiologicalItem</a></li>
+        <li class="table"><a href="#629577281">ContextItemSet_ProblemItem</a></li>
+        <li class="table"><a href="#517576882">EBMSet</a></li>
+        <li class="table"><a href="#453576654">EncounterSet</a></li>
+        <li class="table"><a href="#229575856">EventSet</a></li>
+        <li class="table"><a href="#373576369">EvidenceSet</a></li>
+        <li class="table"><a href="#485576768">FactSet</a></li>
+        <li class="table"><a href="#245575913">InterventionSet</a></li>
+        <li class="table"><a href="#389576426">LabTestSpecialtySet</a></li>
+        <li class="table"><a href="#405576483">LabTestSuiteSet</a></li>
+        <li class="table"><a href="#661577395">MedicalOrderEBM</a></li>
+        <li class="table"><a href="#533576939">MedicalOrderInstanceSet</a></li>
+        <li class="table"><a href="#309576141">MedicalOrderDefinition</a></li>
+        <li class="table"><a href="#437576597">PatientSet</a></li>
+        <li class="table"><a href="#277576027">PhaseSet</a></li>
+        <li class="table"><a href="#693577509">PlanEBM</a></li>
+        <li class="table"><a href="#549576996">PlanInstanceSet</a></li>
+        <li class="table"><a href="#261575970">PlanSet</a></li>
+        <li class="table"><a href="#501576825">ProfileSet</a></li>
+        <li class="table"><a href="#293576084">TaskSet</a></li>
+        <li class="table"><a href="#677577452">TriggerRuleEBM</a></li>
+        <li class="table"><a href="#341576255">TriggerRuleSet</a></li>
+      </ul>
+    </div>
+    <div class="table">
+      <h2 id="469576711"><a href="#toc" class="tocref">⇧</a>Table ChangeRecordSet 
+          临床问题状态变更记录表</h2>
+      <table>
+        <caption>Table ID: 469576711; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ChangeRecordSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Operator</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                操作者/医生姓名</td>
+          </tr>
+          <tr>
+            <th>TimeStamp</th>
+            <td class="type">datetime</td>
+            <td class="null">☒</td>
+            <td>
+                临床问题产生的时间戳</td>
+          </tr>
+          <tr>
+            <th>OldState</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                旧状态</td>
+          </tr>
+          <tr>
+            <th>NewState</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                新状态</td>
+          </tr>
+          <tr>
+            <th>Reason</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                状态变更原因。可选项：CDS或User Decision</td>
+          </tr>
+          <tr>
+            <th>ClinicalProblemInstance_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_ClinicalProblemInstanceChangeRecord">⇨ <a href="#357576312">ClinicalProblemInstanceSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="645577338"><a href="#toc" class="tocref">⇧</a>Table ClinicalProblemContextItem 
+          临床问题与推理项目(如某项检验指标)关联表</h2>
+      <table>
+        <caption>Table ID: 645577338; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ClinicalProblemContextItem">◆</span>ClinicalProblem_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_ClinicalProblemContextItem_ClinicalProblem">⇨ <a href="#213575799">ClinicalProblemSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ClinicalProblemContextItem">◆</span>ContextItem_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_ClinicalProblemContextItem_ContextItem">⇨ <a href="#421576540">ContextItemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="661577395"><a href="#toc" class="tocref">⇧</a>Table ClinicalProblemEBM 
+          临床问题与EBM证据关联表</h2>
+      <table>
+        <caption>Table ID: 661577395; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ClinicalProblemEBM">◆</span>ClinicalProblem_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_ClinicalProblemEBM_ClinicalProblem">⇨ <a href="#213575799">ClinicalProblemSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ClinicalProblemEBM">◆</span>EBM_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_ClinicalProblemEBM_EBM">⇨ <a href="#517576882">EBMSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="357576312"><a href="#toc" class="tocref">⇧</a>Table ClinicalProblemInstanceSet 
+          临床问题(运行时实例)表</h2>
+      <table>
+        <caption>Table ID: 357576312; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ClinicalProblemInstanceSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>State</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                状态。可选项：新建、疑似已解决、已解决、已取消。</td>
+          </tr>
+          <tr>
+            <th>Priority</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                问题优先级。可选项：高中低</td>
+          </tr>
+          <tr>
+            <th>ClinicalProblem_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_ClinicalProblemClinicalProblemInstance">⇨ <a href="#213575799">ClinicalProblemSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>Encounter_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_EncounterClinicalProblemInstance">⇨ <a href="#453576654">EncounterSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>TriggerRule_Name</th>
+            <td class="type">nvarchar (128)</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemInstanceTriggerRule">⇨ <a href="#341576255">TriggerRuleSet</a>.Name</span></td>
+          </tr>
+          <tr>
+            <th>TriggerRule_MajorVersion</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemInstanceTriggerRule">⇨ <a href="#341576255">TriggerRuleSet</a>.MajorVersion</span></td>
+          </tr>
+          <tr>
+            <th>TriggerRule_MinorVersion</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemInstanceTriggerRule">⇨ <a href="#341576255">TriggerRuleSet</a>.MinorVersion</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="213575799"><a href="#toc" class="tocref">⇧</a>Table ClinicalProblemSet 
+          临床问题定义(设计时)表</h2>
+      <table>
+        <caption>Table ID: 213575799; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ClinicalProblemSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                问题名称</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                描述</td>
+          </tr>
+          <tr>
+            <th>ReferenceURL</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                问题的wiki主页</td>
+          </tr>
+          <tr>
+            <th>Code</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                编码</td>
+          </tr>
+          <tr>
+            <th>CodingSystem</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                术语集</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="325576198"><a href="#toc" class="tocref">⇧</a>Table ConceptSet 概念表</h2>
+      <table>
+        <caption>Table ID: 325576198; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ConceptSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Code</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                编码</td>
+          </tr>
+          <tr>
+            <th>CodingSystem</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                术语集</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                描述</td>
+          </tr>
+          <tr>
+            <th>Literal</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                概念名称</td>
+          </tr>
+          <tr>
+            <th>Literal2</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                概念名称别名</td>
+          </tr>
+          <tr>
+            <th>Literal3</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                概念名称别名</td>
+          </tr>
+          <tr>
+            <th>Hierarchy</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                语义类别</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="421576540"><a href="#toc" class="tocref">⇧</a>Table ContextItemSet 
+          推理项目(如某项检验指标)表</h2>
+      <table>
+        <caption>Table ID: 421576540; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ContextItemSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                名称</td>
+          </tr>
+          <tr>
+            <th>Comment</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                备注</td>
+          </tr>
+          <tr>
+            <th>Unit</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                单位</td>
+          </tr>
+          <tr>
+            <th>DataType</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                数据类型。可选项：数值型、布尔型、字符串型</td>
+          </tr>
+          <tr>
+            <th>Code</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                编码</td>
+          </tr>
+          <tr>
+            <th>CodingSystem</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                术语集</td>
+          </tr>
+          <tr>
+            <th>ReferenceRange</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                参考范围</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="613577224"><a href="#toc" class="tocref">⇧</a>Table ContextItemSet_DemographicItem 
+          人口统计学项目表</h2>
+      <table>
+        <caption>Table ID: 613577224; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ContextItemSet_DemographicItem">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_DemographicItem_inherits_ContextItem">⇨ <a href="#421576540">ContextItemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="597577167"><a href="#toc" class="tocref">⇧</a>Table ContextItemSet_Finding 
+          临床所见项目表</h2>
+      <table>
+        <caption>Table ID: 597577167; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ContextItemSet_Finding">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_Finding_inherits_ContextItem">⇨ <a href="#421576540">ContextItemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="565577053"><a href="#toc" class="tocref">⇧</a>Table ContextItemSet_LabTestItem 
+          实验室检验项目表</h2>
+      <table>
+        <caption>Table ID: 565577053; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ContextItemSet_LabTestItem">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_LabTestItem_inherits_ContextItem">⇨ <a href="#421576540">ContextItemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="581577110"><a href="#toc" class="tocref">⇧</a>Table ContextItemSet_PhysiologicalItem 
+          生理检查项目表</h2>
+      <table>
+        <caption>Table ID: 581577110; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ContextItemSet_PhysiologicalItem">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_PhysiologicalItem_inherits_ContextItem">⇨ <a href="#421576540">ContextItemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="629577281"><a href="#toc" class="tocref">⇧</a>Table ContextItemSet_ProblemItem 
+          作为推理项目的临床问题表</h2>
+      <table>
+        <caption>Table ID: 629577281; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ContextItemSet_ProblemItem">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_ProblemItem_inherits_ContextItem">⇨ <a href="#421576540">ContextItemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="517576882"><a href="#toc" class="tocref">⇧</a>Table EBMSet 循证医学证据表</h2>
+      <table>
+        <caption>Table ID: 517576882; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_EBMSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>EvidenceLevel</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                证据级别。可选项：A B C</td>
+          </tr>
+          <tr>
+            <th>RecommendationClass</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                推荐级别。可选项：I IIA IIB III</td>
+          </tr>
+          <tr>
+            <th>URL</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                EBM文献URL</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="453576654"><a href="#toc" class="tocref">⇧</a>Table EncounterSet 就诊记录</h2>
+      <table>
+        <caption>Table ID: 453576654; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_EncounterSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Admission</th>
+            <td class="type">datetime</td>
+            <td class="null">☒</td>
+            <td>
+                入院时间</td>
+          </tr>
+          <tr>
+            <th>Discharge</th>
+            <td class="type">datetime</td>
+            <td class="null">☒</td>
+            <td>
+                出院时间</td>
+          </tr>
+          <tr>
+            <th>Diagnosis</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                诊断</td>
+          </tr>
+          <tr>
+            <th>FK_EMR_Encounter_Id</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                EMR系统中的就诊ID</td>
+          </tr>
+          <tr>
+            <th>Patient_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_PatientEncounter">⇨ <a href="#437576597">PatientSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>Profile_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ProfileEncounter">⇨ <a href="#501576825">ProfileSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="229575856"><a href="#toc" class="tocref">⇧</a>Table EventSet 事件表</h2>
+      <table>
+        <caption>Table ID: 229575856; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_EventSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                事件名称</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                描述</td>
+          </tr>
+          <tr>
+            <th>EventType</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                事件类型。如：新化验单、新的诊断</td>
+          </tr>
+          <tr>
+            <th>TimeStamp</th>
+            <td class="type">datetime</td>
+            <td class="null">☐</td>
+            <td>
+                时间戳</td>
+          </tr>
+          <tr>
+            <th>Encounter_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_EncounterEvent">⇨ <a href="#453576654">EncounterSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="373576369"><a href="#toc" class="tocref">⇧</a>Table EvidenceSet 临床证据表</h2>
+      <table>
+        <caption>Table ID: 373576369; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_EvidenceSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>URL</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                URL。作为临床证据的唯一标识。</td>
+          </tr>
+          <tr>
+            <th>ReportType</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                临床报告类型。从临床报告中提取结构化数据。比如：化验单，影像报告，诊断报告，主诉</td>
+          </tr>
+          <tr>
+            <th>TimeStamp</th>
+            <td class="type">datetime</td>
+            <td class="null">☐</td>
+            <td>
+                时间戳</td>
+          </tr>
+          <tr>
+            <th>Event_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_EventEvidence">⇨ <a href="#229575856">EventSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="485576768"><a href="#toc" class="tocref">⇧</a>Table FactSet 事实(推理项目的运行时实例)表</h2>
+      <table>
+        <caption>Table ID: 485576768; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_FactSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>NumericValue</th>
+            <td class="type">float (53, 0)</td>
+            <td class="null">☒</td>
+            <td>
+                值。数值型</td>
+          </tr>
+          <tr>
+            <th>BooleanValue</th>
+            <td class="type">bit</td>
+            <td class="null">☒</td>
+            <td>
+                值。布尔型</td>
+          </tr>
+          <tr>
+            <th>StringValue</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                值。字符串型</td>
+          </tr>
+          <tr>
+            <th>IsAbnormal</th>
+            <td class="type">bit</td>
+            <td class="null">☒</td>
+            <td>
+                是否异常</td>
+          </tr>
+          <tr>
+            <th>Confidentiality</th>
+            <td class="type">decimal (18, 0)</td>
+            <td class="null">☒</td>
+            <td>
+                可信度</td>
+          </tr>
+          <tr>
+            <th>Evidence_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_EvidenceFact">⇨ <a href="#373576369">EvidenceSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>ContextItem_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ContextItemFact">⇨ <a href="#421576540">ContextItemSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>Profile_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ProfileFact">⇨ <a href="#501576825">ProfileSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>ChangeRecord_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ChangeRecordFact">⇨ <a href="#469576711">ChangeRecordSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="245575913"><a href="#toc" class="tocref">⇧</a>Table InterventionSet 医疗干预表</h2>
+      <table>
+        <caption>Table ID: 245575913; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_InterventionSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                干预名称</td>
+          </tr>
+          <tr>
+            <th>ClinicalProblem_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemIntervention">⇨ <a href="#213575799">ClinicalProblemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ <div class="table">
+      <h2 id="H1"><a href="#toc" class="tocref">⇧</a>Table MedicalOrderEBM 医嘱与EBM关联表</h2>
+      <table>
+        <caption>Table ID: 661577395; Created: December 06, 2012, 11:19:22; Modified: December 06, 2012, 11:19:22</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_MedicalOrderEBM">◆</span>MedicalOrder_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_MedicalOrderEBM_MedicalOrder">⇨ <a href="#309576141">MedicalOrderDefinition</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_MedicalOrderEBM">◆</span>EBM_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_MedicalOrderEBM_EBM">⇨ <a href="#517576882">EBMSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="533576939"><a href="#toc" class="tocref">⇧</a>Table MedicalOrderInstanceSet 
+          医嘱实例表</h2>
+      <table>
+        <caption>Table ID: 533576939; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>TimeStamp</th>
+            <td class="type">datetime</td>
+            <td class="null">☒</td>
+            <td>
+                时间戳</td>
+          </tr>
+          <tr>
+            <th>FK_EMR_Order_Id</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                EMR中的医嘱ID</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_MedicalOrderInstanceSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>MedicalOrder_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_MedicalOrderInstanceMedicalOrder">⇨ <a href="#309576141">MedicalOrderDefinition</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>ClinicalProblemInstance_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemInstanceMedicalOrderInstance">⇨ <a href="#357576312">ClinicalProblemInstanceSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="309576141"><a href="#toc" class="tocref">⇧</a>Table MedicalOrderDefinition 医嘱表</h2>
+      <table>
+        <caption>Table ID: 309576141; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+                 <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_MedicalOrderSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                名称</td>
+          </tr>
+          <tr>
+            <th>Code</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                编码</td>
+          </tr>
+          <tr>
+            <th>CodingSystem</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                术语集</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                描述</td>
+          </tr>
+          <tr>
+            <th>OrderType</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                医嘱类型。如：药嘱、护理、处置、手术</td>
+          </tr>
+          <tr>
+            <th>AdministrationRoute</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                给药途径。如：口服、静滴</td>
+          </tr>
+          <tr>
+            <th>TemporalType</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                临时/长期</td>
+          </tr>
+          <tr>
+            <th>Frequency</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                频率</td>
+          </tr>
+          <tr>
+            <th>Dosage</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                剂量</td>
+          </tr>
+          <tr>
+            <th>AdditionalInstruction</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                附加指示</td>
+          </tr>
+ 
+          <tr>
+            <th>Task_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_TaskMedicalOrder">⇨ <a href="#293576084">TaskSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="437576597"><a href="#toc" class="tocref">⇧</a>Table PatientSet 病人表</h2>
+      <table>
+        <caption>Table ID: 437576597; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_PatientSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                姓名</td>
+          </tr>
+          <tr>
+            <th>BirthDay</th>
+            <td class="type">datetime</td>
+            <td class="null">☒</td>
+            <td>
+                出生年月</td>
+          </tr>
+          <tr>
+            <th>Gender</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                性别</td>
+          </tr>
+          <tr>
+            <th>PatientID</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                病人ID</td>
+          </tr>
+          <tr>
+            <th>FK_EMR_Patient_Id</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                EMR中病人ID</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="277576027"><a href="#toc" class="tocref">⇧</a>Table PhaseSet (计划/路径的)阶段表</h2>
+      <table>
+        <caption>Table ID: 277576027; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_PhaseSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                名称</td>
+          </tr>
+          <tr>
+            <th>Duration</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                持续时间。如：术后恢复三天</td>
+          </tr>
+          <tr>
+            <th>Period</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                开始时间。如：入院第二天</td>
+          </tr>
+          <tr>
+            <th>PlanPhase_Phase_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_PlanPhase">⇨ <a href="#261575970">PlanSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+        <div class="table">
+      <h2 id="693577509"><a href="#toc" class="tocref">⇧</a>Table PlanEBM 计划/路径与EBM的关联表</h2>
+      <table>
+        <caption>Table ID: 693577509; Created: December 06, 2012, 11:19:22; Modified: December 06, 2012, 11:19:22</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_PlanEBM">◆</span>Plan_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_PlanEBM_Plan">⇨ <a href="#261575970">PlanSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_PlanEBM">◆</span>EBM_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_PlanEBM_EBM">⇨ <a href="#517576882">EBMSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="549576996"><a href="#toc" class="tocref">⇧</a>Table PlanInstanceSet 
+          计划/路径的实例表</h2>
+      <table>
+        <caption>Table ID: 549576996; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>State</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                状态。如：执行中，已退出</td>
+          </tr>
+          <tr>
+            <th>CurrentPhase</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                当前阶段</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_PlanInstanceSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Plan_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_PlanInstancePlan">⇨ <a href="#261575970">PlanSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>ClinicalProblemInstance_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemInstancePlanInstance">⇨ <a href="#357576312">ClinicalProblemInstanceSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="261575970"><a href="#toc" class="tocref">⇧</a>Table PlanSet 计划/路径的定义表</h2>
+      <table>
+        <caption>Table ID: 261575970; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_PlanSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                名称</td>
+          </tr>
+          <tr>
+            <th>Duration</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                持续时间。如LOS</td>
+          </tr>
+          <tr>
+            <th>Objective</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                治疗目标</td>
+          </tr>
+          <tr>
+            <th>Cost</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                费用</td>
+          </tr>
+          <tr>
+            <th>Criteria</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                准入条件</td>
+          </tr>
+          <tr>
+            <th>Intervention_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_InterventionPlan">⇨ <a href="#245575913">InterventionSet</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>ClinicalProblemInstance_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemInstancePlan">⇨ <a href="#357576312">ClinicalProblemInstanceSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="501576825"><a href="#toc" class="tocref">⇧</a>Table ProfileSet 
+          推理项目缓冲池(始终更新为最新数据项)</h2>
+      <table>
+        <caption>Table ID: 501576825; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_ProfileSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ 
+    <div class="table">
+      <h2 id="293576084"><a href="#toc" class="tocref">⇧</a>Table TaskSet 任务表</h2>
+      <table>
+        <caption>Table ID: 293576084; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Optional</th>
+            <td class="type">bit</td>
+            <td class="null">☐</td>
+            <td>
+                可选/必须</td>
+          </tr>
+          <tr>
+            <th>MultiSelect</th>
+            <td class="type">bit</td>
+            <td class="null">☐</td>
+            <td>
+                多选/单选</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TaskSet">◆</span>Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                名称</td>
+          </tr>
+          <tr>
+            <th>Code</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                编码</td>
+          </tr>
+          <tr>
+            <th>CodingSystem</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☒</td>
+            <td>
+                术语集</td>
+          </tr>
+          <tr>
+            <th>PhaseTask_Task_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_PhaseTask">⇨ <a href="#277576027">PhaseSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="table">
+      <h2 id="677577452"><a href="#toc" class="tocref">⇧</a>Table TriggerRuleEBM 
+          触发规则与EBM的关联表</h2>
+      <table>
+        <caption>Table ID: 677577452; Created: December 06, 2012, 11:19:22; Modified: December 06, 2012, 11:19:22</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TriggerRuleEBM">◆</span>TriggerRule_Name</th>
+            <td class="type">nvarchar (128)</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_TriggerRuleEBM_TriggerRule">⇨ <a href="#341576255">TriggerRuleSet</a>.Name</span></td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TriggerRuleEBM">◆</span>TriggerRule_MajorVersion</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_TriggerRuleEBM_TriggerRule">⇨ <a href="#341576255">TriggerRuleSet</a>.MajorVersion</span></td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TriggerRuleEBM">◆</span>TriggerRule_MinorVersion</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_TriggerRuleEBM_TriggerRule">⇨ <a href="#341576255">TriggerRuleSet</a>.MinorVersion</span></td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TriggerRuleEBM">◆</span>EBM_Id</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td><span class="flag" title="FK_TriggerRuleEBM_EBM">⇨ <a href="#517576882">EBMSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+     <div class="table">
+      <h2 id="341576255"><a href="#toc" class="tocref">⇧</a>Table TriggerRuleSet 
+          临床问题触发规则表(本表结构与采用的规则引擎相关，根据最终采用技术不同会调整)</h2>
+      <table>
+        <caption>Table ID: 341576255; Created: December 05, 2012, 21:43:54; Modified: December 05, 2012, 21:43:54</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TriggerRuleSet">◆</span>Name</th>
+            <td class="type">nvarchar (128)</td>
+            <td class="null">☐</td>
+            <td>
+                名称</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TriggerRuleSet">◆</span>MajorVersion</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td>
+                主版本号</td>
+          </tr>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY PK_TriggerRuleSet">◆</span>MinorVersion</th>
+            <td class="type">int</td>
+            <td class="null">☐</td>
+            <td>
+                次版本号</td>
+          </tr>
+          <tr>
+            <th>RuleSet</th>
+            <td class="type">nvarchar (max)</td>
+            <td class="null">☐</td>
+            <td>
+                规则</td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td class="type">smallint</td>
+            <td class="null">☒</td>
+            <td>
+                状态</td>
+          </tr>
+          <tr>
+            <th>AssemblyPath</th>
+            <td class="type">nvarchar (256)</td>
+            <td class="null">☒</td>
+            <td>
+                推理类所在程序集的路径</td>
+          </tr>
+          <tr>
+            <th>ActivityName</th>
+            <td class="type">nvarchar (128)</td>
+            <td class="null">☒</td>
+            <td>
+                推理类名称</td>
+          </tr>
+          <tr>
+            <th>ModifiedDate</th>
+            <td class="type">datetime</td>
+            <td class="null">☒</td>
+            <td>
+                更新日期</td>
+          </tr>
+          <tr>
+            <th>ClinicalProblem_Id</th>
+            <td class="type">int</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_ClinicalProblemTriggerRule">⇨ <a href="#213575799">ClinicalProblemSet</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+                    Generated by <a href="http://SqlDbDoc.codeplex.com/">DB&gt;doc</a> on
+                    December 05, 2012, 13:46:09</div>
+  </body>
+</html>

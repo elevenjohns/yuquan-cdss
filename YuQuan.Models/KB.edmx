@@ -1,0 +1,1593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="KBModelStoreContainer">
+    <EntitySet Name="ChangeRecord" EntityType="KBModel.Store.ChangeRecord" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClinicalProblemDefinition" EntityType="KBModel.Store.ClinicalProblemDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClinicalProblemInstance" EntityType="KBModel.Store.ClinicalProblemInstance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContextItemDefinition" EntityType="KBModel.Store.ContextItemDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EBM" EntityType="KBModel.Store.EBM" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Encounter" EntityType="KBModel.Store.Encounter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Event" EntityType="KBModel.Store.Event" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Fact" EntityType="KBModel.Store.Fact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MedicalOrderDefinition" EntityType="KBModel.Store.MedicalOrderDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MedicalOrderDefinition_EBM_Association" EntityType="KBModel.Store.MedicalOrderDefinition_EBM_Association" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MedicalOrderInstance" EntityType="KBModel.Store.MedicalOrderInstance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PhaseDefinition" EntityType="KBModel.Store.PhaseDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PhaseDefinition_EBM_Association" EntityType="KBModel.Store.PhaseDefinition_EBM_Association" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlanDefinition" EntityType="KBModel.Store.PlanDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlanDefinition_EBM_Association" EntityType="KBModel.Store.PlanDefinition_EBM_Association" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlanInstance" EntityType="KBModel.Store.PlanInstance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Report" EntityType="KBModel.Store.Report" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaskDefinition" EntityType="KBModel.Store.TaskDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaskDefinition_EBM_Association" EntityType="KBModel.Store.TaskDefinition_EBM_Association" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TriggerRule" EntityType="KBModel.Store.TriggerRule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TriggerRule_EBM_Association" EntityType="KBModel.Store.TriggerRule_EBM_Association" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClinicalProblemDefinition_ContextItemDefinition_AssociationSet" EntityType="KBModel.Store.ClinicalProblemDefinition_ContextItemDefinition_AssociationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClinicalProblemDefinition_PlanDefinition_AssociationSet" EntityType="KBModel.Store.ClinicalProblemDefinition_PlanDefinition_AssociationSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="Fact_Encounter_Association" Association="KBModel.Store.Fact_Encounter_Association">
+      <End Role="Fact" EntitySet="Fact" />
+      <End Role="Encounter" EntitySet="Encounter" />
+    </AssociationSet>
+    <AssociationSet Name="Fact_ChangeRecord_Association" Association="KBModel.Store.Fact_ChangeRecord_Association">
+      <End Role="Fact" EntitySet="Fact" />
+      <End Role="ChangeRecord" EntitySet="ChangeRecord" />
+    </AssociationSet>
+    <AssociationSet Name="Fact_Report_Association" Association="KBModel.Store.Fact_Report_Association">
+      <End Role="Fact" EntitySet="Fact" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="Fact_ContextItemDefinition_Association" Association="KBModel.Store.Fact_ContextItemDefinition_Association">
+      <End Role="Fact" EntitySet="Fact" />
+      <End Role="ContextItemDefinition" EntitySet="ContextItemDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="ClinicalProblemDefinition_TriggerRule_Association" Association="KBModel.Store.ClinicalProblemDefinition_TriggerRule_Association">
+      <End Role="ClinicalProblemDefinition" EntitySet="ClinicalProblemDefinition" />
+      <End Role="TriggerRule" EntitySet="TriggerRule" />
+    </AssociationSet>
+    <AssociationSet Name="PlanInstance_PlanDefinition_Association" Association="KBModel.Store.PlanInstance_PlanDefinition_Association">
+      <End Role="PlanInstance" EntitySet="PlanInstance" />
+      <End Role="PlanDefinition" EntitySet="PlanDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="ClinicalProblemInstance_ClinicalProblemDefinition_Association" Association="KBModel.Store.ClinicalProblemInstance_ClinicalProblemDefinition_Association">
+      <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+      <End Role="ClinicalProblemDefinition" EntitySet="ClinicalProblemDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="ClinicalProblemInstance_Encounter_Association" Association="KBModel.Store.ClinicalProblemInstance_Encounter_Association">
+      <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+      <End Role="Encounter" EntitySet="Encounter" />
+    </AssociationSet>
+    <AssociationSet Name="Event_Encounter_Association" Association="KBModel.Store.Event_Encounter_Association">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="Encounter" EntitySet="Encounter" />
+    </AssociationSet>
+    <AssociationSet Name="Report_Event_Association" Association="KBModel.Store.Report_Event_Association">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="PhaseDefinition_PlanDefinition_Association" Association="KBModel.Store.PhaseDefinition_PlanDefinition_Association">
+      <End Role="PhaseDefinition" EntitySet="PhaseDefinition" />
+      <End Role="PlanDefinition" EntitySet="PlanDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="TaskDefinition_PhaseDefinition_Association" Association="KBModel.Store.TaskDefinition_PhaseDefinition_Association">
+      <End Role="TaskDefinition" EntitySet="TaskDefinition" />
+      <End Role="PhaseDefinition" EntitySet="PhaseDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="MedicalOrderDefinition_TaskDefinition_Association" Association="KBModel.Store.MedicalOrderDefinition_TaskDefinition_Association">
+      <End Role="MedicalOrderDefinition" EntitySet="MedicalOrderDefinition" />
+      <End Role="TaskDefinition" EntitySet="TaskDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="MedicalOrderInstance_MedicalOrderDefinition_Association" Association="KBModel.Store.MedicalOrderInstance_MedicalOrderDefinition_Association">
+      <End Role="MedicalOrderInstance" EntitySet="MedicalOrderInstance" />
+      <End Role="MedicalOrderDefinition" EntitySet="MedicalOrderDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="MedicalOrderInstance_ClinicalProblemInstance_Association" Association="KBModel.Store.MedicalOrderInstance_ClinicalProblemInstance_Association">
+      <End Role="MedicalOrderInstance" EntitySet="MedicalOrderInstance" />
+      <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+    </AssociationSet>
+    <AssociationSet Name="PlanInstance_ClinicalProblemInstance_Association" Association="KBModel.Store.PlanInstance_ClinicalProblemInstance_Association">
+      <End Role="PlanInstance" EntitySet="PlanInstance" />
+      <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+    </AssociationSet>
+    <AssociationSet Name="ChangeRecord_ClinicalProblemInstance_Association" Association="KBModel.Store.ChangeRecord_ClinicalProblemInstance_Association">
+      <End Role="ChangeRecord" EntitySet="ChangeRecord" />
+      <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+    </AssociationSet>
+    <AssociationSet Name="ClinicalProblemInstance_TriggerRule_Association" Association="KBModel.Store.ClinicalProblemInstance_TriggerRule_Association">
+      <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+      <End Role="TriggerRule" EntitySet="TriggerRule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ChangeRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Operator" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="true" />
+    <Property Name="OldState" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="NewState" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Reason" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClinicalProblemInstance_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClinicalProblemDefinition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ReferenceURL" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodingSystem" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Infectious" Type="bit" Nullable="true" />
+    <Property Name="InputCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Version" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Author" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ClinicalProblemInstance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Priority" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClinicalProblemDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="Encounter_Id" Type="int" Nullable="true" />
+    <Property Name="TriggerRule_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ContextItemDefinition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Unit" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DataType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodingSystem" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ReferenceRange" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UpperBound" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="LowerBound" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="DefaultValue" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InputCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Version" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="NavigationPath" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Author" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EBM">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EvidenceLevel" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RecommendationClass" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Source" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="URL" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Encounter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_EMR_Encounter_Id" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EventType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Encounter_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Fact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumericValue" Type="float" Nullable="true" />
+    <Property Name="BooleanValue" Type="bit" Nullable="true" />
+    <Property Name="StringValue" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsAbnormal" Type="bit" Nullable="true" />
+    <Property Name="Confidence" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="LifeSpan" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Encounter_Id" Type="int" Nullable="true" />
+    <Property Name="ChangeRecord_Id" Type="int" Nullable="true" />
+    <Property Name="Report_Id" Type="int" Nullable="true" />
+    <Property Name="ContextItemDefinition_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MedicalOrderDefinition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="OrderType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AdministrationRoute" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TemporalType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Frequency" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Dosage" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AdditionalInstruction" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodingSystem" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TaskDefinition_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MedicalOrderDefinition_EBM_Association">
+    <Key>
+      <PropertyRef Name="MedicalOrderDefinition_Id" />
+      <PropertyRef Name="EBM_Id" />
+    </Key>
+    <Property Name="MedicalOrderDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="EBM_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedicalOrderInstance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_EMR_Order_Id" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MedicalOrderDefinition_Id" Type="int" Nullable="true" />
+    <Property Name="ClinicalProblemInstance_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PhaseDefinition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Duration" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Period" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PlanDefinition_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PhaseDefinition_EBM_Association">
+    <Key>
+      <PropertyRef Name="PhaseDefinition_Id" />
+      <PropertyRef Name="EBM_Id" />
+    </Key>
+    <Property Name="PhaseDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="EBM_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlanDefinition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Duration" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Objective" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Cost" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Criteria" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Version" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Author" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PlanDefinition_EBM_Association">
+    <Key>
+      <PropertyRef Name="PlanDefinition_Id" />
+      <PropertyRef Name="EBM_Id" />
+    </Key>
+    <Property Name="PlanDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="EBM_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlanInstance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="State" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CurrentPhase" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="ClinicalProblemInstance_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URL" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ReportType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Event_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TaskDefinition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Optional" Type="bit" Nullable="false" />
+    <Property Name="MultiSelect" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodingSystem" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhaseDefinition_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TaskDefinition_EBM_Association">
+    <Key>
+      <PropertyRef Name="TaskDefinition_Id" />
+      <PropertyRef Name="EBM_Id" />
+    </Key>
+    <Property Name="TaskDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="EBM_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TriggerRule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Version" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PPV" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="RuleSet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="AssemblyPath" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="ActivityName" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="true" />
+    <Property Name="ClinicalProblemDefinition_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TriggerRule_EBM_Association">
+    <Key>
+      <PropertyRef Name="TriggerRule_Id" />
+      <PropertyRef Name="EBM_Id" />
+    </Key>
+    <Property Name="TriggerRule_Id" Type="int" Nullable="false" />
+    <Property Name="EBM_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClinicalProblemDefinition_ContextItemDefinition_AssociationSet">
+    <Key>
+      <PropertyRef Name="ContextItemDefinition_Id" />
+      <PropertyRef Name="ClinicalProblemDefinition_Id" />
+    </Key>
+    <Property Name="ContextItemDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="ClinicalProblemDefinition_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClinicalProblemDefinition_PlanDefinition_AssociationSet">
+    <Key>
+      <PropertyRef Name="ClinicalProblemDefinition_Id" />
+      <PropertyRef Name="PlanDefinition_Id" />
+    </Key>
+    <Property Name="ClinicalProblemDefinition_Id" Type="int" Nullable="false" />
+    <Property Name="PlanDefinition_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Fact_Encounter_Association">
+    <End Role="Fact" Type="KBModel.Store.Fact" Multiplicity="*" />
+    <End Role="Encounter" Type="KBModel.Store.Encounter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Encounter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fact">
+        <PropertyRef Name="Encounter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fact_ChangeRecord_Association">
+    <End Role="Fact" Type="KBModel.Store.Fact" Multiplicity="*" />
+    <End Role="ChangeRecord" Type="KBModel.Store.ChangeRecord" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ChangeRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fact">
+        <PropertyRef Name="ChangeRecord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fact_Report_Association">
+    <End Role="Fact" Type="KBModel.Store.Fact" Multiplicity="*" />
+    <End Role="Report" Type="KBModel.Store.Report" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fact">
+        <PropertyRef Name="Report_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fact_ContextItemDefinition_Association">
+    <End Role="Fact" Type="KBModel.Store.Fact" Multiplicity="*" />
+    <End Role="ContextItemDefinition" Type="KBModel.Store.ContextItemDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ContextItemDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fact">
+        <PropertyRef Name="ContextItemDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClinicalProblemDefinition_TriggerRule_Association">
+    <End Role="ClinicalProblemDefinition" Type="KBModel.Store.ClinicalProblemDefinition" Multiplicity="0..1" />
+    <End Role="TriggerRule" Type="KBModel.Store.TriggerRule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClinicalProblemDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TriggerRule">
+        <PropertyRef Name="ClinicalProblemDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlanInstance_PlanDefinition_Association">
+    <End Role="PlanInstance" Type="KBModel.Store.PlanInstance" Multiplicity="*" />
+    <End Role="PlanDefinition" Type="KBModel.Store.PlanDefinition" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PlanDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanInstance">
+        <PropertyRef Name="PlanDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClinicalProblemInstance_ClinicalProblemDefinition_Association">
+    <End Role="ClinicalProblemInstance" Type="KBModel.Store.ClinicalProblemInstance" Multiplicity="*" />
+    <End Role="ClinicalProblemDefinition" Type="KBModel.Store.ClinicalProblemDefinition" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ClinicalProblemDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClinicalProblemInstance">
+        <PropertyRef Name="ClinicalProblemDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClinicalProblemInstance_Encounter_Association">
+    <End Role="ClinicalProblemInstance" Type="KBModel.Store.ClinicalProblemInstance" Multiplicity="*" />
+    <End Role="Encounter" Type="KBModel.Store.Encounter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Encounter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClinicalProblemInstance">
+        <PropertyRef Name="Encounter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Event_Encounter_Association">
+    <End Role="Event" Type="KBModel.Store.Event" Multiplicity="*" />
+    <End Role="Encounter" Type="KBModel.Store.Encounter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Encounter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="Encounter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Report_Event_Association">
+    <End Role="Report" Type="KBModel.Store.Report" Multiplicity="*" />
+    <End Role="Event" Type="KBModel.Store.Event" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="Event_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PhaseDefinition_PlanDefinition_Association">
+    <End Role="PhaseDefinition" Type="KBModel.Store.PhaseDefinition" Multiplicity="*" />
+    <End Role="PlanDefinition" Type="KBModel.Store.PlanDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PlanDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhaseDefinition">
+        <PropertyRef Name="PlanDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TaskDefinition_PhaseDefinition_Association">
+    <End Role="TaskDefinition" Type="KBModel.Store.TaskDefinition" Multiplicity="*" />
+    <End Role="PhaseDefinition" Type="KBModel.Store.PhaseDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PhaseDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskDefinition">
+        <PropertyRef Name="PhaseDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicalOrderDefinition_TaskDefinition_Association">
+    <End Role="MedicalOrderDefinition" Type="KBModel.Store.MedicalOrderDefinition" Multiplicity="*" />
+    <End Role="TaskDefinition" Type="KBModel.Store.TaskDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TaskDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MedicalOrderDefinition">
+        <PropertyRef Name="TaskDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicalOrderInstance_MedicalOrderDefinition_Association">
+    <End Role="MedicalOrderInstance" Type="KBModel.Store.MedicalOrderInstance" Multiplicity="*" />
+    <End Role="MedicalOrderDefinition" Type="KBModel.Store.MedicalOrderDefinition" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MedicalOrderDefinition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MedicalOrderInstance">
+        <PropertyRef Name="MedicalOrderDefinition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicalOrderInstance_ClinicalProblemInstance_Association">
+    <End Role="MedicalOrderInstance" Type="KBModel.Store.MedicalOrderInstance" Multiplicity="*" />
+    <End Role="ClinicalProblemInstance" Type="KBModel.Store.ClinicalProblemInstance" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ClinicalProblemInstance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MedicalOrderInstance">
+        <PropertyRef Name="ClinicalProblemInstance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlanInstance_ClinicalProblemInstance_Association">
+    <End Role="PlanInstance" Type="KBModel.Store.PlanInstance" Multiplicity="*" />
+    <End Role="ClinicalProblemInstance" Type="KBModel.Store.ClinicalProblemInstance" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ClinicalProblemInstance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanInstance">
+        <PropertyRef Name="ClinicalProblemInstance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChangeRecord_ClinicalProblemInstance_Association">
+    <End Role="ChangeRecord" Type="KBModel.Store.ChangeRecord" Multiplicity="*" />
+    <End Role="ClinicalProblemInstance" Type="KBModel.Store.ClinicalProblemInstance" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ClinicalProblemInstance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChangeRecord">
+        <PropertyRef Name="ClinicalProblemInstance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClinicalProblemInstance_TriggerRule_Association">
+    <End Role="ClinicalProblemInstance" Type="KBModel.Store.ClinicalProblemInstance" Multiplicity="*" />
+    <End Role="TriggerRule" Type="KBModel.Store.TriggerRule" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TriggerRule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClinicalProblemInstance">
+        <PropertyRef Name="TriggerRule_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="KBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChangeRecord" EntityType="KBModel.ChangeRecord" />
+          <EntitySet Name="ClinicalProblemDefinition" EntityType="KBModel.ClinicalProblemDefinition" />
+          <EntitySet Name="ClinicalProblemInstance" EntityType="KBModel.ClinicalProblemInstance" />
+          <EntitySet Name="ContextItemDefinition" EntityType="KBModel.ContextItemDefinition" />
+          <EntitySet Name="EBM" EntityType="KBModel.EBM" />
+          <EntitySet Name="Encounter" EntityType="KBModel.Encounter" />
+          <EntitySet Name="Event" EntityType="KBModel.Event" />
+          <EntitySet Name="Fact" EntityType="KBModel.Fact" />
+          <EntitySet Name="MedicalOrderDefinition" EntityType="KBModel.MedicalOrderDefinition" />
+          <EntitySet Name="MedicalOrderDefinition_EBM_Association" EntityType="KBModel.MedicalOrderDefinition_EBM_Association" />
+          <EntitySet Name="MedicalOrderInstance" EntityType="KBModel.MedicalOrderInstance" />
+          <EntitySet Name="PhaseDefinition" EntityType="KBModel.PhaseDefinition" />
+          <EntitySet Name="PhaseDefinition_EBM_Association" EntityType="KBModel.PhaseDefinition_EBM_Association" />
+          <EntitySet Name="PlanDefinition" EntityType="KBModel.PlanDefinition" />
+          <EntitySet Name="PlanDefinition_EBM_Association" EntityType="KBModel.PlanDefinition_EBM_Association" />
+          <EntitySet Name="PlanInstance" EntityType="KBModel.PlanInstance" />
+          <EntitySet Name="Report" EntityType="KBModel.Report" />
+          <EntitySet Name="TaskDefinition" EntityType="KBModel.TaskDefinition" />
+          <EntitySet Name="TaskDefinition_EBM_Association" EntityType="KBModel.TaskDefinition_EBM_Association" />
+          <EntitySet Name="TriggerRule" EntityType="KBModel.TriggerRule" />
+          <EntitySet Name="TriggerRule_EBM_Association" EntityType="KBModel.TriggerRule_EBM_Association" />
+          <AssociationSet Name="Fact_Encounter_Association" Association="KBModel.Fact_Encounter_Association">
+            <End Role="Fact" EntitySet="Fact" />
+            <End Role="Encounter" EntitySet="Encounter" />
+          </AssociationSet>
+          <AssociationSet Name="Fact_ChangeRecord_Association" Association="KBModel.Fact_ChangeRecord_Association">
+            <End Role="Fact" EntitySet="Fact" />
+            <End Role="ChangeRecord" EntitySet="ChangeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="Fact_Report_Association" Association="KBModel.Fact_Report_Association">
+            <End Role="Fact" EntitySet="Fact" />
+            <End Role="Report" EntitySet="Report" />
+          </AssociationSet>
+          <AssociationSet Name="Fact_ContextItemDefinition_Association" Association="KBModel.Fact_ContextItemDefinition_Association">
+            <End Role="Fact" EntitySet="Fact" />
+            <End Role="ContextItemDefinition" EntitySet="ContextItemDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="ClinicalProblemDefinition_TriggerRule_Association" Association="KBModel.ClinicalProblemDefinition_TriggerRule_Association">
+            <End Role="ClinicalProblemDefinition" EntitySet="ClinicalProblemDefinition" />
+            <End Role="TriggerRule" EntitySet="TriggerRule" />
+          </AssociationSet>
+          <AssociationSet Name="PlanInstance_PlanDefinition_Association" Association="KBModel.PlanInstance_PlanDefinition_Association">
+            <End Role="PlanInstance" EntitySet="PlanInstance" />
+            <End Role="PlanDefinition" EntitySet="PlanDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="ClinicalProblemInstance_ClinicalProblemDefinition_Association" Association="KBModel.ClinicalProblemInstance_ClinicalProblemDefinition_Association">
+            <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+            <End Role="ClinicalProblemDefinition" EntitySet="ClinicalProblemDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="ClinicalProblemInstance_Encounter_Association" Association="KBModel.ClinicalProblemInstance_Encounter_Association">
+            <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+            <End Role="Encounter" EntitySet="Encounter" />
+          </AssociationSet>
+          <AssociationSet Name="Event_Encounter_Association" Association="KBModel.Event_Encounter_Association">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Encounter" EntitySet="Encounter" />
+          </AssociationSet>
+          <AssociationSet Name="Report_Event_Association" Association="KBModel.Report_Event_Association">
+            <End Role="Report" EntitySet="Report" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="PhaseDefinition_PlanDefinition_Association" Association="KBModel.PhaseDefinition_PlanDefinition_Association">
+            <End Role="PhaseDefinition" EntitySet="PhaseDefinition" />
+            <End Role="PlanDefinition" EntitySet="PlanDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="TaskDefinition_PhaseDefinition_Association" Association="KBModel.TaskDefinition_PhaseDefinition_Association">
+            <End Role="TaskDefinition" EntitySet="TaskDefinition" />
+            <End Role="PhaseDefinition" EntitySet="PhaseDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="MedicalOrderDefinition_TaskDefinition_Association" Association="KBModel.MedicalOrderDefinition_TaskDefinition_Association">
+            <End Role="MedicalOrderDefinition" EntitySet="MedicalOrderDefinition" />
+            <End Role="TaskDefinition" EntitySet="TaskDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="MedicalOrderInstance_MedicalOrderDefinition_Association" Association="KBModel.MedicalOrderInstance_MedicalOrderDefinition_Association">
+            <End Role="MedicalOrderInstance" EntitySet="MedicalOrderInstance" />
+            <End Role="MedicalOrderDefinition" EntitySet="MedicalOrderDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="MedicalOrderInstance_ClinicalProblemInstance_Association" Association="KBModel.MedicalOrderInstance_ClinicalProblemInstance_Association">
+            <End Role="MedicalOrderInstance" EntitySet="MedicalOrderInstance" />
+            <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+          </AssociationSet>
+          <EntitySet Name="ClinicalProblemDefinition_ContextItemDefinition_AssociationSet" EntityType="KBModel.ClinicalProblemDefinition_ContextItemDefinition_Association" />
+          <AssociationSet Name="PlanInstance_ClinicalProblemInstance_Association" Association="KBModel.PlanInstance_ClinicalProblemInstance_Association">
+            <End Role="PlanInstance" EntitySet="PlanInstance" />
+            <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+          </AssociationSet>
+          <EntitySet Name="ClinicalProblemDefinition_PlanDefinition_AssociationSet" EntityType="KBModel.ClinicalProblemDefinition_PlanDefinition_Association" />
+          <AssociationSet Name="ChangeRecord_ClinicalProblemInstance_Association" Association="KBModel.ChangeRecord_ClinicalProblemInstance_Association">
+            <End Role="ChangeRecord" EntitySet="ChangeRecord" />
+            <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+          </AssociationSet>
+          <AssociationSet Name="ClinicalProblemInstance_TriggerRule_Association" Association="KBModel.ClinicalProblemInstance_TriggerRule_Association">
+            <End Role="ClinicalProblemInstance" EntitySet="ClinicalProblemInstance" />
+            <End Role="TriggerRule" EntitySet="TriggerRule" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChangeRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Operator" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" />
+          <Property Type="String" Name="OldState" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NewState" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Fact" Relationship="KBModel.Fact_ChangeRecord_Association" FromRole="ChangeRecord" ToRole="Fact" />
+          <NavigationProperty Name="ClinicalProblemInstance" Relationship="KBModel.ChangeRecord_ClinicalProblemInstance_Association" FromRole="ChangeRecord" ToRole="ClinicalProblemInstance" />
+        </EntityType>
+        <EntityType Name="ClinicalProblemDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ReferenceURL" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodingSystem" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Infectious" />
+          <Property Type="String" Name="InputCode" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Version" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" />
+          <NavigationProperty Name="TriggerRule" Relationship="KBModel.ClinicalProblemDefinition_TriggerRule_Association" FromRole="ClinicalProblemDefinition" ToRole="TriggerRule" />
+        </EntityType>
+        <EntityType Name="ClinicalProblemInstance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="State" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Priority" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ClinicalProblemDefinition" Relationship="KBModel.ClinicalProblemInstance_ClinicalProblemDefinition_Association" FromRole="ClinicalProblemInstance" ToRole="ClinicalProblemDefinition" />
+          <NavigationProperty Name="Encounter" Relationship="KBModel.ClinicalProblemInstance_Encounter_Association" FromRole="ClinicalProblemInstance" ToRole="Encounter" />
+          <NavigationProperty Name="MedicalOrderInstance" Relationship="KBModel.MedicalOrderInstance_ClinicalProblemInstance_Association" FromRole="ClinicalProblemInstance" ToRole="MedicalOrderInstance" />
+          <NavigationProperty Name="PlanInstance" Relationship="KBModel.PlanInstance_ClinicalProblemInstance_Association" FromRole="ClinicalProblemInstance" ToRole="PlanInstance" />
+          <NavigationProperty Name="ChangeRecord" Relationship="KBModel.ChangeRecord_ClinicalProblemInstance_Association" FromRole="ClinicalProblemInstance" ToRole="ChangeRecord" />
+          <NavigationProperty Name="TriggerRule" Relationship="KBModel.ClinicalProblemInstance_TriggerRule_Association" FromRole="ClinicalProblemInstance" ToRole="TriggerRule" />
+        </EntityType>
+        <EntityType Name="ContextItemDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Unit" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DataType" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodingSystem" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ReferenceRange" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="UpperBound" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="LowerBound" Precision="18" Scale="0" />
+          <Property Type="String" Name="DefaultValue" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InputCode" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Version" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NavigationPath" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Type" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" />
+        </EntityType>
+        <EntityType Name="EBM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EvidenceLevel" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RecommendationClass" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Source" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="URL" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Encounter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FK_EMR_Encounter_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Fact" Relationship="KBModel.Fact_Encounter_Association" FromRole="Encounter" ToRole="Fact" />
+          <NavigationProperty Name="ClinicalProblemInstance" Relationship="KBModel.ClinicalProblemInstance_Encounter_Association" FromRole="Encounter" ToRole="ClinicalProblemInstance" />
+          <NavigationProperty Name="Event" Relationship="KBModel.Event_Encounter_Association" FromRole="Encounter" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventType" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <NavigationProperty Name="Encounter" Relationship="KBModel.Event_Encounter_Association" FromRole="Event" ToRole="Encounter" />
+          <NavigationProperty Name="Report" Relationship="KBModel.Report_Event_Association" FromRole="Event" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Fact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="NumericValue" />
+          <Property Type="Boolean" Name="BooleanValue" />
+          <Property Type="String" Name="StringValue" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAbnormal" />
+          <Property Type="Decimal" Name="Confidence" Precision="18" Scale="0" />
+          <Property Type="String" Name="LifeSpan" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Encounter" Relationship="KBModel.Fact_Encounter_Association" FromRole="Fact" ToRole="Encounter" />
+          <NavigationProperty Name="ChangeRecord" Relationship="KBModel.Fact_ChangeRecord_Association" FromRole="Fact" ToRole="ChangeRecord" />
+          <NavigationProperty Name="Report" Relationship="KBModel.Fact_Report_Association" FromRole="Fact" ToRole="Report" />
+          <NavigationProperty Name="ContextItemDefinition" Relationship="KBModel.Fact_ContextItemDefinition_Association" FromRole="Fact" ToRole="ContextItemDefinition" />
+        </EntityType>
+        <EntityType Name="MedicalOrderDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="OrderType" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdministrationRoute" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TemporalType" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Frequency" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dosage" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdditionalInstruction" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodingSystem" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaskDefinition" Relationship="KBModel.MedicalOrderDefinition_TaskDefinition_Association" FromRole="MedicalOrderDefinition" ToRole="TaskDefinition" />
+        </EntityType>
+        <EntityType Name="MedicalOrderDefinition_EBM_Association">
+          <Key>
+            <PropertyRef Name="MedicalOrderDefinition_Id" />
+            <PropertyRef Name="EBM_Id" />
+          </Key>
+          <Property Type="Int32" Name="MedicalOrderDefinition_Id" Nullable="false" />
+          <Property Type="Int32" Name="EBM_Id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MedicalOrderInstance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MedicalOrderDefinition" Relationship="KBModel.MedicalOrderInstance_MedicalOrderDefinition_Association" FromRole="MedicalOrderInstance" ToRole="MedicalOrderDefinition" />
+          <NavigationProperty Name="ClinicalProblemInstance" Relationship="KBModel.MedicalOrderInstance_ClinicalProblemInstance_Association" FromRole="MedicalOrderInstance" ToRole="ClinicalProblemInstance" />
+          <Property Type="String" Name="FK_EMR_Order_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PhaseDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Duration" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Period" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PlanDefinition" Relationship="KBModel.PhaseDefinition_PlanDefinition_Association" FromRole="PhaseDefinition" ToRole="PlanDefinition" />
+          <NavigationProperty Name="TaskDefinition" Relationship="KBModel.TaskDefinition_PhaseDefinition_Association" FromRole="PhaseDefinition" ToRole="TaskDefinition" />
+        </EntityType>
+        <EntityType Name="PhaseDefinition_EBM_Association">
+          <Key>
+            <PropertyRef Name="PhaseDefinition_Id" />
+            <PropertyRef Name="EBM_Id" />
+          </Key>
+          <Property Type="Int32" Name="PhaseDefinition_Id" Nullable="false" />
+          <Property Type="Int32" Name="EBM_Id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlanDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Duration" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Objective" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cost" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Criteria" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Version" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" />
+          <NavigationProperty Name="PhaseDefinition" Relationship="KBModel.PhaseDefinition_PlanDefinition_Association" FromRole="PlanDefinition" ToRole="PhaseDefinition" />
+        </EntityType>
+        <EntityType Name="PlanDefinition_EBM_Association">
+          <Key>
+            <PropertyRef Name="PlanDefinition_Id" />
+            <PropertyRef Name="EBM_Id" />
+          </Key>
+          <Property Type="Int32" Name="PlanDefinition_Id" Nullable="false" />
+          <Property Type="Int32" Name="EBM_Id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlanInstance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="State" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CurrentPhase" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PlanDefinition" Relationship="KBModel.PlanInstance_PlanDefinition_Association" FromRole="PlanInstance" ToRole="PlanDefinition" />
+          <NavigationProperty Name="ClinicalProblemInstance" Relationship="KBModel.PlanInstance_ClinicalProblemInstance_Association" FromRole="PlanInstance" ToRole="ClinicalProblemInstance" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="URL" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ReportType" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <NavigationProperty Name="Fact" Relationship="KBModel.Fact_Report_Association" FromRole="Report" ToRole="Fact" />
+          <NavigationProperty Name="Event" Relationship="KBModel.Report_Event_Association" FromRole="Report" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="TaskDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Boolean" Name="Optional" Nullable="false" />
+          <Property Type="Boolean" Name="MultiSelect" Nullable="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodingSystem" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhaseDefinition" Relationship="KBModel.TaskDefinition_PhaseDefinition_Association" FromRole="TaskDefinition" ToRole="PhaseDefinition" />
+          <NavigationProperty Name="MedicalOrderDefinition" Relationship="KBModel.MedicalOrderDefinition_TaskDefinition_Association" FromRole="TaskDefinition" ToRole="MedicalOrderDefinition" />
+        </EntityType>
+        <EntityType Name="TaskDefinition_EBM_Association">
+          <Key>
+            <PropertyRef Name="TaskDefinition_Id" />
+            <PropertyRef Name="EBM_Id" />
+          </Key>
+          <Property Type="Int32" Name="TaskDefinition_Id" Nullable="false" />
+          <Property Type="Int32" Name="EBM_Id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TriggerRule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Version" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PPV" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RuleSet" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AssemblyPath" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ActivityName" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" />
+          <NavigationProperty Name="ClinicalProblemDefinition" Relationship="KBModel.ClinicalProblemDefinition_TriggerRule_Association" FromRole="TriggerRule" ToRole="ClinicalProblemDefinition" />
+        </EntityType>
+        <EntityType Name="TriggerRule_EBM_Association">
+          <Key>
+            <PropertyRef Name="TriggerRule_Id" />
+            <PropertyRef Name="EBM_Id" />
+          </Key>
+          <Property Type="Int32" Name="TriggerRule_Id" Nullable="false" />
+          <Property Type="Int32" Name="EBM_Id" Nullable="false" />
+        </EntityType>
+        <Association Name="Fact_Encounter_Association">
+          <End Type="KBModel.Fact" Role="Fact" Multiplicity="*" />
+          <End Type="KBModel.Encounter" Role="Encounter" Multiplicity="0..1" />
+        </Association>
+        <Association Name="Fact_ChangeRecord_Association">
+          <End Type="KBModel.Fact" Role="Fact" Multiplicity="*" />
+          <End Type="KBModel.ChangeRecord" Role="ChangeRecord" Multiplicity="0..1" />
+        </Association>
+        <Association Name="Fact_Report_Association">
+          <End Type="KBModel.Fact" Role="Fact" Multiplicity="*" />
+          <End Type="KBModel.Report" Role="Report" Multiplicity="0..1" />
+        </Association>
+        <Association Name="Fact_ContextItemDefinition_Association">
+          <End Type="KBModel.Fact" Role="Fact" Multiplicity="*" />
+          <End Type="KBModel.ContextItemDefinition" Role="ContextItemDefinition" Multiplicity="0..1" />
+        </Association>
+        <Association Name="ClinicalProblemDefinition_TriggerRule_Association">
+          <End Type="KBModel.ClinicalProblemDefinition" Role="ClinicalProblemDefinition" Multiplicity="0..1" />
+          <End Type="KBModel.TriggerRule" Role="TriggerRule" Multiplicity="0..1" />
+        </Association>
+        <Association Name="PlanInstance_PlanDefinition_Association">
+          <End Type="KBModel.PlanInstance" Role="PlanInstance" Multiplicity="*" />
+          <End Type="KBModel.PlanDefinition" Role="PlanDefinition" Multiplicity="1" />
+        </Association>
+        <Association Name="ClinicalProblemInstance_ClinicalProblemDefinition_Association">
+          <End Type="KBModel.ClinicalProblemInstance" Role="ClinicalProblemInstance" Multiplicity="*" />
+          <End Type="KBModel.ClinicalProblemDefinition" Role="ClinicalProblemDefinition" Multiplicity="1" />
+        </Association>
+        <Association Name="ClinicalProblemInstance_Encounter_Association">
+          <End Type="KBModel.ClinicalProblemInstance" Role="ClinicalProblemInstance" Multiplicity="*" />
+          <End Type="KBModel.Encounter" Role="Encounter" Multiplicity="0..1" />
+        </Association>
+        <Association Name="Event_Encounter_Association">
+          <End Type="KBModel.Event" Role="Event" Multiplicity="*" />
+          <End Type="KBModel.Encounter" Role="Encounter" Multiplicity="0..1" />
+        </Association>
+        <Association Name="Report_Event_Association">
+          <End Type="KBModel.Report" Role="Report" Multiplicity="*" />
+          <End Type="KBModel.Event" Role="Event" Multiplicity="0..1" />
+        </Association>
+        <Association Name="PhaseDefinition_PlanDefinition_Association">
+          <End Type="KBModel.PhaseDefinition" Role="PhaseDefinition" Multiplicity="*" />
+          <End Type="KBModel.PlanDefinition" Role="PlanDefinition" Multiplicity="0..1" />
+        </Association>
+        <Association Name="TaskDefinition_PhaseDefinition_Association">
+          <End Type="KBModel.TaskDefinition" Role="TaskDefinition" Multiplicity="*" />
+          <End Type="KBModel.PhaseDefinition" Role="PhaseDefinition" Multiplicity="0..1" />
+        </Association>
+        <Association Name="MedicalOrderDefinition_TaskDefinition_Association">
+          <End Type="KBModel.MedicalOrderDefinition" Role="MedicalOrderDefinition" Multiplicity="*" />
+          <End Type="KBModel.TaskDefinition" Role="TaskDefinition" Multiplicity="0..1" />
+        </Association>
+        <Association Name="MedicalOrderInstance_MedicalOrderDefinition_Association">
+          <End Type="KBModel.MedicalOrderInstance" Role="MedicalOrderInstance" Multiplicity="*" />
+          <End Type="KBModel.MedicalOrderDefinition" Role="MedicalOrderDefinition" Multiplicity="0..1" />
+        </Association>
+        <Association Name="MedicalOrderInstance_ClinicalProblemInstance_Association">
+          <End Type="KBModel.MedicalOrderInstance" Role="MedicalOrderInstance" Multiplicity="*" />
+          <End Type="KBModel.ClinicalProblemInstance" Role="ClinicalProblemInstance" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="ClinicalProblemDefinition_ContextItemDefinition_Association">
+          <Key>
+            <PropertyRef Name="ContextItemDefinition_Id" />
+            <PropertyRef Name="ClinicalProblemDefinition_Id" />
+          </Key>
+          <Property Type="Int32" Name="ContextItemDefinition_Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="Int32" Name="ClinicalProblemDefinition_Id" Nullable="false" />
+        </EntityType>
+        <Association Name="PlanInstance_ClinicalProblemInstance_Association">
+          <End Type="KBModel.PlanInstance" Role="PlanInstance" Multiplicity="*" />
+          <End Type="KBModel.ClinicalProblemInstance" Role="ClinicalProblemInstance" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="ClinicalProblemDefinition_PlanDefinition_Association">
+          <Key>
+            <PropertyRef Name="ClinicalProblemDefinition_Id" />
+            <PropertyRef Name="PlanDefinition_Id" />
+          </Key>
+          <Property Type="Int32" Name="ClinicalProblemDefinition_Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="Int32" Name="PlanDefinition_Id" Nullable="false" />
+        </EntityType>
+        <Association Name="ChangeRecord_ClinicalProblemInstance_Association">
+          <End Type="KBModel.ChangeRecord" Role="ChangeRecord" Multiplicity="*" />
+          <End Type="KBModel.ClinicalProblemInstance" Role="ClinicalProblemInstance" Multiplicity="1" />
+        </Association>
+        <Association Name="ClinicalProblemInstance_TriggerRule_Association">
+          <End Type="KBModel.ClinicalProblemInstance" Role="ClinicalProblemInstance" Multiplicity="*" />
+          <End Type="KBModel.TriggerRule" Role="TriggerRule" Multiplicity="0..1" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KBModelStoreContainer" CdmEntityContainer="KBEntities">
+    <EntitySetMapping Name="ChangeRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.ChangeRecord)">
+        <MappingFragment StoreEntitySet="ChangeRecord">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="OldState" ColumnName="OldState" />
+          <ScalarProperty Name="NewState" ColumnName="NewState" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClinicalProblemDefinition">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.ClinicalProblemDefinition)">
+        <MappingFragment StoreEntitySet="ClinicalProblemDefinition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ReferenceURL" ColumnName="ReferenceURL" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodingSystem" ColumnName="CodingSystem" />
+          <ScalarProperty Name="Infectious" ColumnName="Infectious" />
+          <ScalarProperty Name="InputCode" ColumnName="InputCode" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClinicalProblemInstance">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.ClinicalProblemInstance)">
+        <MappingFragment StoreEntitySet="ClinicalProblemInstance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContextItemDefinition">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.ContextItemDefinition)">
+        <MappingFragment StoreEntitySet="ContextItemDefinition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodingSystem" ColumnName="CodingSystem" />
+          <ScalarProperty Name="ReferenceRange" ColumnName="ReferenceRange" />
+          <ScalarProperty Name="UpperBound" ColumnName="UpperBound" />
+          <ScalarProperty Name="LowerBound" ColumnName="LowerBound" />
+          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+          <ScalarProperty Name="InputCode" ColumnName="InputCode" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NavigationPath" ColumnName="NavigationPath" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EBM">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.EBM)">
+        <MappingFragment StoreEntitySet="EBM">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EvidenceLevel" ColumnName="EvidenceLevel" />
+          <ScalarProperty Name="RecommendationClass" ColumnName="RecommendationClass" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Encounter">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.Encounter)">
+        <MappingFragment StoreEntitySet="Encounter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FK_EMR_Encounter_Id" ColumnName="FK_EMR_Encounter_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.Event)">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fact">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.Fact)">
+        <MappingFragment StoreEntitySet="Fact">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumericValue" ColumnName="NumericValue" />
+          <ScalarProperty Name="BooleanValue" ColumnName="BooleanValue" />
+          <ScalarProperty Name="StringValue" ColumnName="StringValue" />
+          <ScalarProperty Name="IsAbnormal" ColumnName="IsAbnormal" />
+          <ScalarProperty Name="Confidence" ColumnName="Confidence" />
+          <ScalarProperty Name="LifeSpan" ColumnName="LifeSpan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicalOrderDefinition">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.MedicalOrderDefinition)">
+        <MappingFragment StoreEntitySet="MedicalOrderDefinition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="AdministrationRoute" ColumnName="AdministrationRoute" />
+          <ScalarProperty Name="TemporalType" ColumnName="TemporalType" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Dosage" ColumnName="Dosage" />
+          <ScalarProperty Name="AdditionalInstruction" ColumnName="AdditionalInstruction" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodingSystem" ColumnName="CodingSystem" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicalOrderDefinition_EBM_Association">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.MedicalOrderDefinition_EBM_Association)">
+        <MappingFragment StoreEntitySet="MedicalOrderDefinition_EBM_Association">
+          <ScalarProperty Name="MedicalOrderDefinition_Id" ColumnName="MedicalOrderDefinition_Id" />
+          <ScalarProperty Name="EBM_Id" ColumnName="EBM_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicalOrderInstance">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.MedicalOrderInstance)">
+        <MappingFragment StoreEntitySet="MedicalOrderInstance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FK_EMR_Order_Id" ColumnName="FK_EMR_Order_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhaseDefinition">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.PhaseDefinition)">
+        <MappingFragment StoreEntitySet="PhaseDefinition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhaseDefinition_EBM_Association">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.PhaseDefinition_EBM_Association)">
+        <MappingFragment StoreEntitySet="PhaseDefinition_EBM_Association">
+          <ScalarProperty Name="PhaseDefinition_Id" ColumnName="PhaseDefinition_Id" />
+          <ScalarProperty Name="EBM_Id" ColumnName="EBM_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanDefinition">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.PlanDefinition)">
+        <MappingFragment StoreEntitySet="PlanDefinition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Objective" ColumnName="Objective" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Criteria" ColumnName="Criteria" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanDefinition_EBM_Association">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.PlanDefinition_EBM_Association)">
+        <MappingFragment StoreEntitySet="PlanDefinition_EBM_Association">
+          <ScalarProperty Name="PlanDefinition_Id" ColumnName="PlanDefinition_Id" />
+          <ScalarProperty Name="EBM_Id" ColumnName="EBM_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanInstance">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.PlanInstance)">
+        <MappingFragment StoreEntitySet="PlanInstance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CurrentPhase" ColumnName="CurrentPhase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Report">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.Report)">
+        <MappingFragment StoreEntitySet="Report">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskDefinition">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.TaskDefinition)">
+        <MappingFragment StoreEntitySet="TaskDefinition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Optional" ColumnName="Optional" />
+          <ScalarProperty Name="MultiSelect" ColumnName="MultiSelect" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodingSystem" ColumnName="CodingSystem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskDefinition_EBM_Association">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.TaskDefinition_EBM_Association)">
+        <MappingFragment StoreEntitySet="TaskDefinition_EBM_Association">
+          <ScalarProperty Name="TaskDefinition_Id" ColumnName="TaskDefinition_Id" />
+          <ScalarProperty Name="EBM_Id" ColumnName="EBM_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TriggerRule">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.TriggerRule)">
+        <MappingFragment StoreEntitySet="TriggerRule">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="PPV" ColumnName="PPV" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RuleSet" ColumnName="RuleSet" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AssemblyPath" ColumnName="AssemblyPath" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TriggerRule_EBM_Association">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.TriggerRule_EBM_Association)">
+        <MappingFragment StoreEntitySet="TriggerRule_EBM_Association">
+          <ScalarProperty Name="TriggerRule_Id" ColumnName="TriggerRule_Id" />
+          <ScalarProperty Name="EBM_Id" ColumnName="EBM_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClinicalProblemDefinition_ContextItemDefinition_AssociationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.ClinicalProblemDefinition_ContextItemDefinition_Association)">
+        <MappingFragment StoreEntitySet="ClinicalProblemDefinition_ContextItemDefinition_AssociationSet">
+          <ScalarProperty Name="ContextItemDefinition_Id" ColumnName="ContextItemDefinition_Id" />
+          <ScalarProperty Name="ClinicalProblemDefinition_Id" ColumnName="ClinicalProblemDefinition_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClinicalProblemDefinition_PlanDefinition_AssociationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(KBModel.ClinicalProblemDefinition_PlanDefinition_Association)">
+        <MappingFragment StoreEntitySet="ClinicalProblemDefinition_PlanDefinition_AssociationSet">
+          <ScalarProperty Name="ClinicalProblemDefinition_Id" ColumnName="ClinicalProblemDefinition_Id" />
+          <ScalarProperty Name="PlanDefinition_Id" ColumnName="PlanDefinition_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Fact_Encounter_Association" TypeName="KBModel.Fact_Encounter_Association" StoreEntitySet="Fact">
+      <EndProperty Name="Encounter">
+        <ScalarProperty Name="Id" ColumnName="Encounter_Id" />
+      </EndProperty>
+      <EndProperty Name="Fact">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Encounter_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Fact_ChangeRecord_Association" TypeName="KBModel.Fact_ChangeRecord_Association" StoreEntitySet="Fact">
+      <EndProperty Name="ChangeRecord">
+        <ScalarProperty Name="Id" ColumnName="ChangeRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="Fact">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ChangeRecord_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Fact_Report_Association" TypeName="KBModel.Fact_Report_Association" StoreEntitySet="Fact">
+      <EndProperty Name="Report">
+        <ScalarProperty Name="Id" ColumnName="Report_Id" />
+      </EndProperty>
+      <EndProperty Name="Fact">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Report_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Fact_ContextItemDefinition_Association" TypeName="KBModel.Fact_ContextItemDefinition_Association" StoreEntitySet="Fact">
+      <EndProperty Name="ContextItemDefinition">
+        <ScalarProperty Name="Id" ColumnName="ContextItemDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="Fact">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ContextItemDefinition_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClinicalProblemDefinition_TriggerRule_Association" TypeName="KBModel.ClinicalProblemDefinition_TriggerRule_Association" StoreEntitySet="TriggerRule">
+      <EndProperty Name="ClinicalProblemDefinition">
+        <ScalarProperty Name="Id" ColumnName="ClinicalProblemDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="TriggerRule">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ClinicalProblemDefinition_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlanInstance_PlanDefinition_Association" TypeName="KBModel.PlanInstance_PlanDefinition_Association" StoreEntitySet="PlanInstance">
+      <EndProperty Name="PlanDefinition">
+        <ScalarProperty Name="Id" ColumnName="PlanDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="PlanInstance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClinicalProblemInstance_ClinicalProblemDefinition_Association" TypeName="KBModel.ClinicalProblemInstance_ClinicalProblemDefinition_Association" StoreEntitySet="ClinicalProblemInstance">
+      <EndProperty Name="ClinicalProblemDefinition">
+        <ScalarProperty Name="Id" ColumnName="ClinicalProblemDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="ClinicalProblemInstance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClinicalProblemInstance_Encounter_Association" TypeName="KBModel.ClinicalProblemInstance_Encounter_Association" StoreEntitySet="ClinicalProblemInstance">
+      <EndProperty Name="Encounter">
+        <ScalarProperty Name="Id" ColumnName="Encounter_Id" />
+      </EndProperty>
+      <EndProperty Name="ClinicalProblemInstance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Encounter_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Event_Encounter_Association" TypeName="KBModel.Event_Encounter_Association" StoreEntitySet="Event">
+      <EndProperty Name="Encounter">
+        <ScalarProperty Name="Id" ColumnName="Encounter_Id" />
+      </EndProperty>
+      <EndProperty Name="Event">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Encounter_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Report_Event_Association" TypeName="KBModel.Report_Event_Association" StoreEntitySet="Report">
+      <EndProperty Name="Event">
+        <ScalarProperty Name="Id" ColumnName="Event_Id" />
+      </EndProperty>
+      <EndProperty Name="Report">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Event_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PhaseDefinition_PlanDefinition_Association" TypeName="KBModel.PhaseDefinition_PlanDefinition_Association" StoreEntitySet="PhaseDefinition">
+      <EndProperty Name="PlanDefinition">
+        <ScalarProperty Name="Id" ColumnName="PlanDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="PhaseDefinition">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PlanDefinition_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TaskDefinition_PhaseDefinition_Association" TypeName="KBModel.TaskDefinition_PhaseDefinition_Association" StoreEntitySet="TaskDefinition">
+      <EndProperty Name="PhaseDefinition">
+        <ScalarProperty Name="Id" ColumnName="PhaseDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="TaskDefinition">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PhaseDefinition_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MedicalOrderDefinition_TaskDefinition_Association" TypeName="KBModel.MedicalOrderDefinition_TaskDefinition_Association" StoreEntitySet="MedicalOrderDefinition">
+      <EndProperty Name="TaskDefinition">
+        <ScalarProperty Name="Id" ColumnName="TaskDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="MedicalOrderDefinition">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TaskDefinition_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MedicalOrderInstance_MedicalOrderDefinition_Association" TypeName="KBModel.MedicalOrderInstance_MedicalOrderDefinition_Association" StoreEntitySet="MedicalOrderInstance">
+      <EndProperty Name="MedicalOrderDefinition">
+        <ScalarProperty Name="Id" ColumnName="MedicalOrderDefinition_Id" />
+      </EndProperty>
+      <EndProperty Name="MedicalOrderInstance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="MedicalOrderDefinition_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MedicalOrderInstance_ClinicalProblemInstance_Association" TypeName="KBModel.MedicalOrderInstance_ClinicalProblemInstance_Association" StoreEntitySet="MedicalOrderInstance">
+      <EndProperty Name="ClinicalProblemInstance">
+        <ScalarProperty Name="Id" ColumnName="ClinicalProblemInstance_Id" />
+      </EndProperty>
+      <EndProperty Name="MedicalOrderInstance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ClinicalProblemInstance_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlanInstance_ClinicalProblemInstance_Association" TypeName="KBModel.PlanInstance_ClinicalProblemInstance_Association" StoreEntitySet="PlanInstance">
+      <EndProperty Name="ClinicalProblemInstance">
+        <ScalarProperty Name="Id" ColumnName="ClinicalProblemInstance_Id" />
+      </EndProperty>
+      <EndProperty Name="PlanInstance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ClinicalProblemInstance_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ChangeRecord_ClinicalProblemInstance_Association" TypeName="KBModel.ChangeRecord_ClinicalProblemInstance_Association" StoreEntitySet="ChangeRecord">
+      <EndProperty Name="ClinicalProblemInstance">
+        <ScalarProperty Name="Id" ColumnName="ClinicalProblemInstance_Id" />
+      </EndProperty>
+      <EndProperty Name="ChangeRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClinicalProblemInstance_TriggerRule_Association" TypeName="KBModel.ClinicalProblemInstance_TriggerRule_Association" StoreEntitySet="ClinicalProblemInstance">
+      <EndProperty Name="TriggerRule">
+        <ScalarProperty Name="Id" ColumnName="TriggerRule_Id" />
+      </EndProperty>
+      <EndProperty Name="ClinicalProblemInstance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TriggerRule_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="KB" ZoomLevel="95">
+        <EntityTypeShape EntityType="KBModel.ChangeRecord" Width="1.875" PointX="5.75" PointY="9.5" Height="2.2496956380208335" />
+        <EntityTypeShape EntityType="KBModel.ClinicalProblemDefinition" Width="2.125" PointX="6.625" PointY="2.375" Height="3.2357796223958326" />
+        <EntityTypeShape EntityType="KBModel.ClinicalProblemInstance" Width="2.25" PointX="6.375" PointY="6.25" Height="2.4140429687499996" />
+        <EntityTypeShape EntityType="KBModel.ContextItemDefinition" Width="2" PointX="4.25" PointY="2.375" Height="3.8931689453124996" />
+        <EntityTypeShape EntityType="KBModel.EBM" Width="1.5" PointX="13.875" PointY="1.125" Height="1.9210009765625102" />
+        <EntityTypeShape EntityType="KBModel.Encounter" Width="1.5" PointX="1.375" PointY="3.625" Height="1.7566536458333335" />
+        <EntityTypeShape EntityType="KBModel.Event" Width="1.5" PointX="1.375" PointY="6" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="KBModel.Fact" Width="1.5" PointX="3.5" PointY="7.875" Height="2.7427376302083339" />
+        <EntityTypeShape EntityType="KBModel.MedicalOrderDefinition" Width="2" PointX="15.125" PointY="13" Height="2.9070849609375031" />
+        <EntityTypeShape EntityType="KBModel.MedicalOrderDefinition_EBM_Association" Width="3" PointX="15.375" PointY="6.875" Height="1.2636116536458335" />
+        <EntityTypeShape EntityType="KBModel.MedicalOrderInstance" Width="2.625" PointX="11.875" PointY="13.5" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="KBModel.PhaseDefinition" Width="1.625" PointX="12.75" PointY="7.875" Height="1.9210009765624996" />
+        <EntityTypeShape EntityType="KBModel.PhaseDefinition_EBM_Association" Width="3" PointX="15.375" PointY="4.125" Height="1.2636116536458246" />
+        <EntityTypeShape EntityType="KBModel.PlanDefinition" Width="1.875" PointX="11.5" PointY="3.75" Height="2.7427376302083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="KBModel.PlanDefinition_EBM_Association" Width="3" PointX="15.375" PointY="2.75" Height="1.2636116536458246" />
+        <EntityTypeShape EntityType="KBModel.PlanInstance" Width="1.875" PointX="9.375" PointY="8.625" Height="1.7566536458333335" />
+        <EntityTypeShape EntityType="KBModel.Report" Width="1.5" PointX="1.375" PointY="8.5" Height="1.9210009765624996" />
+        <EntityTypeShape EntityType="KBModel.TaskDefinition" Width="1.625" PointX="14" PointY="10.25" Height="2.2496956380208335" />
+        <EntityTypeShape EntityType="KBModel.TaskDefinition_EBM_Association" Width="3" PointX="15.375" PointY="5.5" Height="1.2636116536458246" />
+        <EntityTypeShape EntityType="KBModel.TriggerRule" Width="2.125" PointX="9.25" PointY="5.75" Height="2.5783902994791656" />
+        <EntityTypeShape EntityType="KBModel.TriggerRule_EBM_Association" Width="2.375" PointX="15.5" PointY="1.125" Height="1.2636116536458246" />
+        <AssociationConnector Association="KBModel.Fact_Encounter_Association">
+          <ConnectorPoint PointX="3.9135958890818712" PointY="7.875" />
+          <ConnectorPoint PointX="3.9135958890818712" PointY="6.5181689453125" />
+          <ConnectorPoint PointX="4" PointY="6.5181689453125" />
+          <ConnectorPoint PointX="4" PointY="4.5033268229166667" />
+          <ConnectorPoint PointX="2.875" PointY="4.5033268229166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.Fact_ChangeRecord_Association">
+          <ConnectorPoint PointX="4.654391556327484" PointY="7.875" />
+          <ConnectorPoint PointX="4.654391556327484" PointY="7.625" />
+          <ConnectorPoint PointX="5.25" PointY="7.625" />
+          <ConnectorPoint PointX="5.25" PointY="10.624847819010416" />
+          <ConnectorPoint PointX="5.75" PointY="10.624847819010416" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.Fact_Report_Association">
+          <ConnectorPoint PointX="3.5" PointY="9.46050048828125" />
+          <ConnectorPoint PointX="2.875" PointY="9.46050048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.Fact_ContextItemDefinition_Association">
+          <ConnectorPoint PointX="4.389695778163742" PointY="7.875" />
+          <ConnectorPoint PointX="4.389695778163742" PointY="6.2681689453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.ClinicalProblemDefinition_TriggerRule_Association">
+          <ConnectorPoint PointX="8.75" PointY="5.4464322916666656" />
+          <ConnectorPoint PointX="9.25" PointY="5.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.PlanInstance_PlanDefinition_Association">
+          <ConnectorPoint PointX="11.25" PointY="10.120077311197917" />
+          <ConnectorPoint PointX="12.09375" PointY="10.120077311197917" />
+          <ConnectorPoint PointX="12.09375" PointY="6.4927376302083317" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.ClinicalProblemInstance_ClinicalProblemDefinition_Association">
+          <ConnectorPoint PointX="7.625" PointY="6.25" />
+          <ConnectorPoint PointX="7.625" PointY="5.4464322916666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.ClinicalProblemInstance_Encounter_Association">
+          <ConnectorPoint PointX="6.375" PointY="7.07158447265625" />
+          <ConnectorPoint PointX="4.473029111497075" PointY="7.0715844726562489" />
+          <ConnectorPoint PointX="4.306362444830409" PointY="7.07158447265625" />
+          <ConnectorPoint PointX="3.9969292224152047" PointY="7.0715844726562489" />
+          <ConnectorPoint PointX="3.8302625557485377" PointY="7.07158447265625" />
+          <ConnectorPoint PointX="3.125" PointY="7.07158447265625" />
+          <ConnectorPoint PointX="3.125" PointY="5.75" />
+          <ConnectorPoint PointX="2.6458333333333335" PointY="5.7499999999999991" />
+          <ConnectorPoint PointX="2.4791666666666665" PointY="5.75" />
+          <ConnectorPoint PointX="2.125" PointY="5.75" />
+          <ConnectorPoint PointX="2.125" PointY="5.3816536458333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.Event_Encounter_Association">
+          <ConnectorPoint PointX="2.5625" PointY="6" />
+          <ConnectorPoint PointX="2.5625" PointY="5.3816536458333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.Report_Event_Association">
+          <ConnectorPoint PointX="2.125" PointY="8.5" />
+          <ConnectorPoint PointX="2.125" PointY="8.0853483072916674" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.PhaseDefinition_PlanDefinition_Association">
+          <ConnectorPoint PointX="13.0625" PointY="7.875" />
+          <ConnectorPoint PointX="13.0625" PointY="6.4927376302083317" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.TaskDefinition_PhaseDefinition_Association">
+          <ConnectorPoint PointX="14.1875" PointY="10.25" />
+          <ConnectorPoint PointX="14.1875" PointY="9.7960009765625" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.MedicalOrderDefinition_TaskDefinition_Association">
+          <ConnectorPoint PointX="15.375" PointY="13" />
+          <ConnectorPoint PointX="15.375" PointY="12.499695638020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.MedicalOrderInstance_MedicalOrderDefinition_Association">
+          <ConnectorPoint PointX="14.5" PointY="14.296153157552084" />
+          <ConnectorPoint PointX="15.125" PointY="14.296153157552084" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.MedicalOrderInstance_ClinicalProblemInstance_Association">
+          <ConnectorPoint PointX="11.875" PointY="14.296153157552084" />
+          <ConnectorPoint PointX="8.15625" PointY="14.296153157552084" />
+          <ConnectorPoint PointX="8.15625" PointY="8.66404296875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="KBModel.ClinicalProblemDefinition_ContextItemDefinition_Association" Width="4.5" PointX="4.25" PointY="1" Height="1.2636116536458246" />
+        <AssociationConnector Association="KBModel.PlanInstance_ClinicalProblemInstance_Association">
+          <ConnectorPoint PointX="9.375" PointY="9.082023984375" />
+          <ConnectorPoint PointX="8.4218775" PointY="9.082023984375" />
+          <ConnectorPoint PointX="8.4218775" PointY="8.66404296875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="KBModel.ClinicalProblemDefinition_PlanDefinition_Association" Width="4.5" PointX="8.875" PointY="2.375" Height="1.2636116536458326" />
+        <AssociationConnector Association="KBModel.ChangeRecord_ClinicalProblemInstance_Association">
+          <ConnectorPoint PointX="7" PointY="9.5" />
+          <ConnectorPoint PointX="7" PointY="8.66404296875" />
+        </AssociationConnector>
+        <AssociationConnector Association="KBModel.ClinicalProblemInstance_TriggerRule_Association">
+          <ConnectorPoint PointX="8.625" PointY="7.2891951497395828" />
+          <ConnectorPoint PointX="9.25" PointY="7.2891951497395828" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
