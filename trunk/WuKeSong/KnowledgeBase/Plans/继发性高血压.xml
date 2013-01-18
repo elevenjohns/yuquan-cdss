@@ -1,0 +1,9 @@
+﻿<Plan xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/YuQuan.Models">
+    <Cost>40000-60000</Cost>
+    <Criteria>第一诊断是继发性高血压</Criteria>
+    <Duration>13~15天</Duration>
+    <Id>0</Id>
+    <Name>继发性高血压</Name>
+    <Objective>Objective</Objective>
+    <Phase />
+</Plan>

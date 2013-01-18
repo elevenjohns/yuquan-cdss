@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Questionnaire.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="QuestionnaireStoreContainer">
+    <EntitySet Name="ConceptSet" EntityType="Questionnaire.Store.ConceptSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AnswerSet" EntityType="Questionnaire.Store.AnswerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChoiceSet" EntityType="Questionnaire.Store.ChoiceSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuestionnaireSet" EntityType="Questionnaire.Store.QuestionnaireSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FeedbackSet" EntityType="Questionnaire.Store.FeedbackSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubjectSet" EntityType="Questionnaire.Store.SubjectSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConceptSet_Question" EntityType="Questionnaire.Store.ConceptSet_Question" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConceptSet_Option" EntityType="Questionnaire.Store.ConceptSet_Option" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="QuestionOption" Association="Questionnaire.Store.QuestionOption">
+      <End Role="Question" EntitySet="ConceptSet_Question" />
+      <End Role="Option" EntitySet="ConceptSet_Option" />
+    </AssociationSet>
+    <AssociationSet Name="AnswerQuestion" Association="Questionnaire.Store.AnswerQuestion">
+      <End Role="Answer" EntitySet="AnswerSet" />
+      <End Role="Question" EntitySet="ConceptSet_Question" />
+    </AssociationSet>
+    <AssociationSet Name="AnswerChoice" Association="Questionnaire.Store.AnswerChoice">
+      <End Role="Answer" EntitySet="AnswerSet" />
+      <End Role="Choice" EntitySet="ChoiceSet" />
+    </AssociationSet>
+    <AssociationSet Name="ChoiceOption" Association="Questionnaire.Store.ChoiceOption">
+      <End Role="Choice" EntitySet="ChoiceSet" />
+      <End Role="Option" EntitySet="ConceptSet_Option" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionnaireQuestion" Association="Questionnaire.Store.QuestionnaireQuestion">
+      <End Role="Questionnaire" EntitySet="QuestionnaireSet" />
+      <End Role="Question" EntitySet="ConceptSet_Question" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionnaireFeedback" Association="Questionnaire.Store.QuestionnaireFeedback">
+      <End Role="Questionnaire" EntitySet="QuestionnaireSet" />
+      <End Role="Feedback" EntitySet="FeedbackSet" />
+    </AssociationSet>
+    <AssociationSet Name="FeedbackAnswer" Association="Questionnaire.Store.FeedbackAnswer">
+      <End Role="Feedback" EntitySet="FeedbackSet" />
+      <End Role="Answer" EntitySet="AnswerSet" />
+    </AssociationSet>
+    <AssociationSet Name="FeedbackSubject" Association="Questionnaire.Store.FeedbackSubject">
+      <End Role="Feedback" EntitySet="FeedbackSet" />
+      <End Role="Subject" EntitySet="SubjectSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_inherits_Concept" Association="Questionnaire.Store.FK_Question_inherits_Concept">
+      <End Role="Concept" EntitySet="ConceptSet" />
+      <End Role="Question" EntitySet="ConceptSet_Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Option_inherits_Concept" Association="Questionnaire.Store.FK_Option_inherits_Concept">
+      <End Role="Concept" EntitySet="ConceptSet" />
+      <End Role="Option" EntitySet="ConceptSet_Option" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ConceptSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodingSystem" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Literal" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AnswerSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FreeText" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Question_Id" Type="int" Nullable="false" />
+    <Property Name="Feedback_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ChoiceSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsSelected" Type="bit" Nullable="false" />
+    <Property Name="Answer_Id" Type="int" Nullable="true" />
+    <Property Name="Option_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuestionnaireSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Version" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="FeedbackSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Questionnaire_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Age" Type="int" Nullable="true" />
+    <Property Name="Role" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Specialty" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Dept" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Feedback_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ConceptSet_Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Questionnaire_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ConceptSet_Option">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Question_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="QuestionOption">
+    <End Role="Question" Type="Questionnaire.Store.ConceptSet_Question" Multiplicity="0..1" />
+    <End Role="Option" Type="Questionnaire.Store.ConceptSet_Option" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Option">
+        <PropertyRef Name="Question_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AnswerQuestion">
+    <End Role="Answer" Type="Questionnaire.Store.AnswerSet" Multiplicity="*" />
+    <End Role="Question" Type="Questionnaire.Store.ConceptSet_Question" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="Question_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AnswerChoice">
+    <End Role="Answer" Type="Questionnaire.Store.AnswerSet" Multiplicity="0..1" />
+    <End Role="Choice" Type="Questionnaire.Store.ChoiceSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Choice">
+        <PropertyRef Name="Answer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChoiceOption">
+    <End Role="Choice" Type="Questionnaire.Store.ChoiceSet" Multiplicity="*" />
+    <End Role="Option" Type="Questionnaire.Store.ConceptSet_Option" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Option">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Choice">
+        <PropertyRef Name="Option_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuestionnaireQuestion">
+    <End Role="Questionnaire" Type="Questionnaire.Store.QuestionnaireSet" Multiplicity="0..1" />
+    <End Role="Question" Type="Questionnaire.Store.ConceptSet_Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questionnaire">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="Questionnaire_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuestionnaireFeedback">
+    <End Role="Questionnaire" Type="Questionnaire.Store.QuestionnaireSet" Multiplicity="1" />
+    <End Role="Feedback" Type="Questionnaire.Store.FeedbackSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questionnaire">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="Questionnaire_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FeedbackAnswer">
+    <End Role="Feedback" Type="Questionnaire.Store.FeedbackSet" Multiplicity="0..1" />
+    <End Role="Answer" Type="Questionnaire.Store.AnswerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feedback">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="Feedback_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FeedbackSubject">
+    <End Role="Feedback" Type="Questionnaire.Store.FeedbackSet" Multiplicity="0..1" />
+    <End Role="Subject" Type="Questionnaire.Store.SubjectSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feedback">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="Feedback_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_inherits_Concept">
+    <End Role="Concept" Type="Questionnaire.Store.ConceptSet" Multiplicity="1" />
+    <End Role="Question" Type="Questionnaire.Store.ConceptSet_Question" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Concept">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Option_inherits_Concept">
+    <End Role="Concept" Type="Questionnaire.Store.ConceptSet" Multiplicity="1" />
+    <End Role="Option" Type="Questionnaire.Store.ConceptSet_Option" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Concept">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Option">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Questionnaire" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="QuestionnaireContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConceptSet" EntityType="Questionnaire.Concept" />
+          <EntitySet Name="AnswerSet" EntityType="Questionnaire.Answer" />
+          <EntitySet Name="ChoiceSet" EntityType="Questionnaire.Choice" />
+          <EntitySet Name="QuestionnaireSet" EntityType="Questionnaire.Questionnaire" />
+          <EntitySet Name="FeedbackSet" EntityType="Questionnaire.Feedback" />
+          <EntitySet Name="SubjectSet" EntityType="Questionnaire.Subject" />
+          <AssociationSet Name="QuestionOption" Association="Questionnaire.QuestionOption">
+            <End Role="Question" EntitySet="ConceptSet" />
+            <End Role="Option" EntitySet="ConceptSet" />
+          </AssociationSet>
+          <AssociationSet Name="AnswerQuestion" Association="Questionnaire.AnswerQuestion">
+            <End Role="Answer" EntitySet="AnswerSet" />
+            <End Role="Question" EntitySet="ConceptSet" />
+          </AssociationSet>
+          <AssociationSet Name="AnswerChoice" Association="Questionnaire.AnswerChoice">
+            <End Role="Answer" EntitySet="AnswerSet" />
+            <End Role="Choice" EntitySet="ChoiceSet" />
+          </AssociationSet>
+          <AssociationSet Name="ChoiceOption" Association="Questionnaire.ChoiceOption">
+            <End Role="Choice" EntitySet="ChoiceSet" />
+            <End Role="Option" EntitySet="ConceptSet" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionnaireQuestion" Association="Questionnaire.QuestionnaireQuestion">
+            <End Role="Questionnaire" EntitySet="QuestionnaireSet" />
+            <End Role="Question" EntitySet="ConceptSet" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionnaireFeedback" Association="Questionnaire.QuestionnaireFeedback">
+            <End Role="Questionnaire" EntitySet="QuestionnaireSet" />
+            <End Role="Feedback" EntitySet="FeedbackSet" />
+          </AssociationSet>
+          <AssociationSet Name="FeedbackAnswer" Association="Questionnaire.FeedbackAnswer">
+            <End Role="Feedback" EntitySet="FeedbackSet" />
+            <End Role="Answer" EntitySet="AnswerSet" />
+          </AssociationSet>
+          <AssociationSet Name="FeedbackSubject" Association="Questionnaire.FeedbackSubject">
+            <End Role="Feedback" EntitySet="FeedbackSet" />
+            <End Role="Subject" EntitySet="SubjectSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Concept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Code" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="CodingSystem" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="Literal" Nullable="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Question" BaseType="Questionnaire.Concept">
+          <NavigationProperty Name="Option" Relationship="Questionnaire.QuestionOption" FromRole="Question" ToRole="Option" />
+          <NavigationProperty Name="Answer" Relationship="Questionnaire.AnswerQuestion" FromRole="Question" ToRole="Answer" />
+          <NavigationProperty Name="Questionnaire" Relationship="Questionnaire.QuestionnaireQuestion" FromRole="Question" ToRole="Questionnaire" />
+        </EntityType>
+        <EntityType Name="Option" BaseType="Questionnaire.Concept">
+          <NavigationProperty Name="Question" Relationship="Questionnaire.QuestionOption" FromRole="Option" ToRole="Question" />
+          <NavigationProperty Name="Choice" Relationship="Questionnaire.ChoiceOption" FromRole="Option" ToRole="Choice" />
+        </EntityType>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Question" Relationship="Questionnaire.AnswerQuestion" FromRole="Answer" ToRole="Question" />
+          <NavigationProperty Name="Choice" Relationship="Questionnaire.AnswerChoice" FromRole="Answer" ToRole="Choice" />
+          <NavigationProperty Name="Feedback" Relationship="Questionnaire.FeedbackAnswer" FromRole="Answer" ToRole="Feedback" />
+          <Property Type="String" Name="FreeText" Nullable="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Choice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="IsSelected" Nullable="false" />
+          <NavigationProperty Name="Answer" Relationship="Questionnaire.AnswerChoice" FromRole="Choice" ToRole="Answer" />
+          <NavigationProperty Name="Option" Relationship="Questionnaire.ChoiceOption" FromRole="Choice" ToRole="Option" />
+        </EntityType>
+        <EntityType Name="Questionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Question" Relationship="Questionnaire.QuestionnaireQuestion" FromRole="Questionnaire" ToRole="Question" />
+          <Property Type="String" Name="Name" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="Version" Nullable="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Questionnaire" Relationship="Questionnaire.QuestionnaireFeedback" FromRole="Feedback" ToRole="Questionnaire" />
+          <NavigationProperty Name="Answer" Relationship="Questionnaire.FeedbackAnswer" FromRole="Feedback" ToRole="Answer" />
+          <NavigationProperty Name="Subject" Relationship="Questionnaire.FeedbackSubject" FromRole="Feedback" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="true" Unicode="true" />
+          <Property Type="Int32" Name="Age" Nullable="true" />
+          <Property Type="String" Name="Role" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="Specialty" Nullable="true" Unicode="true" />
+          <Property Type="String" Name="Dept" Nullable="true" Unicode="true" />
+          <NavigationProperty Name="Feedback" Relationship="Questionnaire.FeedbackSubject" FromRole="Subject" ToRole="Feedback" />
+        </EntityType>
+        <Association Name="QuestionOption">
+          <End Type="Questionnaire.Question" Role="Question" Multiplicity="0..1" />
+          <End Type="Questionnaire.Option" Role="Option" Multiplicity="*" />
+        </Association>
+        <Association Name="AnswerQuestion">
+          <End Type="Questionnaire.Answer" Role="Answer" Multiplicity="0..1" />
+          <End Type="Questionnaire.Question" Role="Question" Multiplicity="1" />
+        </Association>
+        <Association Name="AnswerChoice">
+          <End Type="Questionnaire.Answer" Role="Answer" Multiplicity="0..1" />
+          <End Type="Questionnaire.Choice" Role="Choice" Multiplicity="*" />
+        </Association>
+        <Association Name="ChoiceOption">
+          <End Type="Questionnaire.Choice" Role="Choice" Multiplicity="*" />
+          <End Type="Questionnaire.Option" Role="Option" Multiplicity="1" />
+        </Association>
+        <Association Name="QuestionnaireQuestion">
+          <End Type="Questionnaire.Questionnaire" Role="Questionnaire" Multiplicity="0..1" />
+          <End Type="Questionnaire.Question" Role="Question" Multiplicity="*" />
+        </Association>
+        <Association Name="QuestionnaireFeedback">
+          <End Type="Questionnaire.Questionnaire" Role="Questionnaire" Multiplicity="1" />
+          <End Type="Questionnaire.Feedback" Role="Feedback" Multiplicity="*" />
+        </Association>
+        <Association Name="FeedbackAnswer">
+          <End Type="Questionnaire.Feedback" Role="Feedback" Multiplicity="0..1" />
+          <End Type="Questionnaire.Answer" Role="Answer" Multiplicity="*" />
+        </Association>
+        <Association Name="FeedbackSubject">
+          <End Type="Questionnaire.Feedback" Role="Feedback" Multiplicity="0..1" />
+          <End Type="Questionnaire.Subject" Role="Subject" Multiplicity="0..1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuestionnaireStoreContainer" CdmEntityContainer="QuestionnaireContainer">
+    <EntitySetMapping Name="ConceptSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Concept)">
+        <MappingFragment StoreEntitySet="ConceptSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodingSystem" ColumnName="CodingSystem" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Literal" ColumnName="Literal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Question)">
+        <MappingFragment StoreEntitySet="ConceptSet_Question">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Option)">
+        <MappingFragment StoreEntitySet="ConceptSet_Option">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Answer)">
+        <MappingFragment StoreEntitySet="AnswerSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FreeText" ColumnName="FreeText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChoiceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Choice)">
+        <MappingFragment StoreEntitySet="ChoiceSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionnaireSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Questionnaire)">
+        <MappingFragment StoreEntitySet="QuestionnaireSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Feedback)">
+        <MappingFragment StoreEntitySet="FeedbackSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Questionnaire.Subject)">
+        <MappingFragment StoreEntitySet="SubjectSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="QuestionOption" TypeName="Questionnaire.QuestionOption" StoreEntitySet="ConceptSet_Option">
+      <EndProperty Name="Question">
+        <ScalarProperty Name="Id" ColumnName="Question_Id" />
+      </EndProperty>
+      <EndProperty Name="Option">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Question_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AnswerQuestion" TypeName="Questionnaire.AnswerQuestion" StoreEntitySet="AnswerSet">
+      <EndProperty Name="Question">
+        <ScalarProperty Name="Id" ColumnName="Question_Id" />
+      </EndProperty>
+      <EndProperty Name="Answer">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AnswerChoice" TypeName="Questionnaire.AnswerChoice" StoreEntitySet="ChoiceSet">
+      <EndProperty Name="Answer">
+        <ScalarProperty Name="Id" ColumnName="Answer_Id" />
+      </EndProperty>
+      <EndProperty Name="Choice">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Answer_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ChoiceOption" TypeName="Questionnaire.ChoiceOption" StoreEntitySet="ChoiceSet">
+      <EndProperty Name="Option">
+        <ScalarProperty Name="Id" ColumnName="Option_Id" />
+      </EndProperty>
+      <EndProperty Name="Choice">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="QuestionnaireQuestion" TypeName="Questionnaire.QuestionnaireQuestion" StoreEntitySet="ConceptSet_Question">
+      <EndProperty Name="Questionnaire">
+        <ScalarProperty Name="Id" ColumnName="Questionnaire_Id" />
+      </EndProperty>
+      <EndProperty Name="Question">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Questionnaire_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="QuestionnaireFeedback" TypeName="Questionnaire.QuestionnaireFeedback" StoreEntitySet="FeedbackSet">
+      <EndProperty Name="Questionnaire">
+        <ScalarProperty Name="Id" ColumnName="Questionnaire_Id" />
+      </EndProperty>
+      <EndProperty Name="Feedback">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FeedbackAnswer" TypeName="Questionnaire.FeedbackAnswer" StoreEntitySet="AnswerSet">
+      <EndProperty Name="Feedback">
+        <ScalarProperty Name="Id" ColumnName="Feedback_Id" />
+      </EndProperty>
+      <EndProperty Name="Answer">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Feedback_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FeedbackSubject" TypeName="Questionnaire.FeedbackSubject" StoreEntitySet="SubjectSet">
+      <EndProperty Name="Feedback">
+        <ScalarProperty Name="Id" ColumnName="Feedback_Id" />
+      </EndProperty>
+      <EndProperty Name="Subject">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Feedback_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Questionnaire" ZoomLevel="88" >
+        <EntityTypeShape EntityType="Questionnaire.Concept" Width="1.5" PointX="0.5" PointY="7.625" Height="1.7566536458333326" />
+        <EntityTypeShape EntityType="Questionnaire.Question" Width="1.5" PointX="3" PointY="6.5" Height="1.4279589843749996" />
+        <InheritanceConnector EntityType="Questionnaire.Question" >
+          <ConnectorPoint PointX="2" PointY="7.7764794921875" />
+          <ConnectorPoint PointX="3" PointY="7.7764794921875" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="Questionnaire.Option" Width="1.5" PointX="2.875" PointY="9" Height="1.2636116536458317" />
+        <InheritanceConnector EntityType="Questionnaire.Option" >
+          <ConnectorPoint PointX="2" PointY="9.1908268229166659" />
+          <ConnectorPoint PointX="2.875" PointY="9.1908268229166659" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="Questionnaire.Answer" Width="1.5" PointX="5.75" PointY="6.375" Height="1.7566536458333335" />
+        <EntityTypeShape EntityType="Questionnaire.Choice" Width="1.5" PointX="5.75" PointY="8.75" Height="1.5923063151041657" />
+        <EntityTypeShape EntityType="Questionnaire.Questionnaire" Width="1.5" PointX="3" PointY="4.5" Height="1.5923063151041665" />
+        <EntityTypeShape EntityType="Questionnaire.Feedback" Width="1.5" PointX="5.625" PointY="4.25" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="Questionnaire.Subject" Width="1.5" PointX="8.125" PointY="5.875" Height="2.2496956380208317" />
+        <AssociationConnector Association="Questionnaire.QuestionOption" >
+          <ConnectorPoint PointX="3.6875" PointY="7.927958984375" />
+          <ConnectorPoint PointX="3.6875" PointY="9" />
+        </AssociationConnector>
+        <AssociationConnector Association="Questionnaire.AnswerQuestion" >
+          <ConnectorPoint PointX="5.75" PointY="7.2139794921875" />
+          <ConnectorPoint PointX="4.5" PointY="7.2139794921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Questionnaire.AnswerChoice" >
+          <ConnectorPoint PointX="6.5" PointY="8.1316536458333335" />
+          <ConnectorPoint PointX="6.5" PointY="8.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="Questionnaire.ChoiceOption" >
+          <ConnectorPoint PointX="5.75" PointY="9.6318058268229159" />
+          <ConnectorPoint PointX="4.375" PointY="9.6318058268229159" />
+        </AssociationConnector>
+        <AssociationConnector Association="Questionnaire.QuestionnaireQuestion" >
+          <ConnectorPoint PointX="3.75" PointY="6.0923063151041665" />
+          <ConnectorPoint PointX="3.75" PointY="6.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="Questionnaire.QuestionnaireFeedback" >
+          <ConnectorPoint PointX="4.5" PointY="5.1711531575520837" />
+          <ConnectorPoint PointX="5.625" PointY="5.1711531575520837" />
+        </AssociationConnector>
+        <AssociationConnector Association="Questionnaire.FeedbackAnswer" >
+          <ConnectorPoint PointX="6.4375" PointY="5.8423063151041674" />
+          <ConnectorPoint PointX="6.4375" PointY="6.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Questionnaire.FeedbackSubject" >
+          <ConnectorPoint PointX="7.125" PointY="5.0461531575520837" />
+          <ConnectorPoint PointX="8.875" PointY="5.0461531575520837" />
+          <ConnectorPoint PointX="8.875" PointY="5.875" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

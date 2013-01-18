@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<div>
+    <h3>You are inside main area. To navigate to some other area please click on the following links</h3>
+    @Html.ActionLink("Main Area", "Index", "Home", new { area = "" }, null)
+    <br /><br />
+    @Html.ActionLink("Music Hall", "Index", "Home", new{ area = "Music" }, null)
+</div>

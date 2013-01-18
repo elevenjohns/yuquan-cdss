@@ -1,0 +1,17 @@
+﻿Add New Item "ADO.Net Entity Data Model"
+
+Add Entities and Associations in the designer
+
+In "Model Browser" windows, right click "Generate Database From Model..."
+The product of this step is a .sql file of DDL.
+
+In "Model Browser" windows, right click "Add Code Generation Item..."
+
+Choose "EF4.x DbContext Generator"
+The product of this step is .tt files and auto-gen-ed .cs code files
+* Note: The .tt files will be put in root dir of current project. You may need to manually move them to specific namespace folder, e.g. Models. 
+
+Benefit:
+In future, if model needs update, just modify model .edmx, and re-generate database schema, and re-generate .tt files.
+
+Entity Framework provides a MODEL-DRIVEN Development or DDD method.

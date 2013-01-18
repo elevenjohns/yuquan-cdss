@@ -1,0 +1,34 @@
+﻿The id Selector
+
+The id selector is used to specify a style for a single, unique element.
+
+The id selector uses the id attribute of the HTML element, and is defined with a "#".
+
+The style rule below will be applied to the element with id="para1":
+
+Example
+#para1
+{
+text-align:center;
+color:red;
+} 
+
+
+The class Selector
+The class selector is used to specify a style for a group of elements. Unlike the id selector, the class selector is most often used on several elements. 
+
+This allows you to set a particular style for many HTML elements with the same class. 
+
+The class selector uses the HTML class attribute, and is defined with a "."
+
+In the example below, all HTML elements with class="center" will be center-aligned:
+
+Example
+.center {text-align:center;} 
+
+You can also specify that only specific HTML elements should be affected by a class.
+
+In the example below, all p elements with class="center" will be center-aligned:
+
+Example
+p.center {text-align:center;} 

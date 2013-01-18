@@ -1,0 +1,1 @@
+﻿Because values are passed as String, so privide a Parse() method from String.

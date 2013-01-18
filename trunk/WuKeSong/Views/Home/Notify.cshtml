@@ -1,0 +1,22 @@
+﻿@model IEnumerable<KeyValuePair<DateTime, string>>
+
+@{
+    ViewBag.Title = "TestNotify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Test Notify Result</h2>
+
+@foreach (var x in Model)
+{
+    <div>
+    @x.Key
+    @x.Value
+    </div> 
+}
+
+<br /><br />
+
+<p>
+<a style="color:ThreeDDarkShadow;text-decoration:underline;" onclick="history.go(-1)" @*onmouseover="this.style.cursor=hand"*@>Back</a>
+</p>

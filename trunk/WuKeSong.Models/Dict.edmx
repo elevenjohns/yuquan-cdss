@@ -1,0 +1,1235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Dict.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DictStoreContainer">
+    <EntitySet Name="ACTION_ADT_DICT" EntityType="Dict.Store.ACTION_ADT_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ADMIN_ORDERS_DICT" EntityType="Dict.Store.ADMIN_ORDERS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ADMISSION_CAUSE_DICT" EntityType="Dict.Store.ADMISSION_CAUSE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ANAESTHESIA_DICT" EntityType="Dict.Store.ANAESTHESIA_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AREA_DICT" EntityType="Dict.Store.AREA_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CHARGE_TYPE_DICT" EntityType="Dict.Store.CHARGE_TYPE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CLINIC_CLASS_DICT" EntityType="Dict.Store.CLINIC_CLASS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CLINIC_ITEM_DICT" EntityType="Dict.Store.CLINIC_ITEM_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COUNTRY_DICT" EntityType="Dict.Store.COUNTRY_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DIAGNOSIS_DICT" EntityType="Dict.Store.DIAGNOSIS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DIAGNOSIS_TYPE_DICT" EntityType="Dict.Store.DIAGNOSIS_TYPE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DOC_TYPE_DICT" EntityType="Dict.Store.DOC_TYPE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DRUG_CLASS_DICT" EntityType="Dict.Store.DRUG_CLASS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EXAM_CLASS_DICT" EntityType="Dict.Store.EXAM_CLASS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EXAM_MODE_DICT" EntityType="Dict.Store.EXAM_MODE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EXAM_SUBCLASS_DICT" EntityType="Dict.Store.EXAM_SUBCLASS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="INSURANCE_TYPE_DICT" EntityType="Dict.Store.INSURANCE_TYPE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LAB_TEST_RESULT_DICT" EntityType="Dict.Store.LAB_TEST_RESULT_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NATION_DICT" EntityType="Dict.Store.NATION_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OPERATION_DICT" EntityType="Dict.Store.OPERATION_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PATIENT_CLASS_DICT" EntityType="Dict.Store.PATIENT_CLASS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SEGMENT_TYPE_DICT" EntityType="Dict.Store.SEGMENT_TYPE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TITLE_DICT" EntityType="Dict.Store.TITLE_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TOP_UNIT_DICT" EntityType="Dict.Store.TOP_UNIT_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UNITS_IN_CONTRACT_DICT" EntityType="Dict.Store.UNITS_IN_CONTRACT_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VISIT_CLASS_DICT" EntityType="Dict.Store.VISIT_CLASS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VITAL_SIGNS_DICT" EntityType="Dict.Store.VITAL_SIGNS_DICT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WOUND_GRADE_DICT" EntityType="Dict.Store.WOUND_GRADE_DICT" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ACTION_ADT_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="ADMIN_ORDERS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="ADMISSION_CAUSE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="ANAESTHESIA_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="AREA_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="CHARGE_TYPE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="CLINIC_CLASS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="CLINIC_ITEM_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="ITEM_CLASS" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ITEM_CLASS_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="THUMB" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="COUNTRY_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="DIAGNOSIS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="INFECT_INDICATOR" Type="varchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="DIAGNOSIS_TYPE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="DOC_TYPE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="DRUG_CLASS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="BELONG_TO" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="BELONG_TO_VER" Type="decimal" Nullable="true" Precision="3" Scale="0" />
+  </EntityType>
+  <EntityType Name="EXAM_CLASS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="EXAM_MODE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="EXAM_SUBCLASS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="EXAM_CLASS_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="EXAM_CLASS_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="INSURANCE_TYPE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LAB_TEST_RESULT_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="ITEM_NO" Type="decimal" Nullable="false" Precision="5" Scale="0" />
+    <Property Name="RESULT_TYPE" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="LOWER_LIMIT" Type="decimal" Nullable="true" Precision="10" Scale="3" />
+    <Property Name="UPPER_LIMIT" Type="decimal" Nullable="true" Precision="10" Scale="3" />
+    <Property Name="UNITS" Type="varchar" Nullable="true" MaxLength="16" />
+    <Property Name="PRINT_CONTEXT" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="MINI_INCREMENT" Type="decimal" Nullable="true" Precision="8" Scale="3" />
+    <Property Name="NOTES" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DEFAULT_VALUE" Type="varchar" Nullable="true" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="NATION_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="OPERATION_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="OPERATION_SCALE" Type="varchar" Nullable="true" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="PATIENT_CLASS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="SEGMENT_TYPE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="TITLE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TOP_UNIT_DICT">
+    <Key>
+      <PropertyRef Name="DICT_VER" />
+      <PropertyRef Name="DICT_VER_PREVIOUS" />
+      <PropertyRef Name="NAME" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="UNITS_IN_CONTRACT_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+    <Property Name="ALIAS" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="LOCATION_ID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="LOCATION_VER" Type="decimal" Nullable="true" Precision="3" Scale="0" />
+    <Property Name="MAILING_ADDR" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="ZIP_CODE" Type="varchar" Nullable="true" MaxLength="6" />
+    <Property Name="SUBORDINATE_TO_ID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="SUBORDINATE_TO_VER" Type="decimal" Nullable="true" Precision="3" Scale="0" />
+  </EntityType>
+  <EntityType Name="VISIT_CLASS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="VITAL_SIGNS_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="WOUND_GRADE_DICT">
+    <Key>
+      <PropertyRef Name="DICT_ID" />
+    </Key>
+    <Property Name="DICT_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DICT_VER" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="DICT_VER_PREVIOUS" Type="decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="CODE_TYPE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CODE" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="INPUT_CODE" Type="varchar" Nullable="true" MaxLength="8" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Dict" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="DictContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACTION_ADT_DICT" EntityType="Dict.ACTION_ADT_DICT" />
+          <EntitySet Name="ADMIN_ORDERS_DICT" EntityType="Dict.ADMIN_ORDERS_DICT" />
+          <EntitySet Name="ADMISSION_CAUSE_DICT" EntityType="Dict.ADMISSION_CAUSE_DICT" />
+          <EntitySet Name="ANAESTHESIA_DICT" EntityType="Dict.ANAESTHESIA_DICT" />
+          <EntitySet Name="AREA_DICT" EntityType="Dict.AREA_DICT" />
+          <EntitySet Name="CHARGE_TYPE_DICT" EntityType="Dict.CHARGE_TYPE_DICT" />
+          <EntitySet Name="CLINIC_CLASS_DICT" EntityType="Dict.CLINIC_CLASS_DICT" />
+          <EntitySet Name="CLINIC_ITEM_DICT" EntityType="Dict.CLINIC_ITEM_DICT" />
+          <EntitySet Name="COUNTRY_DICT" EntityType="Dict.COUNTRY_DICT" />
+          <EntitySet Name="DIAGNOSIS_DICT" EntityType="Dict.DIAGNOSIS_DICT" />
+          <EntitySet Name="DIAGNOSIS_TYPE_DICT" EntityType="Dict.DIAGNOSIS_TYPE_DICT" />
+          <EntitySet Name="DOC_TYPE_DICT" EntityType="Dict.DOC_TYPE_DICT" />
+          <EntitySet Name="DRUG_CLASS_DICT" EntityType="Dict.DRUG_CLASS_DICT" />
+          <EntitySet Name="EXAM_CLASS_DICT" EntityType="Dict.EXAM_CLASS_DICT" />
+          <EntitySet Name="EXAM_MODE_DICT" EntityType="Dict.EXAM_MODE_DICT" />
+          <EntitySet Name="EXAM_SUBCLASS_DICT" EntityType="Dict.EXAM_SUBCLASS_DICT" />
+          <EntitySet Name="INSURANCE_TYPE_DICT" EntityType="Dict.INSURANCE_TYPE_DICT" />
+          <EntitySet Name="LAB_TEST_RESULT_DICT" EntityType="Dict.LAB_TEST_RESULT_DICT" />
+          <EntitySet Name="NATION_DICT" EntityType="Dict.NATION_DICT" />
+          <EntitySet Name="OPERATION_DICT" EntityType="Dict.OPERATION_DICT" />
+          <EntitySet Name="PATIENT_CLASS_DICT" EntityType="Dict.PATIENT_CLASS_DICT" />
+          <EntitySet Name="SEGMENT_TYPE_DICT" EntityType="Dict.SEGMENT_TYPE_DICT" />
+          <EntitySet Name="TITLE_DICT" EntityType="Dict.TITLE_DICT" />
+          <EntitySet Name="TOP_UNIT_DICT" EntityType="Dict.TOP_UNIT_DICT" />
+          <EntitySet Name="UNITS_IN_CONTRACT_DICT" EntityType="Dict.UNITS_IN_CONTRACT_DICT" />
+          <EntitySet Name="VISIT_CLASS_DICT" EntityType="Dict.VISIT_CLASS_DICT" />
+          <EntitySet Name="VITAL_SIGNS_DICT" EntityType="Dict.VITAL_SIGNS_DICT" />
+          <EntitySet Name="WOUND_GRADE_DICT" EntityType="Dict.WOUND_GRADE_DICT" />
+        </EntityContainer>
+        <EntityType Name="ACTION_ADT_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADMIN_ORDERS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADMISSION_CAUSE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ANAESTHESIA_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AREA_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CHARGE_TYPE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CLINIC_CLASS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CLINIC_ITEM_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ITEM_CLASS" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="ITEM_CLASS_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Binary" Name="THUMB" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="COUNTRY_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DIAGNOSIS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INFECT_INDICATOR" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DIAGNOSIS_TYPE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DOC_TYPE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DRUG_CLASS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BELONG_TO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="BELONG_TO_VER" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="EXAM_CLASS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EXAM_MODE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EXAM_SUBCLASS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="EXAM_CLASS_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="EXAM_CLASS_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="INSURANCE_TYPE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LAB_TEST_RESULT_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="ITEM_NO" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="String" Name="RESULT_TYPE" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="LOWER_LIMIT" Precision="10" Scale="3" />
+          <Property Type="Decimal" Name="UPPER_LIMIT" Precision="10" Scale="3" />
+          <Property Type="String" Name="UNITS" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PRINT_CONTEXT" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="MINI_INCREMENT" Precision="8" Scale="3" />
+          <Property Type="String" Name="NOTES" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DEFAULT_VALUE" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NATION_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OPERATION_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OPERATION_SCALE" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PATIENT_CLASS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SEGMENT_TYPE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TITLE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TOP_UNIT_DICT">
+          <Key>
+            <PropertyRef Name="DICT_VER" />
+            <PropertyRef Name="DICT_VER_PREVIOUS" />
+            <PropertyRef Name="NAME" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UNITS_IN_CONTRACT_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ALIAS" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LOCATION_ID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="LOCATION_VER" Precision="3" Scale="0" />
+          <Property Type="String" Name="MAILING_ADDR" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ZIP_CODE" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SUBORDINATE_TO_ID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="SUBORDINATE_TO_VER" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="VISIT_CLASS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VITAL_SIGNS_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WOUND_GRADE_DICT">
+          <Key>
+            <PropertyRef Name="DICT_ID" />
+          </Key>
+          <Property Type="String" Name="DICT_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DICT_VER" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DICT_VER_PREVIOUS" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="CODE_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INPUT_CODE" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DictStoreContainer" CdmEntityContainer="DictContainer">
+    <EntitySetMapping Name="ACTION_ADT_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.ACTION_ADT_DICT)">
+        <MappingFragment StoreEntitySet="ACTION_ADT_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADMIN_ORDERS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.ADMIN_ORDERS_DICT)">
+        <MappingFragment StoreEntitySet="ADMIN_ORDERS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADMISSION_CAUSE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.ADMISSION_CAUSE_DICT)">
+        <MappingFragment StoreEntitySet="ADMISSION_CAUSE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ANAESTHESIA_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.ANAESTHESIA_DICT)">
+        <MappingFragment StoreEntitySet="ANAESTHESIA_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AREA_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.AREA_DICT)">
+        <MappingFragment StoreEntitySet="AREA_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHARGE_TYPE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.CHARGE_TYPE_DICT)">
+        <MappingFragment StoreEntitySet="CHARGE_TYPE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLINIC_CLASS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.CLINIC_CLASS_DICT)">
+        <MappingFragment StoreEntitySet="CLINIC_CLASS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLINIC_ITEM_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.CLINIC_ITEM_DICT)">
+        <MappingFragment StoreEntitySet="CLINIC_ITEM_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+          <ScalarProperty Name="ITEM_CLASS" ColumnName="ITEM_CLASS" />
+          <ScalarProperty Name="ITEM_CLASS_VER" ColumnName="ITEM_CLASS_VER" />
+          <ScalarProperty Name="THUMB" ColumnName="THUMB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUNTRY_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.COUNTRY_DICT)">
+        <MappingFragment StoreEntitySet="COUNTRY_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIAGNOSIS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.DIAGNOSIS_DICT)">
+        <MappingFragment StoreEntitySet="DIAGNOSIS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+          <ScalarProperty Name="INFECT_INDICATOR" ColumnName="INFECT_INDICATOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIAGNOSIS_TYPE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.DIAGNOSIS_TYPE_DICT)">
+        <MappingFragment StoreEntitySet="DIAGNOSIS_TYPE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOC_TYPE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.DOC_TYPE_DICT)">
+        <MappingFragment StoreEntitySet="DOC_TYPE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DRUG_CLASS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.DRUG_CLASS_DICT)">
+        <MappingFragment StoreEntitySet="DRUG_CLASS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+          <ScalarProperty Name="BELONG_TO" ColumnName="BELONG_TO" />
+          <ScalarProperty Name="BELONG_TO_VER" ColumnName="BELONG_TO_VER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXAM_CLASS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.EXAM_CLASS_DICT)">
+        <MappingFragment StoreEntitySet="EXAM_CLASS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXAM_MODE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.EXAM_MODE_DICT)">
+        <MappingFragment StoreEntitySet="EXAM_MODE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXAM_SUBCLASS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.EXAM_SUBCLASS_DICT)">
+        <MappingFragment StoreEntitySet="EXAM_SUBCLASS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="EXAM_CLASS_ID" ColumnName="EXAM_CLASS_ID" />
+          <ScalarProperty Name="EXAM_CLASS_VER" ColumnName="EXAM_CLASS_VER" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSURANCE_TYPE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.INSURANCE_TYPE_DICT)">
+        <MappingFragment StoreEntitySet="INSURANCE_TYPE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LAB_TEST_RESULT_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.LAB_TEST_RESULT_DICT)">
+        <MappingFragment StoreEntitySet="LAB_TEST_RESULT_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="RESULT_TYPE" ColumnName="RESULT_TYPE" />
+          <ScalarProperty Name="LOWER_LIMIT" ColumnName="LOWER_LIMIT" />
+          <ScalarProperty Name="UPPER_LIMIT" ColumnName="UPPER_LIMIT" />
+          <ScalarProperty Name="UNITS" ColumnName="UNITS" />
+          <ScalarProperty Name="PRINT_CONTEXT" ColumnName="PRINT_CONTEXT" />
+          <ScalarProperty Name="MINI_INCREMENT" ColumnName="MINI_INCREMENT" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="DEFAULT_VALUE" ColumnName="DEFAULT_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NATION_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.NATION_DICT)">
+        <MappingFragment StoreEntitySet="NATION_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPERATION_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.OPERATION_DICT)">
+        <MappingFragment StoreEntitySet="OPERATION_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+          <ScalarProperty Name="OPERATION_SCALE" ColumnName="OPERATION_SCALE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PATIENT_CLASS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.PATIENT_CLASS_DICT)">
+        <MappingFragment StoreEntitySet="PATIENT_CLASS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEGMENT_TYPE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.SEGMENT_TYPE_DICT)">
+        <MappingFragment StoreEntitySet="SEGMENT_TYPE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TITLE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.TITLE_DICT)">
+        <MappingFragment StoreEntitySet="TITLE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TOP_UNIT_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.TOP_UNIT_DICT)">
+        <MappingFragment StoreEntitySet="TOP_UNIT_DICT">
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNITS_IN_CONTRACT_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.UNITS_IN_CONTRACT_DICT)">
+        <MappingFragment StoreEntitySet="UNITS_IN_CONTRACT_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+          <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
+          <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+          <ScalarProperty Name="LOCATION_VER" ColumnName="LOCATION_VER" />
+          <ScalarProperty Name="MAILING_ADDR" ColumnName="MAILING_ADDR" />
+          <ScalarProperty Name="ZIP_CODE" ColumnName="ZIP_CODE" />
+          <ScalarProperty Name="SUBORDINATE_TO_ID" ColumnName="SUBORDINATE_TO_ID" />
+          <ScalarProperty Name="SUBORDINATE_TO_VER" ColumnName="SUBORDINATE_TO_VER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISIT_CLASS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.VISIT_CLASS_DICT)">
+        <MappingFragment StoreEntitySet="VISIT_CLASS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VITAL_SIGNS_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.VITAL_SIGNS_DICT)">
+        <MappingFragment StoreEntitySet="VITAL_SIGNS_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WOUND_GRADE_DICT">
+      <EntityTypeMapping TypeName="IsTypeOf(Dict.WOUND_GRADE_DICT)">
+        <MappingFragment StoreEntitySet="WOUND_GRADE_DICT">
+          <ScalarProperty Name="DICT_ID" ColumnName="DICT_ID" />
+          <ScalarProperty Name="DICT_VER" ColumnName="DICT_VER" />
+          <ScalarProperty Name="DICT_VER_PREVIOUS" ColumnName="DICT_VER_PREVIOUS" />
+          <ScalarProperty Name="CODE_TYPE" ColumnName="CODE_TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="INPUT_CODE" ColumnName="INPUT_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Dict" ZoomLevel="67" >
+        <EntityTypeShape EntityType="Dict.ACTION_ADT_DICT" Width="1.5" PointX="0.75" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.ADMIN_ORDERS_DICT" Width="1.5" PointX="2.75" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.ADMISSION_CAUSE_DICT" Width="1.5" PointX="0.75" PointY="3.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.ANAESTHESIA_DICT" Width="1.5" PointX="2.75" PointY="3.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.AREA_DICT" Width="1.5" PointX="4.75" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.CHARGE_TYPE_DICT" Width="1.5" PointX="4.75" PointY="3.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.CLINIC_CLASS_DICT" Width="1.5" PointX="6.75" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.CLINIC_ITEM_DICT" Width="1.5" PointX="0.75" PointY="6.75" Height="2.5783902994791674" />
+        <EntityTypeShape EntityType="Dict.COUNTRY_DICT" Width="1.5" PointX="2.75" PointY="6.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.DIAGNOSIS_DICT" Width="1.5" PointX="6.75" PointY="3.75" Height="2.2496956380208322" />
+        <EntityTypeShape EntityType="Dict.DIAGNOSIS_TYPE_DICT" Width="1.5" PointX="4.75" PointY="6.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.DOC_TYPE_DICT" Width="1.5" PointX="6.75" PointY="6.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.DRUG_CLASS_DICT" Width="1.5" PointX="8.75" PointY="0.75" Height="2.4140429687499996" />
+        <EntityTypeShape EntityType="Dict.EXAM_CLASS_DICT" Width="1.5" PointX="8.75" PointY="4.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.EXAM_MODE_DICT" Width="1.5" PointX="8.75" PointY="7.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.EXAM_SUBCLASS_DICT" Width="1.5" PointX="2.75" PointY="9.75" Height="2.4140429687499996" />
+        <EntityTypeShape EntityType="Dict.INSURANCE_TYPE_DICT" Width="1.5" PointX="4.75" PointY="9.75" Height="1.9210009765625031" />
+        <EntityTypeShape EntityType="Dict.LAB_TEST_RESULT_DICT" Width="1.5" PointX="10.75" PointY="0.75" Height="3.5644742838541674" />
+        <EntityTypeShape EntityType="Dict.NATION_DICT" Width="1.5" PointX="10.75" PointY="5.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.OPERATION_DICT" Width="1.5" PointX="6.75" PointY="10.75" Height="2.2496956380208388" />
+        <EntityTypeShape EntityType="Dict.PATIENT_CLASS_DICT" Width="1.5" PointX="10.75" PointY="8.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.SEGMENT_TYPE_DICT" Width="1.5" PointX="8.75" PointY="11.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.TITLE_DICT" Width="1.5" PointX="10.75" PointY="11.75" Height="1.9210009765624996" />
+        <EntityTypeShape EntityType="Dict.TOP_UNIT_DICT" Width="1.5" PointX="12.75" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.UNITS_IN_CONTRACT_DICT" Width="1.5" PointX="12.75" PointY="3.75" Height="3.2357796223958317" />
+        <EntityTypeShape EntityType="Dict.VISIT_CLASS_DICT" Width="1.5" PointX="12.75" PointY="7.75" Height="1.9210009765625031" />
+        <EntityTypeShape EntityType="Dict.VITAL_SIGNS_DICT" Width="1.5" PointX="12.75" PointY="10.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="Dict.WOUND_GRADE_DICT" Width="1.5" PointX="0.75" PointY="13.75" Height="2.0853483072916674" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

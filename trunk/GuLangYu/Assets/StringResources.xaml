@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="App_Title">EMR演示系统</system:String>
+    <system:String x:Key="ActiveProblemList_Title">未处理的临床列表</system:String>
+    <system:String x:Key="InactiveProblemList_Title">已处理的临床问题</system:String>
+    <system:String x:Key="AddNewProblem_Button">添加新的临床问题</system:String>
+    <system:String x:Key="ApplyOrderSet_Button">应用医嘱集</system:String>
+    <system:String x:Key="ApplyClinicalPathway_Button">应用临床路径</system:String>
+    <system:String x:Key="BedNO">床位号</system:String>
+    <system:String x:Key="PatientName">姓名</system:String>
+    <system:String x:Key="AdmissionTime">入院时间</system:String>
+    <system:String x:Key="List">列表</system:String>
+    <system:String x:Key="Icon">图标</system:String>
+    <system:String x:Key="Card">床位卡</system:String>
+    <system:String x:Key="CurrentLogin_Demo">当前登录：张寅升 实习医生</system:String>
+    <system:String x:Key="ShowEvidence_Tooltip">显示推理过程及证据</system:String>
+    <system:String x:Key="Solve">解决</system:String>
+    <system:String x:Key="Dismiss">删除</system:String>
+    <system:String x:Key="Revive">还原</system:String>
+</ResourceDictionary>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WuKeSong.Areas.Music.Models.Genre>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+    </tr>
+}
+</table>
+<br/>
+<div>
+    @Html.ActionLink("Show Music List", "Index","Home") | 
+    @Html.ActionLink("Back to Main Area", "Index",new { area = "Main" })
+</div>

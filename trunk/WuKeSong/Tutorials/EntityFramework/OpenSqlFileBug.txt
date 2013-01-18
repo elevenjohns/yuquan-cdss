@@ -1,0 +1,6 @@
+﻿Phenomenon: 
+When open .sql file inside IDE, deven becomes responseless.
+
+Solution:
+It's caused by SQL Server 2008 R2 update after VS2010 installation.
+Run DACProjectSystemSetup_enu.msi from VS2010 SP1 ISO.

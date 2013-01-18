@@ -1,0 +1,38 @@
+﻿<Task xmlns="http://schemas.datacontract.org/2004/07/YuQuan.Models" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Id>0</Id>
+    <MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>多功能重症监护仪</Name>
+            <OrderType>处置</OrderType>
+            <TemporalType>临时</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>低分子肝素钙注射液</Name>
+            <OrderType>药疗</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>磺达肝葵钠注射液</Name>
+            <OrderType>药疗</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+    </MedicalOrder>
+    <MultiSelect>true</MultiSelect>
+    <Name>PCI术后医嘱</Name>
+    <Optional>false</Optional>
+</Task>

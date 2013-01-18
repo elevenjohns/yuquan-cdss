@@ -1,0 +1,11 @@
+﻿To use JQuery datepicker, use a newer JQuery version.
+E.g. in _Layout.cshtml:
+
+@*<script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>*@
+    @*1.4.4 version does not support datepicker, so use 1.8.3*@
+    <script src="@Url.Content("~/Content/jquery-ui-1.9.2.custom/js/jquery-1.8.3.js")" type="text/javascript"></script>
+
+
+To use datetimepicker, use a 3-rd party js file:
+
+jquery-ui-timepicker-addon.js

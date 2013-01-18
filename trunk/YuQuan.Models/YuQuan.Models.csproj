@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A59F62AF-75F0-4C6E-8FB5-9856F8ECDC88}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YuQuan.Models</RootNamespace>
+    <AssemblyName>YuQuan.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\Bin\Desktop\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Anthropometrics.cs" />
+    <Compile Include="ChangeRecord.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalPathwayType.cs" />
+    <Compile Include="ClinicalProblemDefinition.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalProblemDefinition_ContextItemDefinition_Association.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalProblemDefinition_PlanDefinition_Association.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalProblemInstance.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalProblemInstancePart.cs" />
+    <Compile Include="ClinicalProblemInstanceSimpleObject.cs" />
+    <Compile Include="ClinicalProblemPart.cs" />
+    <Compile Include="CodedTerm.cs" />
+    <Compile Include="ComplicationFlags.cs" />
+    <Compile Include="ContextItemDefinition.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContextItemPart.cs" />
+    <Compile Include="CoronaryAngiography.cs" />
+    <Compile Include="CoronaryArtery.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="EBM.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EBMPart.cs" />
+    <Compile Include="EchoCardiography.cs" />
+    <Compile Include="Encounter.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EncounterPart.cs" />
+    <Compile Include="EnumAdministrationRoute.cs" />
+    <Compile Include="EnumAlertRoute.cs" />
+    <Compile Include="EnumComparisonOperator.cs" />
+    <Compile Include="EnumContextItemType.cs" />
+    <Compile Include="EnumDataType.cs" />
+    <Compile Include="EnumAlertType.cs" />
+    <Compile Include="EnumDismissReason.cs" />
+    <Compile Include="EnumEventType.cs" />
+    <Compile Include="EnumEvidenceLevel.cs" />
+    <Compile Include="EnumReportType.cs" />
+    <Compile Include="EnumItemStatus.cs" />
+    <Compile Include="EnumLifeSpan.cs" />
+    <Compile Include="EnumLogicalOperator.cs" />
+    <Compile Include="EnumMedicalSpecialties.cs" />
+    <Compile Include="EnumOrderTemporalType.cs" />
+    <Compile Include="EnumOrderType.cs" />
+    <Compile Include="EnumPathwayState.cs" />
+    <Compile Include="EnumPlanState.cs" />
+    <Compile Include="EnumPPVLevel.cs" />
+    <Compile Include="EnumProblemPriority.cs" />
+    <Compile Include="EnumProblemState.cs" />
+    <Compile Include="EnumProblemStateChangeReason.cs" />
+    <Compile Include="EnumRecommendationClass.cs" />
+    <Compile Include="EnumStateTransition.cs" />
+    <Compile Include="EnumTaskType.cs" />
+    <Compile Include="EnumTemporalType.cs" />
+    <Compile Include="Event.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fact.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactPart.cs" />
+    <Compile Include="FollowUp.cs" />
+    <Compile Include="KB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KB.Designer.cs">
+      <DependentUpon>KB.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="KBEntities.cs" />
+    <Compile Include="MedicalOrderDefinition.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalOrderDefinition_EBM_Association.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalOrderInstance.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalOrderPart.cs" />
+    <Compile Include="MedicationFlags.cs" />
+    <Compile Include="PhaseDefinition.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhaseDefinition_EBM_Association.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanDefinition.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanDefinition_EBM_Association.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanInstance.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskDefinition.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskDefinition_EBM_Association.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TriggerRule.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TriggerRule_EBM_Association.cs">
+      <DependentUpon>KB.tt</DependentUpon>
+    </Compile>
+    <Content Include="KB.edmx.sql" />
+    <Content Include="Patient.cs" />
+    <Compile Include="PCI.cs" />
+    <Compile Include="PhasePart.cs" />
+    <Compile Include="PhysiologicalParameters.cs" />
+    <Compile Include="PlanInstancePart.cs" />
+    <Compile Include="PlanPart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="LaymanRuleCondition.cs" />
+    <Content Include="RemoveEvents.sql" />
+    <Content Include="SeedPathwayAndOrderSet.sql" />
+    <Content Include="SeedProblemAndContextItemDefinition.sql" />
+    <None Include="App.Config" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="Common.cd" />
+    <EntityDeploy Include="KB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="KB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KB.cs</LastGenOutput>
+    </None>
+    <Compile Include="Scenario.cs" />
+    <Compile Include="SlideSet.cs" />
+    <Compile Include="Test.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CreateDB.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

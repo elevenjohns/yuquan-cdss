@@ -1,0 +1,17 @@
+﻿The WCF client proxy can be generated manually by using the Service Model Metadata Utility Tool (SvcUtil.exe)
+
+e.g.
+
+C:\Program Files\Microsoft Visual Studio 10.0\VC>svcutil http://localhost:1174/W
+ebServices/UploadPlanObject.svc
+Microsoft (R) Service Model Metadata Tool
+[Microsoft (R) Windows (R) Communication Foundation, Version 4.0.30319.1]
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Attempting to download metadata from 'http://localhost:1174/WebServices/UploadPl
+anObject.svc' using WS-Metadata Exchange or DISCO.
+Generating files...
+C:\Program Files\Microsoft Visual Studio 10.0\VC\UploadPlanObject.cs
+C:\Program Files\Microsoft Visual Studio 10.0\VC\output.config
+
+

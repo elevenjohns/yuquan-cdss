@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Enum Name="YuQuan.Models.ClinicalTaskType">
+    <Position X="9" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIIIAAAAAAAAAIIQAABAAAAAAAAAAAAAAAQACAAAAgA=</HashCode>
+      <FileName>ClinicalTaskType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumAdministrationRoute">
+    <Position X="1.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAgQAAgAgAAAAABAAAAIAAEAAAAAAACAAAAAABAA=</HashCode>
+      <FileName>EnumAdministrationRoute.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumAlertType">
+    <Position X="3.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAECAABAAAgAQgAAAAAAAAAAAAAAACAAABAA=</HashCode>
+      <FileName>EnumAlertType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumEventType">
+    <Position X="5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAQAAAAAAAAAAAAAIEAAAAEAAAAAAgAAAAAAEAAEA=</HashCode>
+      <FileName>EnumEventType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumMedicalSpecialties">
+    <Position X="1.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAAQAAAAGAAACAQEAIAEAACABAAAAAAAMAYCAACE=</HashCode>
+      <FileName>EnumMedicalSpecialties.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumOrderType">
+    <Position X="3.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIIIAAAAAAAAAIIQAABAAAAAAAAAAAAAAAQACAAAAgA=</HashCode>
+      <FileName>EnumOrderType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumTemporalType">
+    <Position X="6.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>EnumTemporalType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumEvidenceType">
+    <Position X="5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAEAAAAAAAAAAAACAAAAAAAAAAAACCAEBAAA=</HashCode>
+      <FileName>EnumEvidenceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumEvidenceLevel">
+    <Position X="11.25" Y="8.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAEAAAA=</HashCode>
+      <FileName>EnumEvidenceLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YuQuan.Models.EnumRecommendationClass">
+    <Position X="11.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAE=</HashCode>
+      <FileName>EnumRecommendationClass.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

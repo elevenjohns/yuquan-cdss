@@ -1,0 +1,13 @@
+﻿For order importing:
+If importing breaks down middleway, use following method to continue:
+
+1. Query last CP ID:
+SELECT  top 300 *
+  FROM [CP].[dbo].[CP_ORDER] order by CP_ID desc
+
+2. Remove last CP orders
+DELETE FROM [CP].[dbo].[CP_ORDER]
+      WHERE CP_ID>='00007380'
+
+3. Continue importing
+http://localhost:7770/home/import?startCase=7380

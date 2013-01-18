@@ -1,0 +1,289 @@
+=== Use sqldbdoc.exe command line tool to generate db document ===
+
+C:\>sqldbdoc.exe "SERVER=.\SQLExpress;initial catalog=Rules;integrated security=True;multipleactiveresultsets=True;" c:\doc.htm
+
+Altairis DB>doc version 1.0.0.0
+Copyright (c) Altairis, 2011 | www.altairis.cz | SqlDbDoc.codeplex.com
+
+Autodetecting output format...
+Output format: html
+dbo.sp_helpdiagrams
+dbo.sp_helpdiagramdefinition
+dbo.sp_creatediagram
+dbo.sp_renamediagram
+dbo.sp_alterdiagram
+dbo.sp_dropdiagram
+dbo.fn_diagramobjects
+dbo.test
+    id int
+    name varchar
+    dbo.PK_test
+dbo.ClinicalProblemSet
+    Id int
+    Name nvarchar
+    Description nvarchar
+    ReferenceURL nvarchar
+    Code nvarchar
+    CodingSystem nvarchar
+    dbo.PK_ClinicalProblemSet
+dbo.EventSet
+    Id int
+    Name nvarchar
+    Description nvarchar
+    EventType nvarchar
+    TimeStamp datetime
+    Encounter_Id int
+    dbo.PK_EventSet
+    dbo.FK_EncounterEvent
+dbo.InterventionSet
+    Id int
+    Name nvarchar
+    ClinicalProblemIntervention_Intervention_Id int
+    dbo.PK_InterventionSet
+    dbo.FK_ClinicalProblemIntervention
+dbo.PlanSet
+    Id int
+    Name nvarchar
+    Duration nvarchar
+    Objective nvarchar
+    Cost nvarchar
+    Criteria nvarchar
+    InterventionPlan_Plan_Id int
+    ClinicalProblemInstancePlan_Plan_Id int
+    dbo.PK_PlanSet
+    dbo.FK_InterventionPlan
+    dbo.FK_ClinicalProblemInstancePlan
+dbo.PhaseSet
+    Id int
+    Name nvarchar
+    Duration nvarchar
+    Period nvarchar
+    PlanPhase_Phase_Id int
+    dbo.PK_PhaseSet
+    dbo.FK_PlanPhase
+dbo.TaskSet
+    Optional bit
+    MultiSelect bit
+    Id int
+    Name nvarchar
+    Code nvarchar
+    CodingSystem nvarchar
+    PhaseTask_Task_Id int
+    dbo.PK_TaskSet
+    dbo.FK_PhaseTask
+dbo.MedicalOrderDefinition
+    OrderType nvarchar
+    AdministrationRoute nvarchar
+    TemporalType nvarchar
+    Frequency nvarchar
+    Dosage nvarchar
+    AdditionalInstruction nvarchar
+    Id int
+    Name nvarchar
+    Code nvarchar
+    CodingSystem nvarchar
+    Description nvarchar
+    TaskMedicalOrder_MedicalOrder_Id int
+    dbo.PK_MedicalOrderSet
+    dbo.FK_TaskMedicalOrder
+dbo.ConceptSet
+    Id int
+    Code nvarchar
+    CodingSystem nvarchar
+    Description nvarchar
+    Literal nvarchar
+    Literal2 nvarchar
+    Literal3 nvarchar
+    Hierarchy nvarchar
+    dbo.PK_ConceptSet
+dbo.TriggerRuleSet
+    Name nvarchar
+    MajorVersion int
+    MinorVersion int
+    RuleSet nvarchar
+    Status smallint
+    AssemblyPath nvarchar
+    ActivityName nvarchar
+    ModifiedDate datetime
+    ClinicalProblemTriggerRule_TriggerRule_Id int
+    dbo.PK_TriggerRuleSet
+    dbo.FK_ClinicalProblemTriggerRule
+dbo.ClinicalProblemInstanceSet
+    Id int
+    State nvarchar
+    Priority nvarchar
+    ClinicalProblem_Id int
+    Encounter_Id int
+    TriggerRule_Name nvarchar
+    TriggerRule_MajorVersion int
+    TriggerRule_MinorVersion int
+    dbo.PK_ClinicalProblemInstanceSet
+    dbo.FK_ClinicalProblemClinicalProblemInstance
+    dbo.FK_EncounterClinicalProblemInstance
+    dbo.FK_ClinicalProblemInstanceTriggerRule
+dbo.EvidenceSet
+    Id int
+    URL nvarchar
+    EvidenceType nvarchar
+    TimeStamp datetime
+    Event_Id int
+    dbo.PK_EvidenceSet
+    dbo.FK_EventEvidence
+dbo.LabTestSpecialtySet
+    Id int
+    Name nvarchar
+    Comment nvarchar
+    dbo.PK_LabTestSpecialtySet
+dbo.LabTestSuiteSet
+    Id int
+    Name nvarchar
+    Comment nvarchar
+    LabTestSpecialtyLabTestSuite_LabTestSuite_Id int
+    dbo.PK_LabTestSuiteSet
+    dbo.FK_LabTestSpecialtyLabTestSuite
+dbo.ContextItemSet
+    Id int
+    Name nvarchar
+    Comment nvarchar
+    Unit nvarchar
+    DataType nvarchar
+    Code nvarchar
+    CodingSystem nvarchar
+    ReferenceRange nvarchar
+    dbo.PK_ContextItemSet
+dbo.PatientSet
+    Id int
+    Name nvarchar
+    BirthDay datetime
+    Gender nvarchar
+    PhotoURL nvarchar
+    FK_EMR_Patient_Id nvarchar
+    dbo.PK_PatientSet
+dbo.EncounterSet
+    Id int
+    Admission datetime
+    Discharge datetime
+    Diagnosis nvarchar
+    FK_EMR_Encounter_Id nvarchar
+    Patient_Id int
+    Profile_Id int
+    dbo.PK_EncounterSet
+    dbo.FK_PatientEncounter
+    dbo.FK_ProfileEncounter
+dbo.ChangeRecordSet
+    Id int
+    Operator nvarchar
+    TimeStamp datetime
+    OldState nvarchar
+    NewState nvarchar
+    Reason nvarchar
+    ClinicalProblemInstanceChangeRecord_ChangeRecord_Id int
+    dbo.PK_ChangeRecordSet
+    dbo.FK_ClinicalProblemInstanceChangeRecord
+dbo.FactSet
+    Id int
+    NumericValue float
+    BooleanValue bit
+    StringValue nvarchar
+    IsAbnormal bit
+    Confidentiality decimal
+    LifeSpan nvarchar
+    Evidence_Id int
+    ContextItem_Id int
+    ProfileFact_Fact_Id int
+    ChangeRecordFact_Fact_Id int
+    dbo.PK_FactSet
+    dbo.FK_EvidenceFact
+    dbo.FK_ContextItemFact
+    dbo.FK_ProfileFact
+    dbo.FK_ChangeRecordFact
+dbo.ProfileSet
+    Id int
+    dbo.PK_ProfileSet
+dbo.EBMSet
+    Id int
+    EvidenceLevel nvarchar
+    RecommendationClass nvarchar
+    Content nvarchar
+    Source nvarchar
+    URL nvarchar
+    dbo.PK_EBMSet
+dbo.MedicalOrderInstanceSet
+    TimeStamp datetime
+    FK_EMR_Order_Id nvarchar
+    Id int
+    MedicalOrder_Id int
+    ClinicalProblemInstanceMedicalOrderInstance_MedicalOrderInstance_Id int
+    dbo.PK_MedicalOrderInstanceSet
+    dbo.FK_MedicalOrderInstanceMedicalOrder
+    dbo.FK_ClinicalProblemInstanceMedicalOrderInstance
+dbo.PlanInstanceSet
+    State nvarchar
+    CurrentPhase nvarchar
+    Id int
+    Plan_Id int
+    ClinicalProblemInstancePlanInstance_PlanInstance_Id int
+    dbo.PK_PlanInstanceSet
+    dbo.FK_PlanInstancePlan
+    dbo.FK_ClinicalProblemInstancePlanInstance
+dbo.ContextItemSet_LabTestItem
+    Id int
+    LabTestSuiteLabTestItem_LabTestItem_Id int
+    dbo.PK_ContextItemSet_LabTestItem
+    dbo.FK_LabTestSuiteLabTestItem
+    dbo.FK_LabTestItem_inherits_ContextItem
+dbo.ContextItemSet_PhysiologicalItem
+    Id int
+    dbo.PK_ContextItemSet_PhysiologicalItem
+    dbo.FK_PhysiologicalItem_inherits_ContextItem
+dbo.ContextItemSet_Finding
+    Id int
+    dbo.PK_ContextItemSet_Finding
+    dbo.FK_Finding_inherits_ContextItem
+dbo.ContextItemSet_DemographicItem
+    Id int
+    dbo.PK_ContextItemSet_DemographicItem
+    dbo.FK_DemographicItem_inherits_ContextItem
+dbo.ContextItemSet_ProblemItem
+    Id int
+    dbo.PK_ContextItemSet_ProblemItem
+    dbo.FK_ProblemItem_inherits_ContextItem
+dbo.ClinicalProblemContextItem
+    ClinicalProblemContextItem_ContextItem_Id int
+    ContextItem_Id int
+    dbo.PK_ClinicalProblemContextItem
+    dbo.FK_ClinicalProblemContextItem_ClinicalProblem
+    dbo.FK_ClinicalProblemContextItem_ContextItem
+dbo.MedicalOrderEBM
+    MedicalOrderEBM_EBM_Id int
+    EBM_Id int
+    dbo.PK_MedicalOrderEBM
+    dbo.FK_MedicalOrderEBM_MedicalOrder
+    dbo.FK_MedicalOrderEBM_EBM
+dbo.TriggerRuleEBM
+    TriggerRuleEBM_EBM_Name nvarchar
+    TriggerRuleEBM_EBM_MajorVersion int
+    TriggerRuleEBM_EBM_MinorVersion int
+    EBM_Id int
+    dbo.PK_TriggerRuleEBM
+    dbo.FK_TriggerRuleEBM_TriggerRule
+    dbo.FK_TriggerRuleEBM_EBM
+dbo.PlanEBM
+    PlanEBM_EBM_Id int
+    EBM_Id int
+    dbo.PK_PlanEBM
+    dbo.FK_PlanEBM_Plan
+    dbo.FK_PlanEBM_EBM
+dbo.sp_upgraddiagrams
+dbo.sysdiagrams
+    name nvarchar
+    principal_id int
+    diagram_id int
+    version int
+    definition varbinary
+    dbo.PK__sysdiagr__C2B05B6100551192
+    dbo.UK_principal_name
+Preparing XSL transformation...OK
+Performing XSL transformation...OK
+
+C:\>

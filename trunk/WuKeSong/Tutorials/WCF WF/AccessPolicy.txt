@@ -1,0 +1,2 @@
+﻿File clientacesspolicy.xml and crossdomain.xml are added according to: 
+http://www.codeproject.com/Articles/37393/4-Simple-Steps-to-Consume-WCF-Service-using-Silver

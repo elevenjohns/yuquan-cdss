@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SQL Server Indexes</title>
+    <link href="/Content/css?v=q22-iHzU71CHRuYKz7AP3yWhbaJSVDh7wvtLuLjksz81" rel="stylesheet"/>
+
+    <script src="/Scripts/top?v=QyApoQBMymbkHxNAPcOXVlEw3FvdAT6aZW2E3M8YhD81"></script>
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://feeds.feedburner.com/OdeToCode" />
+    <link id="Rsd" rel="EditURI" type="application/rsd+xml" title="RSD" href="/Api/patuxent.ashx" />   
+</head>
+<body>
+    <header>
+        <div>
+            <a href="/">
+                <img src="/Images/odetocode.jpg" /></a>
+        </div>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav">
+                <li><a class="icon-home" href="/"></a></li>
+                <li class="divider-vertical hidden-phone"></li>
+                <li><a href="/Articles/List">Articles</a></li>
+                <li class="divider-vertical hidden-phone"></li>
+                <li><a href="/blogs/all">Blog</a></li>
+                <li class="divider-vertical hidden-phone"></li>
+                <li><a href="/about/odetocode">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                
+
+<h1>SQL Server Indexes</h1>
+<div class="muted">
+    Thursday, January 01, 2004
+</div>
+
+<article>
+    Relational databases like SQL&nbsp;Server&nbsp;use indexes to find data quickly when a query is processed. Creating and removing indexes from a database schema will rarely result in changes to an application's code; indexes operate 'behind the scenes' in support of the database engine. However, creating the proper index can drastically increase the performance of an application. 
+<P>The SQL Server engine uses an index in much the same way a reader uses a book index. For example, one way to find all references to INSERT statements in a SQL book would be to begin on page one and scan each page of the book. We could mark each time we find the word INSERT until we reach the end of the book. This approach is pretty time consuming and laborious. Alternately, we can also use the index in the back of the book to find a page number for each occurrence of the INSERT statements. This approach produces the same results as above, but with tremendous savings in time. </P>
+<P>When a&nbsp;SQL Server&nbsp;has no index to use for searching, the result is similar to the reader who looks at every page in a book to find a word: the&nbsp;SQL engine needs to visit every row in a table. In database terminology we call this behavior a table scan, or just scan. </P>
+<P>A table scan is not always a problem, and is sometimes unavoidable. However, as a table grows to thousands of rows and then millions of rows and beyond, scans become correspondingly slower and more expensive.</P>
+<P>Consider the following query on the Products table of the Northwind database. This query retrieves products in a specific price range.</P>
+<P><PRE>SELECT ProductID, ProductName, UnitPrice
+  FROM Products WHERE (UnitPrice &gt; 12.5) AND (UnitPrice &lt; 14)
+</PRE>
+<P></P>
+<P>There is currently no index on the Product table to help this query, so the database engine performs a scan and examines each record to see if UnitPrice falls between 12.5 and 14. In the diagram below, the database search touches a total of 77 records to find just three matches. </P><BR><IMG src="http://www.odetocode.com/aimages/indexes_fig1.jpg"> 
+<P>Now imagine if we created an index, just like a book index, on the data in the UnitPrice column. Each index entry would contain a copy of the UnitPrice value for a row, and a reference (just like a page number) to the row where the value originated. SQL will sort these index entries into ascending order. The index will allow the database to quickly narrow in on the three rows to satisfy the query, and avoid scanning every row in the table. </P>
+<H2>Create An Index</H2>
+<P>Having a data connection in the Server Explorer view of Visual Studio.NET allows us to easily create new indexes:</P>
+<UL>
+<LI>Navigate to the Products table of the Northwind database. </LI>
+<LI>Right click the table and select Design Table from the context menu. </LI>
+<LI>With the design screen in focus, click the Indexes/Keys item on the View menu of the IDE. </LI></UL>
+<P>This should bring you to the following tabbed dialog box. <BR><IMG src="http://www.odetocode.com/aimages/indexes_fig2.jpg"> 
+<P>The dialog is currently displaying an existing index on the Products table: the PK_Products index. We will see later in this chapter how primary key fields are automatically indexed to enforce uniqueness in the key values.</P>
+<UL>
+<LI>In the above dialog click on the New button, and in the Index name text box, replace the existing entry with IDX_UnitPrice. </LI>
+<LI>Beneath the text box is a control where we set the columns to index. Pull down the entry with ProductID and select the UnitPrice column instead.</LI>
+<LI>Leave all of the other options with default settings.</LI>
+<LI>Close the dialog and the table design view, making sure to save all of the changes when prompted to do so. The IDE will then issue the commands to create the new index.</LI></UL>
+<P>We can create the same index using the following SQL. The command specifies the name of the index (IDX_UnitPrice), the table name (Products), and the column to index (UnitPrice).</P>
+<P><PRE> CREATE INDEX [IDX_UnitPrice] ON Products (UnitPrice)
+</PRE>
+<P></P>
+<P>To verify that the index is created, use the following stored procedure to see a list of all indexes on the Products table:</P>
+<P><PRE> EXEC sp_helpindex Customers 
+</PRE>
+<P></P>
+<H3>How It Works</H3>
+<P>The database takes the columns specified in a CREATE INDEX command and sorts the values into a special data structure known as a B-tree. A B-tree structure supports fast searches with a minimum amount of disk reads, allowing the database engine to quickly find the starting and stopping points for the query we are using.</P>
+<P>Conceptually, we may think of an index as shown in the diagram below. On the left, each index entry contains the index key (UnitPrice). Each entry also includes a reference (which points) to the table rows which share that particular value and from which we can retrieve the required information. </P><BR><IMG src="http://www.odetocode.com/aimages/indexes_fig3.jpg"> 
+<P>Much like the index in the back of a book helps us to find keywords quickly, so the database is able to quickly narrow the number of records it must examine to a minimum by using the sorted list of UnitPrice values stored in the index. We have avoided a table scan to fetch the query results. Given this sketch of how indexes work, lets examine some of the scenarios where indexes offer a benefit.</P>
+<H2>Taking Advantage of Indexes</H2>
+<P>The database engine can use indexes to boost performance in a number of different queries. Sometimes these performance improvements are dramatic. An important feature of SQL Server 2000 is a component known as the query optimizer. The query optimizer's job is to find the fastest and least resource intensive means of executing incoming queries. An important part of this job is selecting the best index or indexes to perform the task. In the following sections we will examine the types of queries with the best chance of benefiting from an index.</P>
+<H4>Searching For Records</H4>
+<P>The most obvious use for an index is in finding a record or set of records matching a WHERE clause. Indexes can aid queries looking for values inside of a range (as we demonstrated earlier), as well as queries looking for a specific value. By way of example, the following queries can all benefit from an index on UnitPrice: </P>
+<P><PRE>DELETE FROM Products WHERE UnitPrice = 1 
+
+UPDATE Products SET Discontinued = 1 WHERE UnitPrice &gt; 15 
+
+SELECT * FROM PRODUCTS WHERE UnitPrice BETWEEN 14 AND 16 
+</PRE>
+<P></P>
+<P>Indexes work just as well when searching for a record in DELETE and UPDATE commands as they do for SELECT statements. </P>
+<H4>Sorting Records</H4>
+<P>When we ask for a sorted dataset, the database will try to find an index and avoid sorting the results during execution of the query. We control sorting of a dataset by specifying a field, or fields, in an ORDER BY clause, with the sort order as ASC (ascending) or DESC (descending). For example, the following query returns all products sorted by price:</P>
+<P><PRE> SELECT * FROM Products ORDER BY UnitPrice ASC 
+</PRE>
+<P></P>With no index, the database will scan the Products table and sort the rows to process the query. However, the index we created on UnitPrice (IDX_UnitPrice) earlier provides the database with a presorted list of prices. The database can simply scan the index from the first entry to the last entry and retrieve the rows in sorted order. 
+<P></P>
+<P>The same index works equally well with the following query, simply by scanning the index in reverse.</P>
+<P><PRE>SELECT * FROM Products ORDER BY UnitPrice DESC 
+</PRE>
+<P></P>
+<H4>Grouping Records</H4>
+<P>We can use a GROUP BY clause to group records and aggregate values, for example, counting the number of orders placed by a customer. To process a query with a GROUP BY clause, the database will often sort the results on the columns included in the GROUP BY. The following query counts the number of products at each price by grouping together records with the same UnitPrice value.</P>
+<P><PRE>SELECT Count(*), UnitPrice FROM Products GROUP BY UnitPrice 
+</PRE>
+<P></P>
+<P>The database can use the IDX_UnitPrice index to retrieve the prices in order. Since matching prices appear in consecutive index entries, the database is able count the number of products at each price quickly. Indexing a field used in a GROUP BY clause can often speed up a query. </P>
+<H4>Maintaining a Unique Column</H4>
+<P>Columns requiring unique values (such as primary key columns) must have a unique index applied. There are several methods available to create a unique index. Marking a column as a primary key will automatically create a unique index on the column. We can also create a unique index by checking the Create UNIQUE checkbox in the dialog shown earlier. The screen shot of the dialog displayed the index used to enforce the primary key of the Products table. In this case, the Create UNIQUE checkbox is disabled, since an index to enforce a primary key must be a unique index. However, creating new indexes not used to enforce primary keys will allow us to select the Create UNIQUE checkbox. We can also create a unique index using SQL with the following command: </P>
+<P><PRE>CREATE UNIQUE INDEX IDX_ProductName On Products (ProductName)
+</PRE>
+<P></P>
+<P>The above SQL command will not allow any duplicate values in the ProductName column, and an index is the best tool for the database to use to enforce this rule. Each time an application adds or modifies a row in the table, the database needs to search all existing records to ensure none of values in the new data duplicate existing values. Indexes, as we should know by now, will improve this search time.</P>
+<H2>Index Drawbacks</H2>
+<P>There are tradeoffs to almost any feature in computer programming, and indexes are no exception. While indexes provide a substantial performance benefit to searches, there is also a downside to indexing. Let's talk about some of those drawbacks now. 
+<H4>Indexes and Disk Space</H4>Indexes are stored on the disk, and the amount of space required will depend on the size of the table, and the number and types of columns used in the index. Disk space is generally cheap enough to trade for application performance, particularly when a database serves a large number of users. To see the space required for a table, use the sp_spaceused system stored procedure in a query window. 
+<P></P>
+<P><PRE> EXEC sp_spaceused Orders 
+</PRE>
+<P></P>
+<P>Given a table name (Orders), the procedure will return the amount of space used by the data and all indexes associated with the table, like so: </P>
+<P><PRE>Name    rows     reserved    data    index_size  unused       
+------- -------- ----------- ------  ----------  -------
+Orders  830      504 KB      160 KB  320 KB      24 KB
+</PRE>
+<P></P>
+<P>According to the output above, the table data uses 160 kilobytes, while the table indexes use twice as much, or 320 kilobytes. The ratio of index size to table size can vary greatly, depending on the columns, data types, and number of indexes on a table.</P>
+<H4>Indexes and Data Modification</H4>
+<P>Another downside to using an index is the performance implication on data modification statements. Any time a query modifies the data in a table (INSERT, UPDATE, or DELETE), the database needs to update all of the indexes where data has changed. As we discussed earlier, indexing can help the database during data modification statements by allowing the database to quickly locate the records to modify, however, we now caveat the discussion with the understanding that providing too many indexes to update can actually hurt the performance of data modifications. This leads to a delicate balancing act when tuning the database for performance.</P>
+<P>In decision support systems and data warehouses, where information is stored for reporting purposes, data remains relatively static and report generating queries outnumber data modification queries. In these types of environments, heavy indexing is commonplace in order to optimize the reports generated. In contrast, a database used for transaction processing will see many records added and updated. These types of databases will use fewer indexes to allow for higher throughput on inserts and updates.</P>
+<P>Every application is unique, and finding the best indexes to use for a specific application usually requires some help from the optimization tools offered by many database vendors. SQL Server 2000 and Access include the Profiler and Index Tuning Wizard tools to help tweak performance.</P>
+<P>Now we have enough information to understand why indexes are useful and where indexes are best applied. It is time now to look at the different options available when creating an index and then address some common rules of thumb to use when planning the indexes for your database.</P>
+<H2>Clustered Indexes</H2>
+<P>Earlier in the article we made an analogy between a database index and the index of a book. A book index stores words in order with a reference to the page numbers where the word is located. This type of index for a database is a nonclustered index; only the index key and a reference are stored. In contrast, a common analogy for a clustered index is a phone book. A phone book still sorts entries into alphabetical order. The difference is, once we find a name in a phone book, we have immediate access to the rest of the data for the name, such as the phone number and address.</P>
+<P>For a clustered index, the database will sort the table's records according to the column (or columns) specified by the index. A clustered index contains all of the data for a table in the index, sorted by the index key, just like a phone book is sorted by name and contains all of the information for the person inline. The nonclustered indexes created earlier in the chapter contain only the index key and a reference to find the data, which is more like a book index. You can only create one clustered index on each table.</P>
+<P>In the diagram below we have a search using a clustered index on the UnitPrice column of the Products table. Compare this diagram to the previous diagram with a regular index on UnitPrice. Although we are only showing three columns from the Products table, all of the columns are present and notice the rows are sorted into the order of the index, there is no reference to follow from the index back to the data. </P><BR><IMG src="http://www.odetocode.com/aimages/indexes_fig4.jpg"> 
+<P>A clustered index is the most important index you can apply to a table. If the database engine can use a clustered index during a query, the database does not need to follow references back to the rest of\ the data, as happens with a nonclustered index. The result is less work for the database, and consequently, better performance for a query using a clustered index.</P>
+<P>To create a clustered index, simply select the Create As CLUSTERED checkbox in the dialog box we used at the beginning of the chapter. The SQL syntax for a clustered index simply adds a new keyword to the CREATE INDEX command, as shown below:</P>
+<P><PRE> CREATE CLUSTERED INDEX IDX_SupplierID ON Products(SupplierID) 
+</PRE>
+<P></P>
+<P>Most of the tables in the Northwind database already have a clustered index defined on a table. Since we can only have one clustered index per table, and the Products table already has a clustered index (PK_Products) on the primary key (ProductId), the above command should generate the following error: </P>
+<P><PRE>Cannot create more than one clustered index on table 'Products'. 
+Drop the existing clustered index 'PK_Products' before creating another. 
+</PRE>
+<P></P>
+<P>As a general rule of thumb, every table should have a clustered index. If you create only one index for a table, use a clustered index. Not only is a clustered index more efficient than other indexes for retrieval operations, a clustered index also helps the database efficiently manage the space required to store the table. In SQL Server, creating a primary key constraint will automatically create a clustered index (if none exists) using the primary key column as the index key. </P>
+<P>Sometimes it is better to use a unique nonclustered index on the primary key column, and place the clustered index on a column used by more queries. For example, if the majority of searches are for the price of a product instead of the primary key of a product, the clustered index could be more effective if used on the price field. A clustered index can also be a UNIQUE index. </P>
+<H4>A Disadvantage to Clustered Indexes</H4>
+<P>If we update a record and change the value of an indexed column in a clustered index, the database might need to move the entire row into a new position to keep the rows in sorted order. This behavior essentially turns an update query into a DELETE followed by an INSERT, with an obvious decrease in performance. A table's clustered index can often be found on the primary key or a foreign key column, because key values generally do not change once a record is inserted into the database.</P>
+<H2>Composite Indexes</H2>
+<P>A composite index is an index on two or more columns. Both clustered and nonclustered indexes can be composite indexes. Composite indexes are especially useful in two different circumstances. First, you can use a composite index to cover a query. Secondly, you can use a composite index to help match the search criteria of specific queries. We will go onto more detail and give examples of these two areas in the following sections.</P>
+<H4>Covering Queries with an Index</H4>
+<P>Earlier in the article we discussed how an index, specifically a nonclustered index, contains only the key values and a reference to find the associated row of data. However, if the key value contains all of the information needed to process a query, the database never has to follow the reference and find the row; it can simply retrieve the information from the index and save processing time. This is always a benefit for clustered indexes.</P>
+<P>As an example, consider the index we created on the Products table for UnitPrice. The database copied the values from the UnitPrice column and sorted them into an index. If we execute the following query, the database can retrieve all of the information for the query from the index itself. </P>
+<P><PRE>SELECT UnitPrice FROM Products ORDER BY UnitPrice 
+</PRE>
+<P></P>
+<P>We call these types of queries covered queries, because all of the columns requested in the output are contained in the index itself. A clustered index, if selected for use by the query optimizer, always covers a query, since it contains all of the data in a table.</P>
+<P>For the following query, there are no covering indexes on the Products table.</P>
+<P><PRE>SELECT ProductName, UnitPrice FROM Products ORDER BY UnitPrice 
+</PRE>
+<P></P>
+<P>This is because although the database will use the index on UnitPrice to avoid sorting records, it will need to follow the reference in each index entry to find the associated row and retrieve the product name. By creating a composite index on two columns (ProductName and UnitPrice), we can cover this query with the new index.</P>
+<H4>Matching Complex Search Criteria</H4>
+<P>For another way to use composite indexes, let's take a look at the OrderDetails table of Northwind. There are two key values in the table (OrderID and ProductID); these are foreign keys, referencing the Orders and Products tables respectively. There is no column dedicated for use as a primary key; instead, the primary key is the combination of the columns OrderID and ProductID.</P>
+<P>The primary key constraint on these columns will generate a composite index, which is unique of course. The command the database would use to create the index looks something like the following: </P>
+<P><PRE>CREATE UNIQUE CLUSTERED INDEX PK_Order_Details 
+     ON [Order Details] (OrderID, ProductID) 
+</PRE>
+<P></P>
+<P>The order in which columns appear in a CREATE INDEX statement is significant. The primary sort order for this index is OrderID. When the OrderID is the same for two or more records, the database will sort this subset of records on ProductID.</P>
+<P>The order of columns determines how useful the index is for a query. Consider the phone book sorted by last name then first name. The phone book makes it easy to find all of the listings with a last name of Smith, or all of the listings with a last name of Jones and a first name of Lisa, but it is difficult to find all listings with a first name of Gary without scanning the book page by page.</P>
+<P>Likewise, the composite index on Order Details is useful in the following two queries:</P>
+<P><PRE>SELECT * FROM [Order Details] WHERE OrderID = 11077 
+
+SELECT * FROM [Order Details] WHERE OrderID = 11077 AND ProductID = 13
+</PRE>
+<P></P>
+<P>However, the following query cannot take advantage of the index we created since ProductID is the second part of the index key, just like the first name field in a phone book.</P>
+<P><PRE> SELECT * FROM [Order Details] WHERE ProductID = 13
+</PRE>
+<P></P>
+<P>In this case, ProductID is a primary key, however, so an index does exist on the ProductID column for the database to use for this query.</P>
+<P>Suppose the following query is the most popular query executed by our application, and we decided we needed to tune the database to support it.</P>
+<P><PRE>SELECT ProductName, UnitPrice FROM Products ORDER BY UnitPrice 
+</PRE>
+<P></P>
+<P>We could create the following index to cover the query. Notice we have specified two columns for the index: UnitPrice and ProductName (making the index a composite index):</P>
+<P><PRE> CREATE INDEX IX_UnitPrice_ProductName ON Products(UnitPrice, ProductName) 
+</PRE>
+<P></P>
+<P>While covered queries can provide a performance benefit, remember there is a price to pay for each index we add to a table, and we can also never cover every query in a non-trivial application.</P>
+<H2>Additional Index Guidelines</H2>
+<P>Choosing the correct columns and types for an index is another important step in creating an effective index. In this section, we will talk about two main points, namely short index keys and selective indexes (we'll explain what selective indexes are in just a moment).</P>
+<H4>Keep Index Keys Short</H4>
+<P>The larger an index key is, the harder a database has to work to use the index. For instance, an integer key is smaller in size then a character field for holding 100 characters. In particular, keep clustered indexes as short as possible.</P>
+<P>There are several approaches to keeping an index key short. First, try to limit the index to as few columns as possible. While composite indexes are useful and can sometimes optimize a query, they are also larger and cause more disk reads for the database. Secondly, try to choose a compact data type for an index column, based on the number of bytes required for each data type. Integer keys are small and easy for the database to compare. In contrast, strings require a character-by-character comparison.</P>
+<P>As a rule of thumb, try to avoid using character columns in an index, particularly primary key indexes. Integer columns will always have an advantage over character fields in ability to boost the performance of a query.</P>
+<H4>Distinct Index Keys</H4>
+<P>The most effective indexes are the indexes with a small percentage of duplicated values. Think of having a phone book for a city where 75% of the population has the last name of Smith. A phone book in this area might be easier to use if the entries were sorted by the resident's first names instead. A good index will allow the database to disregard as many records as possible during a search.</P>
+<P>An index with a high percentage of unique values is a selective index. Obviously, a unique index is the most selective index of all, because there are no duplicate values. SQL Server will track statistics for indexes and will know how selective each index is. The query optimizer utilizes these statistics when selecting the best index to use for a query.</P>
+<H4>Maintaining Indexes</H4>
+<P>In addition to creating an index, we'll need to view existing indexes, and sometimes delete or rename them. This is part of the ongoing maintenance cycle of a database as the schema changes, or even naming conventions change.</P>
+<H4>View Existing Indexes</H4>
+<P>A list of all indexes on a table is available in the dialog box we used to create an index. Click on the Selected index drop down control and scroll through the available indexes.</P>
+<P>There is also a stored procedure named sp_helpindex. This stored procedure gives all of the indexes for a table, along with all of the relevant attributes. The only input parameter to the procedure is the name of the table, as shown below.</P>
+<P><PRE>EXEC sp_helpindex Customers 
+</PRE>
+<P></P>
+<H4>Rename an Index</H4>
+<P>We can also rename any user created object with the sp_rename stored procedure, including indexes. The sp_rename procedure takes, at a minimum, the current name of the object and the new name for the object. For indexes, the current name must include the name of the table, a dot separator, and the name of the index, as shown below: </P>
+<P><PRE>EXEC sp_rename 'Products.IX_UnitPrice', 'IX_Price'
+</PRE>
+<P></P>
+<P>This will change the name of the IX_UnitPrice index to IX_Price.</P>
+<H4>Delete an Index</H4>
+<P>It is a good idea to remove an index from the database if the index is not providing any benefit. For instance, if we know the queries in an application are no longer searching for records on a particular column, we can remove the index. Unneeded indexes only take up storage space and diminish the performance of modifications. You can remove most indexes with the Delete button on the index dialog box, which we saw earlier. The equivalent SQL command is shown below.</P>
+<P><PRE>DROP Index Products.IX_Price 
+</PRE>
+<P></P>
+<P>Again, we need to use the name of the table and the name of the index, with a dot separator. Some indexes are not so easy to drop, namely any index supporting a unique or primary key constraint. For example, the following command tries to drop the PK_Products index of the Products table. </P>
+<P><PRE>DROP INDEX Products.PK_Products 
+</PRE>
+<P></P>
+<P>Since the database uses PK_Products to enforce a primary key constraint on the Products table, the above command should produce the following error.</P>
+<P><PRE>An explicit DROP INDEX is not allowed on index 'Products.PK_Products'. 
+It is being used for PRIMARY KEY constraint enforcement. 
+</PRE>
+<P></P>
+<P>Removing a primary key constraint from a table is a redesign of the table, and requires careful thought. It makes sense to know the only way to achieve this task is to either drop the table and use a CREATE TABLE command to recreate the table without the index, or to use the ALTER TABLE command. </P>
+<H2>Conclusion</H2>
+<P>In this article we learned how to create, manage, and select indexes for SQL Server tables. Most of what we covered is true for any relational database engine. Proper indexes are crucial for good performance in large databases. Sometimes you can make up for a poorly written query with a good index, but it can be hard to make up for poor indexing with even the best queries. </P>
+</article>
+
+            </div>
+            <div class="span2">
+                <section class="chiclets">
+    <div>
+        <a href="http://twitter.com/OdeToCode">
+            <img src="/Images/tweet.png" alt="Follow Me" /></a>
+        <a class="label label-info" href="http://twitter.com/OdeToCode">Follow</a>
+    </div>
+    <div>
+        <a href="http://feeds.feedburner.com/OdeToCode" title="Subscribe to my feed" rel="alternate" type="application/rss+xml">
+            <img src="/Images/feed-icon32x32.png" alt="RSS" /></a>
+        <a class="label label-info" href="http://feeds.feedburner.com/OdeToCode" title="Subscribe to my feed" rel="alternate" type="application/rss+xml">Subscribe</a>
+    </div>
+
+    <div>
+        <a href="/about/contact">
+            <img src="/Images/contact.png" /></a>
+        <a class="label label-info" href="/about/contact">Contact</a>
+    </div>
+    <div>
+        <a class="label label-info" href="/about/search">Search</a>
+        <a class="label label-info" href="/home/archives">Archives</a>
+    </div>
+</section>
+<section>
+    <div><a href="/about/scott-allen">by K. Scott Allen</a></div>
+    <a href="/about/scott-allen"><img src="/Images/ksa2.jpg" alt="K.Scott Allen" title="K. Scott Allen" /></a>
+</section>
+
+
+
+                <div class="lqm_ad" lqm_publisher="lqm.scottallen.site" lqm_zone="ron" lqm_format="160x600"></div>
+            </div>
+        </div>
+    </div>
+    <div class="lqm_ad pagination-centered hidden-phone" lqm_publisher="lqm.scottallen.site" lqm_zone="ron" lqm_format="728x90"></div>
+    <footer>
+        (c) OdeToCode LLC 2004 - 2013
+    </footer>
+    <script src="/Scripts/bottom?v=TQmqqtWCTX6riGJiIvrCepeQt3U5UnvE9rpcY1ZX4Yg1"></script>
+
+    
+    <script type='text/javascript' language='Javascript' src='http://s1.lqcdn.com/m.min.js?dt=2.3.110104.1'></script>   
+</body>
+</html>

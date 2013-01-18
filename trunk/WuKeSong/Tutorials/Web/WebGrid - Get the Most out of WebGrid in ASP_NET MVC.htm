@@ -1,0 +1,834 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style=""overflow:auto"">
+<head id="ctl00_Head"><link id="ctl00_HeaderLink2" rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Platform/MasterPages/Msdn10/Msdn10a-bn1651.css" /><link id="ctl00_HeaderLink3" rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Platform/MasterPages/MsdnMagazine2/Magazine2-bn1651.css" /><link rel="alternate" type="application/rss+xml" title="MSDN Magazine - Current Issue" href="/magazine/rss/default.aspx?z=z&amp;iss=1" /><link rel="alternate" type="application/rss+xml" title="MSDN Magazine - Complete" href="/magazine/rss/default.aspx?z=z&amp;all=1" /><link rel="alternate" type="application/rss+xml" title="MSDN Magazine Blog" href="http://blogs.msdn.com/msdnmagazine/rss.xml" /><link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Platform/MasterPages/Msdn10/Msdn10.ie8-bn1651.css" /><meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-gb/magazine(d=lightweight)/hh288075(l=en-us,v=MSDN.10).aspx" /><meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-gb/magazine(d=lightweight)/hh288075(l=en-us,v=MSDN.10).aspx" /><meta name="ROBOTS" content="NOINDEX,NOFOLLOW" /><meta name="MN" content="D638F18F-1:03:01 AM" /><meta name="ms.locale" content="en-us" /><meta name="Search.ShortId" content="hh288075" />
+<!-- Looking for metadata? Use the robot view instead http://currentsite/currenturl(robot).aspx -->
+<link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/en-gb/magazine/mtps-bn1651.css?l=en-gb&amp;i=magazine&amp;ct=AlternateSelector;CCEditor;CCSection;CCTagEditor;ContentFallback;EyebrowSimple;FeedViewerBasic;InstrumentedLink;InteractiveToolbar;MtpsComments;MtpsRating;MtViewDropDown;Omniture;RatingsOnly;RedVelvetInstrumentedLink;ShareThis;StoCodeHighlighter;StoFooter;StoLocaleManagementFlyout;StoMastheadMSDN;StoMtpsLoginStatus;StoProfileLink;StoSearch;StoTabStrip;SurveyLauncher;TemplatedFlyout;TransWikiPopupEditor;WebMetrix;WebTrends&amp;clustimg=1"></link><link rel="alternate" media="print" href="/en-gb/magazine/hh288075(printer).aspx" />
+<title>
+	MSDN Magazine: ASP.NET WebGrid - Get the Most out of WebGrid in ASP.NET MVC
+</title></head>
+<body id="ctl00_MTPS_Body" class="MsdnPageBody" dir="ltr">
+    <form name="aspnetForm" method="post" action="hh288075.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUBMGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFImN0bDAwJE1hc3RoZWFkJFNlYXJjaCRTZWFyY2hCdXR0b26XLjsaaMnXJk3rVrPXIAnclELYdg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=gsh4eaEpbqoI5rlVwNE2DbDoIdnrDSCspNtkZQ_l6sjxq6mYmO8OgwDZ305rbhUDj4_l7H-VRBll3bzFIeDFEQNjgG81&amp;t=634643438487933625" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var CurUserId="";var ClientURL="http%3a%2f%2fmsdn.microsoft.com%2fen-gb%2fmagazine(d%3dlightweight)%2fhh288075(l%3den-us%2cv%3dMSDN.10).aspx";var maxRating=5;var RatingObjId="ctl00_tb1_Flyout_Rating1";var tbCommentsId="ctl00_tb1_Flyout_tbComments";var PageId="hh288075";var pageTag="contentRatinghh288075MSDN.10en-us";var sendBtnId="ctl00_tb1_Flyout_btnSend";var curRating="5";var contentRated=false;var RatingTooltipText="Click a star and provide feedback";var RatedTooltipText="You have already rated this content. Thank you for your feedback.";var userIPAddress="60.191.25.28";var MtpsPageDirection="ltr";var RatingFlyoutID="ctl00_tb1_Flyout";var Rating_Device="lightweight";//]]>
+</script>
+
+<script src="http://i2.msdn.microsoft.com/Platform/cjs/jquery-1.2.6-bn1651.js" type="text/javascript"></script>
+<script src="http://i2.msdn.microsoft.com/Platform/cjs/Silverlight-bn1651.js" type="text/javascript"></script>
+<script src="http://i2.msdn.microsoft.com/Platform/Controls/StoCodeHighlighter/resources/jquery.chili-2.2-bn1651.js" type="text/javascript"></script>
+<script src="http://i2.msdn.microsoft.com/Platform/Controls/StoCodeHighlighter/resources/recipes-bn1651.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+ $(document).ready(function() {$('A[rel="reportAbuse"]').click(function() {   var t = $(this).attr('targetUrl');   window.open(t,'SiteFeedback','width=670,resizable=no,height=700,toolbar=no,location=no,scrollbars=yes,directories=no,status=no,menubar=no'); return false; }); }); $(document).ready(function() {$('.icon_Abusive').click(function() {   var t = $(this).attr('targetUrl');   window.open(t,'SiteFeedback','width=670,resizable=no,height=700,toolbar=no,location=no,scrollbars=yes,directories=no,status=no,menubar=no'); return false; }); });var deletepath='http://msdn.microsoft.com/Platform/Controls/MtpsComments/MtpsComments.asmx/DeleteCommentObject';var jpagepath='http://msdn.microsoft.com/Platform/Controls/MtpsComments/MtpsComments.asmx/CreateCommentObject'; var shortid='hh288075'; var locale='en-US';var productversion='MSDN.10';var stopProcessing = false; var passporterror ='You have not signed in to comment! Please sign in to comment..'; var postComment = 'Post Comment'; var processingTxt = 'Processing..'; var commentEmptyError = 'Comments cannot be empty.'; var commentsTopLeft = 'Comments'; var authorFirstName = ''; var authorLastName = ''; var deleteProcessgif='http://i.msdn.microsoft.com/platform/Controls/MtpsComments/resources/ani_loading.gif'; var userStatus='SignedOut';var jcommentsid = 'ctl00_MTContentSelector1_mainContentContainer_ctl29_txtComments'; var commentsCnt = 17;var wt_nvr_ru = "WT_NVR_RU";var wt_fpcdom = ".microsoft.com";var wt_domlist = "msdn.microsoft.com";var wt_pathlist = "";var wt_paramlist = "DCSext.mtps_devcenter";var wt_siteid = "MSDN";var gDomain="m.webtrends.com";
+var gDcsId="dcsmgru7m99k7mqmgrhudo0k8_8c6m";
+var gFpc="WT_FPC";
+/*<![CDATA[*/
+if(document.cookie.indexOf(gFpc+"=")==-1){document.write("<scr"+"ipt type='text/javascript' src='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/scr"+"ipt>");}
+/*]]>*/
+var detectedLocale = 'en-us';
+var wtsp="_msdnmag_";
+var gTrackEvents = 1;
+var omni_guid='5b982024-b55c-4a45-9409-27953ce48547';//]]>
+</script>
+<script src='http://i2.msdn.microsoft.com/platform/Controls/Omniture/resources/MSDN/omni_rsid_msdn-bn1651.js' type='text/javascript'></script><noscript><a href='http://www.omniture.com' title='Web Analytics'><img src='http://msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0'  height='1' width='1' border='0' alt='' /></a></noscript>
+<script type="text/javascript">
+//<![CDATA[
+var CurUserId="";var ClientURL="http%3a%2f%2fmsdn.microsoft.com%2fen-gb%2fmagazine(d%3dlightweight)%2fhh288075(l%3den-us%2cv%3dMSDN.10).aspx";var maxRating=5;var RatingObjId="ctl00_MTContentSelector1_mainContentContainer_ctl27_A";var tbCommentsId="";var PageId="hh288075";var pageTag="contentRatinghh288075MSDN.10en-us";var sendBtnId="";var curRating="5";var contentRated=false;var RatingTooltipText="Click a star and provide feedback";var RatedTooltipText="You have already rated this content. Thank you for your feedback.";var userIPAddress="60.191.25.28";var MtpsPageDirection="ltr";var RatingFlyoutID="";var Rating_Device="default";//]]>
+</script>
+
+<script src="http://i2.msdn.microsoft.com/platform/cjs/extract/compositejscript3.js" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="-Fu3dcB6q5E3D63Kx__-Md-v1VIEyb51J655hikE97FFCCJjtxIw1KRxFWauy7wBHEk-4mwm_ONy5zXS8pcj9MtmDwMdgsxpiUXppTndQFGv5j0v0" />
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+    <div id="ctl00_checkFlyer">
+
+</div>
+    
+    
+    <div id="BodyBackground">
+        <div id="ctl00_JelloSizer" class="JelloSizer">
+            <div id="JelloExpander">
+                <div id="ctl00_JelloWrapper" class="JelloWrapper">
+                    <div class="Clear"> </div>
+                    
+                        <div class="Clear"> </div>
+                        
+
+<div class="Masthead">
+    <div id="ctl00_Masthead_brandLogo" class="BrandLogo">
+        <a href="/en-gb/magazine/default.aspx" id="ctl00_Masthead_brandlink" title="MSDN Magazine">MSDN Magazine</a>
+    </div>
+    <div class="Search">
+        <div id="ctl00_Masthead_Search_SearchBox" class="SearchBox">
+    <input name="ctl00$Masthead$Search$SearchTextBox" type="text" id="ctl00_Masthead_Search_SearchTextBox" title="Search MSDN" class="TextBoxSearch" />
+    <input type="image" name="ctl00$Masthead$Search$SearchButton" id="ctl00_Masthead_Search_SearchButton" title="Click here to search" class="SearchButton" alt="Click here to search" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" style="border-width:0px;" />
+    <span class="Bing"></span>
+<script type="text/javascript" defer="defer" src="http://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=ctl00_Masthead_Search_SearchTextBox&btnid=ctl00_Masthead_Search_SearchButton&brand=MSDN&loc=en-gb&focusOnInit=true&Refinement=118&watermark=MSDN Magazine" id="mscom.srch.searchBox"></script></div>
+    </div>
+    <div class="GlobalBar">
+        <div id="ctl00_Masthead_passportScarab" class="PassportScarab"> 
+            <a id="idPPScarab" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1357722181&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-gb%2fmagazine%2fhh288075.aspx&amp;lc=2057&amp;id=254354&amp;mkt=en-GB" ><span id="idPPScarabSIT" class="MTPS_GlobalToolbarLinks_msdn">Sign in</span></a>
+<div id="idPPMWOverlay" style="display: none;"></div>
+        </div>
+        <div class="LocaleFlyout">
+            
+    <div id="MainDiv"  onmouseover="FlyoutPopupShow()"  onmouseout="FlyoutPopupHide()">
+        <div id="FlyoutTop" >
+            <a id="ctl00_Masthead_LocaleManagement_linkCountryLanguage" class="LocaleManagementFlyoutStaticLink">United Kingdom - English&nbsp;</a>
+            <img id="img_Arrow" class="LocaleManagementFlyoutPopArrow" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" alt=""/>
+        </div>
+        <div id="FlyoutPopup"  class="LocaleManagementFlyoutPopup">
+            <table class="LocaleManagementFlyoutPopupTable"  >
+                <tr><td ><a id="ctl00_Masthead_LocaleManagement_lkbtn_Arg" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Arg&#39;,&#39;&#39;)">
+                Argentina (Español)</a></td></tr>
+                <tr><td ><a id="ctl00_Masthead_LocaleManagement_lkbtn_Bra" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Bra&#39;,&#39;&#39;)">
+                Brasil (Português)</a></td></tr>
+                <tr><td ><a id="ctl00_Masthead_LocaleManagement_lkbtn_CanE" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_CanE&#39;,&#39;&#39;)">
+                Canada (English)</a></td></tr>
+                <tr><td ><a id="ctl00_Masthead_LocaleManagement_lkbtn_CanF" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_CanF&#39;,&#39;&#39;)">
+                Canada (Français)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Chi" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Chi&#39;,&#39;&#39;)">
+                中国 (简体中文)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Col" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Col&#39;,&#39;&#39;)">
+                Colombia (Español)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Deu" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Deu&#39;,&#39;&#39;)">
+                Deutschland (Deutsch)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Esp" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Esp&#39;,&#39;&#39;)">
+                España (Español)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Fra" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Fra&#39;,&#39;&#39;)">
+                France (Français)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Ind" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Ind&#39;,&#39;&#39;)">
+                India (English)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Ita" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Ita&#39;,&#39;&#39;)">
+                Italia (Italiano)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Jpa" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Jpa&#39;,&#39;&#39;)">
+                日本 (日本語)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Kor" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Kor&#39;,&#39;&#39;)">
+                한국 (한국어)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Mex" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Mex&#39;,&#39;&#39;)">
+                México (Español)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Per" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Per&#39;,&#39;&#39;)">
+                Perú (Español)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Рос" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Рос&#39;,&#39;&#39;)">
+                Россия (Pусский)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_Tai" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_Tai&#39;,&#39;&#39;)">
+                台灣 (繁體中文)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_UK" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_UK&#39;,&#39;&#39;)">
+                United Kingdom (English)</a></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_US" href="javascript:__doPostBack(&#39;ctl00$Masthead$LocaleManagement$lkbtn_US&#39;,&#39;&#39;)">
+                United States (English)</a></td></tr>
+                <tr><td class="LocaleManagementFlyoutPopupHr"></td></tr>
+                <tr><td><a id="ctl00_Masthead_LocaleManagement_lkbtn_More" href="/en-gb/selectLocale">More...</a></td></tr>
+            </table>
+        </div>
+    </div>
+
+
+        </div>
+        <div class="Clear"></div>
+        <div id="ctl00_Masthead_ProfileLink_UserName" class="UserName"></div>
+    </div>
+    <div class="Clear"></div>
+    <div id="ctl00_Masthead_networkTagLineArea" class="NetworkLogo">
+        <a href="/en-gb/default.aspx" id="ctl00_Masthead_networkLink"><img title="microsoft developer network" src="http://i.msdn.microsoft.com/platform/Controls/StoMastheadMSDN/resources/brand_logo.png" style="border-width:0px;" /></a>
+    </div>
+    
+
+<div class="leftcap"></div>
+    <div class="internav">
+	    <div id="ctl00_Masthead_tabs_manTabsHolder"><a id="ctl00_Masthead_tabs_ctl01" class="normal" href="http://msdn.microsoft.com/en-gb/magazine/default.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_Masthead_tabs_ctl00|ctl00_Masthead_tabs_ctl01',this);">Home</a><a id="ctl00_Masthead_tabs_ctl03" class="normal" href="http://msdn.microsoft.com/en-gb/magazine/ee532082.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_Masthead_tabs_ctl02|ctl00_Masthead_tabs_ctl03',this);">Topics</a><a id="ctl00_Masthead_tabs_ctl05" class="active" href="http://msdn.microsoft.com/en-gb/magazine/ee310108.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_Masthead_tabs_ctl04|ctl00_Masthead_tabs_ctl05',this);">Issues and Downloads</a><a id="ctl00_Masthead_tabs_ctl07" class="normal" href="http://msdn.microsoft.com/en-gb/magazine/ee729207.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_Masthead_tabs_ctl06|ctl00_Masthead_tabs_ctl07',this);">Script Junkie</a><a id="ctl00_Masthead_tabs_ctl09" class="normal" href="http://msdn.microsoft.com/en-gb/magazine/ee358702.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_Masthead_tabs_ctl08|ctl00_Masthead_tabs_ctl09',this);">Subscribe</a><a id="ctl00_Masthead_tabs_ctl11" class="normal" href="http://msdn.microsoft.com/en-gb/magazine/ee291618.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_Masthead_tabs_ctl10|ctl00_Masthead_tabs_ctl11',this);">Submit an Article</a><a id="ctl00_Masthead_tabs_ctl13" class="normal" href="http://msdn.microsoft.com/en-gb/magazine/cc194384.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_Masthead_tabs_ctl12|ctl00_Masthead_tabs_ctl13',this);">RSS</a></div>
+    </div>
+<div class="rightcap"></div>
+<div class="Clear"></div>
+   
+</div>
+                        <div class="Clear"> </div>
+                        <div class="topleftcorner"> </div>
+                        <div class="toprightcorner"> </div>
+                        <div class="alley">
+                            <div class="wrapper">
+                                <div class="inner">
+                                    
+                                    <div class="Clear"> </div>
+                                    <div id="ctl00_EyebrowMenu_EyebrowContainer" class="EyebrowContainer"><a id="ctl00_EyebrowMenu_ctl00" title="MSDN Magazine" class="EyebrowLink" href="http://msdn.microsoft.com/en-gb/magazine/dd767791.aspx" onclick="javascript:Track('|Eyebrow|ctl00_EyebrowMenu_EyebrowContainer|ctl00_EyebrowMenu_ctl00',this);">MSDN Magazine</a><span>&nbsp;&gt;&nbsp;</span><a id="ctl00_EyebrowMenu_ctl01" title="Issues and Downloads" class="EyebrowLink" href="http://msdn.microsoft.com/en-gb/magazine/ee310108.aspx" onclick="javascript:Track('|Eyebrow|ctl00_EyebrowMenu_EyebrowContainer|ctl00_EyebrowMenu_ctl01',this);">Issues and Downloads</a><span>&nbsp;&gt;&nbsp;</span><a id="ctl00_EyebrowMenu_ctl02" title="2011" class="EyebrowLink" href="http://msdn.microsoft.com/en-gb/magazine/gg547374.aspx" onclick="javascript:Track('|Eyebrow|ctl00_EyebrowMenu_EyebrowContainer|ctl00_EyebrowMenu_ctl02',this);">2011</a><span>&nbsp;&gt;&nbsp;</span><a id="ctl00_EyebrowMenu_ctl03" title="July 2011 issue" class="EyebrowLink" href="http://msdn.microsoft.com/en-gb/magazine/hh315813.aspx" onclick="javascript:Track('|Eyebrow|ctl00_EyebrowMenu_EyebrowContainer|ctl00_EyebrowMenu_ctl03',this);">July 2011 issue</a><span>&nbsp;&gt;&nbsp;</span><span class="EyebrowElement">&nbsp;ASP.NET WebGrid - Get the Most out of WebGrid i...</span></div>
+                                    <div class="Clear"> </div>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; table-layout: fixed;">
+                                        <tr>
+                                            <td style="vertical-align: top; width: auto;" valign="top">
+                                                
+                                                <div id="MainContent" style="width: 100%">
+                                                    
+                                                            
+                                                            <div class="navpage" ><div class="MagazineStyle"><div class="FeatureTitle"><h2>ASP.NET WebGrid</h2><h1>Get the Most out of WebGrid in ASP.NET MVC</h1><h3><a id="ctl00_MTContentSelector1_mainContentContainer_ctl01" href="/magazine/ee532098.aspx?sdmr=StuartLeeks&sdmi=authors" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl01',this);">Stuart Leeks</a></h3><p><a id="ctl00_MTContentSelector1_mainContentContainer_ctl02" href="http://code.msdn.microsoft.com/mag201107WebGrid" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl02',this);"><strong>Download the Code Sample</strong></a></p></div><p> Earlier this year Microsoft released ASP.NET MVC version 3 (<a id="ctl00_MTContentSelector1_mainContentContainer_ctl03" href="http://asp.net/mvc" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl03',this);">asp.net/mvc</a>), as well as a new product called WebMatrix (<a id="ctl00_MTContentSelector1_mainContentContainer_ctl04" href="http://asp.net/webmatrix" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl04',this);">asp.net/webmatrix</a>). The WebMatrix release included a number of productivity helpers to simplify tasks such as rendering charts and tabular data. One of these helpers, WebGrid, lets you render tabular data in a very simple manner with support for custom formatting of columns, paging, sorting and asynchronous updates via AJAX.</p><p> In this article, I’ll introduce WebGrid and show how it can be used in ASP.NET MVC 3, then take a look at how to really get the most out of it in an ASP.NET MVC solution. (For an overview of WebMatrix—and the Razor syntax that will be used in this article—see Clark Sell’s article, “Introduction to WebMatrix,” in the April 2011 issue at <a id="ctl00_MTContentSelector1_mainContentContainer_ctl05" href="http://msdn.microsoft.com/magazine/gg983489" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl05',this);">msdn.microsoft.com/magazine/gg983489</a>).</p><p> This article looks at how to fit the WebGrid component into an ASP.NET MVC environment to enable you to be productive when rendering tabular data. I’ll be focusing on WebGrid from an ASP.NET MVC aspect: creating a strongly typed version of WebGrid with full IntelliSense, hooking into the WebGrid support for server-side paging and adding AJAX functionality that degrades gracefully when scripting is disabled. The working samples build on top of a service that provides access to the AdventureWorksLT database via the Entity Framework. If you’re interested in the data-access code, it’s available in the code download, and you might also want to check out Julie Lerman’s article, “Server-Side Paging with the Entity Framework and ASP.NET MVC 3,” in the March 2011 issue (<a id="ctl00_MTContentSelector1_mainContentContainer_ctl06" href="http://msdn.microsoft.com/magazine/gg650669" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl06',this);">msdn.microsoft.com/magazine/gg650669</a>).</p><h2>Getting Started with WebGrid</h2><p>To show a simple example of WebGrid, I’ve set up an ASP.NET MVC action that simply passes an IEnumerable&lt;Product&gt; to the view. I’m using the Razor view engine for most of this article, but later I’ll also discuss how the WebForms view engine can be used. My ProductController class has the following action:</p><div class="CodeHighlighter"><pre><code class="csharp">public ActionResult List()
+
+  {
+
+    IEnumerable&lt;Product&gt; model =
+
+      _productService.GetProducts();
+
+ 
+
+    return View(model);
+
+  }</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p>The List view includes the following Razor code, which renders the grid shown in <strong>Figure 1</strong>:</p><div class="CodeHighlighter"><pre><code class="html">@model IEnumerable&lt;MsdnMvcWebGrid.Domain.Product&gt;
+
+@{
+
+  ViewBag.Title = "Basic Web Grid";
+
+}
+
+&lt;h2&gt;Basic Web Grid&lt;/h2&gt;
+
+&lt;div&gt;
+
+@{
+
+  var grid = new WebGrid(Model, defaultSort:"Name");
+
+}
+
+@grid.GetHtml()
+
+&lt;/div&gt;</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p><a id="ctl00_MTContentSelector1_mainContentContainer_ctl09" href="hh288075.Leeks_Figure1new_hires_zoom(en-us,MSDN.10).jpg" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl09',this);"><img alt="A Basic Rendered Web Grid" src="http://i.msdn.microsoft.com/hh288075.Leeks_Figure1new_hires(en-us,MSDN.10).jpg" title="A Basic Rendered Web Grid" /><br /><em>(click to zoom)</em></a></p><p>Figure 1 <strong>A Basic Rendered Web Grid</strong></p><p>The first line of the view specifies the model type (for example, the type of the Model property that we access in the view) to be IEnumerable&lt;Product&gt;. Inside the div element I then instantiate a WebGrid, passing in the model data; I do this inside an @{...} code block so that Razor knows not to try to render the result. In the constructor I also set the defaultSort parameter to “Name” so theWebGrid knows that the data passed to it is already sorted by Name. Finally, I use @grid.GetHtml() to generate the HTML for the grid and render it into the response.</p><p>This small amount of code provides rich grid functionality. The grid limits the amount of data displayed and includes pager links to move through the data; column headings are rendered as links to enable paging. You can specify a number of options in the WebGrid constructor and the GetHtml method in order to customize this behavior. The options let you disable paging and sorting, change the number of rows per page, change the text in the pager links and much more. <strong>Figure 2</strong> shows the WebGrid constructor parameters and Figure 3 the GetHtml parameters.</p><p>Figure 2 <strong>WebGrid Constructor Parameters</strong></p><table class="charttable"><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Notes</strong></td></tr><tr><td>source</td><td>IEnumerable&lt;dynamic&gt;</td><td>The data to render.</td></tr><tr><td>columnNames</td><td>IEnumerable&lt;string&gt;</td><td>Filters the columns that are rendered.</td></tr><tr><td>defaultSort</td><td>string</td><td>Specifies the default column to sort by.</td></tr><tr><td>rowsPerPage</td><td>int</td><td>Controls how many rows are rendered per page (default is 10).</td></tr><tr><td>canPage</td><td>bool</td><td>Enables or disables paging of data.</td></tr><tr><td>canSort</td><td>bool</td><td>Enables or disables sorting of data.</td></tr><tr><td>ajaxUpdateContainerId</td><td>string</td><td>The ID of the grid’s containing element, which enables AJAX support.</td></tr><tr><td>ajaxUpdateCallback</td><td>string</td><td>The client-side function to call when the AJAX update is complete.</td></tr><tr><td>fieldNamePrefix</td><td>string</td><td>Prefix for query string fields to support multiple grids.</td></tr><tr><td>pageFieldName</td><td>string</td><td>Query string field name for page number.</td></tr><tr><td>selectionFieldName</td><td>string</td><td>Query string field name for selected row number.</td></tr><tr><td>sortFieldName</td><td>string</td><td>Query string field name for sort column.</td></tr><tr><td>sortDirectionFieldName</td><td>string</td><td>Query string field name for sort direction.</td></tr></table><p style="margin-top:1em">Figure 3 <strong>WebGrid.GetHtml Parameters</strong></p><table class="charttable"><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Notes</strong></td></tr><tr><td>tableStyle</td><td>string</td><td>Table class for styling.</td></tr><tr><td>headerStyle</td><td>string</td><td>Header row class for styling.</td></tr><tr><td>footerStyle</td><td>string</td><td>Footer row class for styling.</td></tr><tr><td>rowStyle</td><td>string</td><td>Row class for styling (odd rows only).</td></tr><tr><td>alternatingRowStyle</td><td>string</td><td>Row class for styling (even rows only).</td></tr><tr><td>selectedRowStyle</td><td>string</td><td>Selected row class for styling.</td></tr><tr><td>caption</td><td>string</td><td>The string displayed as the table caption.</td></tr><tr><td>displayHeader</td><td>bool</td><td>Indicates whether the header row should be displayed.</td></tr><tr><td>fillEmptyRows</td><td>bool</td><td>Indicates whether the table can add empty rows to ensure the rowsPerPage row count.</td></tr><tr><td>emptyRowCellValue</td><td>string</td><td>Value used to populate empty rows; only used when fillEmptyRows is set.</td></tr><tr><td>columns</td><td>IEnumerable&lt;WebGridColumn&gt;</td><td>Column model for customizing column rendering.</td></tr><tr><td>exclusions</td><td>IEnumerable&lt;string&gt;</td><td>Columns to exclude when auto-populating columns.</td></tr><tr><td>mode</td><td>WebGridPagerModes</td><td>Modes for pager rendering (default is NextPrevious and Numeric).</td></tr><tr><td>firstText</td><td>string</td><td>Text for a link to the first page.</td></tr><tr><td>previousText</td><td>string</td><td>Text for a link to the previous page.</td></tr><tr><td>nextText</td><td>string</td><td>Text for a link to the next page.</td></tr><tr><td>lastText</td><td>string</td><td>Text for a link to the last page.</td></tr><tr><td>numericLinksCount</td><td>int</td><td>Number of numeric links to display (default is 5).</td></tr><tr><td>htmlAttributes</td><td>object</td><td>Contains the HTML attributes to set for the element.</td></tr></table><p style="margin-top:1em">The previous Razor code will render all of the properties for each row, but you may want to limit which columns are displayed. There are a number of ways to achieve this. The first (and simplest) is to pass the set of columns to the WebGrid constructor. For example, this code renders just the Name and ListPrice properties:</p><div class="CodeHighlighter"><pre><code class="csharp">var grid = new WebGrid(Model, columnNames: new[] {"Name", "ListPrice"});</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> You could also specify the columns in the call to GetHtml instead of in the constructor. While this is slightly longer, it has the advantage that you can specify additional information about how to render the columns. In the following example, I specified the header property to make the ListPrice column more user-friendly:</p><div class="CodeHighlighter"><pre><code class="csharp">@grid.GetHtml(columns: grid.Columns(
+
+ grid.Column("Name"),
+
+ grid.Column("ListPrice", header:"List Price")
+
+ )
+
+)</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p>Often when you render a list of items, you want to let users click on an item to navigate to the Details view. The format parameter of the Column method allows you to customize the rendering of a data item. The following code shows how to change the rendering of names to output a link to the Details view for an item, and outputs the list price with two decimal places as typically expected for currency values; the resulting output is shown in <strong>Figure 4</strong>.</p><div class="CodeHighlighter"><pre><code class="csharp">@grid.GetHtml(columns: grid.Columns(
+
+ grid.Column("Name", format: @&lt;text&gt;@Html.ActionLink((string)item.Name,
+
+            "Details", "Product", new {id=item.ProductId}, null)&lt;/text&gt;),
+
+ grid.Column("ListPrice", header:"List Price", 
+
+             format: @&lt;text&gt;@item.ListPrice.ToString("0.00")&lt;/text&gt;)
+
+ )
+
+)</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p><img alt="A Basic Grid with Custom Columns" src="http://i.msdn.microsoft.com/hh288075.Leeks_Figure4_hires(en-us,MSDN.10).jpg" title="A Basic Grid with Custom Columns" /></p><p>Figure 4 <strong>A Basic Grid with Custom Columns</strong></p><p>Although it looks like there’s some magic going on when I specify the format, the format parameter is actually a Func&lt;dynamic,object&gt;—a delegate that takes a dynamic parameter and returns an object. The Razor engine takes the snippet specified for the format parameter and turns it into a delegate. That delegate takes a dynamic parameter named item, and this is the item variable that’s used in the format snippet. For more information on the way these delegates work, see Phil Haack’s blog post at <a id="ctl00_MTContentSelector1_mainContentContainer_ctl13" href="http://bit.ly/h0Q0Oz" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl13',this);">bit.ly/h0Q0Oz</a>.</p><p>Because the item parameter is a dynamic type, you don’t get any IntelliSense or compiler checking when writing your code (see Alexandra Rusina’s article on dynamic types in the February 2011 issue at <a id="ctl00_MTContentSelector1_mainContentContainer_ctl14" href="http://msdn.microsoft.com/magazine/gg598922" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl14',this);">msdn.microsoft.com/magazine/gg598922</a>). Moreover, invoking extension methods with dynamic parameters isn’t supported. This means that, when calling extension methods, you have to ensure that you’re using static types—this is the reason that item.Name is cast to a string when I call the Html.ActionLink extension method in the previous code. With the range of extension methods used in ASP.NET MVC, this clash between dynamic and extension methods can become tedious (even more so if you use something like T4MVC: <a id="ctl00_MTContentSelector1_mainContentContainer_ctl15" href="http://bit.ly/9GMoup" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl15',this);">bit.ly/9GMoup</a>).</p><h2>Adding Strong Typing</h2><p> While dynamic typing is probably a good fit for WebMatrix, there are benefits to strongly typed views. One way to achieve this is to create a derived type WebGrid&lt;T&gt;, as shown in Figure 5. As you can see, it’s a pretty lightweight wrapper!</p><p> Figure 5 <strong>Creating a Derived WebGrid</strong></p><div class="CodeHighlighter"><pre><code class="csharp">public class WebGrid&lt;T&gt; : WebGrid
+
+  {
+
+    public WebGrid(
+
+      IEnumerable&lt;T&gt; source = null,
+
+      ... parameter list omitted for brevity)
+
+    : base(
+
+      source.SafeCast&lt;object&gt;(), 
+
+      ... parameter list omitted for brevity)
+
+    { }
+
+  public WebGridColumn Column(
+
+              string columnName = null, 
+
+              string header = null, 
+
+              Func&lt;T, object&gt; format = null, 
+
+              string style = null, 
+
+              bool canSort = true)
+
+    {
+
+      Func&lt;dynamic, object&gt; wrappedFormat = null;
+
+      if (format != null)
+
+      {
+
+        wrappedFormat = o =&gt; format((T)o.Value);
+
+      }
+
+      WebGridColumn column = base.Column(
+
+                    columnName, header, 
+
+                    wrappedFormat, style, canSort);
+
+      return column;
+
+    }
+
+    public WebGrid&lt;T&gt; Bind(
+
+            IEnumerable&lt;T&gt; source, 
+
+            IEnumerable&lt;string&gt; columnNames = null, 
+
+            bool autoSortAndPage = true, 
+
+            int rowCount = -1)
+
+    {
+
+      base.Bind(
+
+           source.SafeCast&lt;object&gt;(), 
+
+           columnNames, 
+
+           autoSortAndPage, 
+
+           rowCount);
+
+      return this;
+
+    }
+
+  }
+
+
+
+  public static class WebGridExtensions
+
+  {
+
+    public static WebGrid&lt;T&gt; Grid&lt;T&gt;(
+
+             this HtmlHelper htmlHelper,
+
+             ... parameter list omitted for brevity)
+
+    {
+
+      return new WebGrid&lt;T&gt;(
+
+        source, 
+
+        ... parameter list omitted for brevity);
+
+    }
+
+  }</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> So what does this give us? With the new WebGrid&lt;T&gt; implementation, I’ve added a new Column method that takes a Func&lt;T, object&gt; for the format parameter, which means that the cast isn’t required when calling extension methods. Also, you now get IntelliSense and compiler checking (assuming that MvcBuildViews is turned on in the project file; it’s turned off by default).</p><p> The Grid extension method allows you to take advantage of the compiler’s type inference for generic parameters. So, in this example, you can write Html.Grid(Model) rather than new WebGrid&lt;Product&gt;(Model). In each case, the returned type is WebGrid&lt;Product&gt;.</p><h2>Adding Paging and Sorting</h2><p>You’ve already seen that WebGrid gives you paging and sorting functionality without any effort on your part. You’ve also seen how to configure the page size via the rowsPerPage parameter (in the constructor or via the Html.Grid helper) so that the grid will automatically show a single page of data and render the paging controls to allow navigation between pages. However, the default behavior may not be quite what you want. To illustrate this, I’ve added code to render the number of items in the data source after the grid is rendered, as shown in <strong>Figure 6</strong>.</p><p><img alt="The Number of Items in the Data Source" src="http://i.msdn.microsoft.com/hh288075.Leeks_Figure6_hires(en-us,MSDN.10).jpg" title="The Number of Items in the Data Source" /></p><p>Figure 6 <strong>The Number of Items in the Data Source</strong></p><p>As you can see, the data we’re passing contains the full list of products (295 of them in this example, but it’s not hard to imagine scenarios with even more data being retrieved). As the amount of data returned increases, you place more and more load on your services and databases, while still rendering the same single page of data. But there’s a better approach: server-side paging. In this case, you pull back only the data needed to display the current page (for instance, only five rows).</p><p>The first step in implementing server-side paging for WebGrid is to limit the data retrieved from the data source. To do this, you need to know which page is being requested so you can retrieve the correct page of data. When WebGrid renders the paging links, it reuses the page URL and attaches a query string parameter with the page number, such as http://localhost:27617/Product/DefaultPagingAndSorting?page=3 (the query string parameter name is configurable via the helper parameters—handy if you want to support pagination of more than one grid on a page). This means you can take a parameter called page on your action method and it will be populated with the query string value.</p><p>If you just modify the existing code to pass a single page worth of data to WebGrid, WebGrid will see only a single page of data. Because it has no knowledge that there are more pages, it will no longer render the pager controls. Fortunately, WebGrid has another method, named Bind, that you can use to specify the data. As well as accepting the data, Bind has a parameter that takes the total row count, allowing it to calculate the number of pages. In order to use this method, the List action needs to be updated to retrieve the extra information to pass to the view, as shown in <strong>Figure 7</strong>.</p><p>Figure 7 <strong>Updating the List Action</strong></p><div class="CodeHighlighter"><pre><code class="csharp">public ActionResult List(int page = 1)
+
+{
+
+  const int pageSize = 5;
+
+ 
+
+  int totalRecords;
+
+  IEnumerable&lt;Product&gt; products = productService.GetProducts(
+
+    out totalRecords, pageSize:pageSize, pageIndex:page-1);
+
+            
+
+  PagedProductsModel model = new PagedProductsModel
+
+                                 {
+
+                                   PageSize= pageSize,
+
+                                   PageNumber = page,
+
+                                   Products = products,
+
+                                   TotalRows = totalRecords
+
+                                 };
+
+  return View(model);
+
+}</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> With this additional information, the view can be updated to use the WebGrid Bind method. The call to Bind provides the data to render and the total number of rows, and also sets the autoSortAndPage parameter to false. The autoSortAndPage parameter instructs WebGrid that it doesn’t need to apply paging, because the List action method is taking care of this. This is illustrated in the following code:</p><div class="CodeHighlighter"><pre><code class="html">&lt;div&gt;
+
+@{
+
+  var grid = new WebGrid&lt;Product&gt;(null, rowsPerPage: Model.PageSize, 
+
+    defaultSort:"Name");
+
+  grid.Bind(Model.Products, rowCount: Model.TotalRows, autoSortAndPage: false);
+
+}
+
+@grid.GetHtml(columns: grid.Columns(
+
+ grid.Column("Name", format: @&lt;text&gt;@Html.ActionLink(item.Name, 
+
+   "Details", "Product", new { id = item.ProductId }, null)&lt;/text&gt;),
+
+  grid.Column("ListPrice", header: "List Price", 
+
+    format: @&lt;text&gt;@item.ListPrice.ToString("0.00")&lt;/text&gt;)
+
+  )
+
+ )
+
+ 
+
+&lt;/div&gt;</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> With these changes in place, WebGrid springs back to life, rendering the paging controls but with the paging happening in the service rather than in the view! However, with autoSortAndPage turned off, the sorting functionality is broken. WebGrid uses query string parameters to pass the sort column and direction, but we instructed it not to perform the sorting. The fix is to add the sort and sortDir parameters to the action method and pass these through to the service so that it can perform the necessary sorting, as shown in <strong> Figure 8</strong>.</p><p> Figure 8 <strong>Adding Sorting Parameters to the Action Method</strong></p><div class="CodeHighlighter"><pre><code class="csharp">public ActionResult List(
+
+           int page = 1, 
+
+           string sort = "Name", 
+
+           string sortDir = "Ascending" )
+
+{
+
+  const int pageSize = 5;
+
+ 
+
+  int totalRecords;
+
+  IEnumerable&lt;Product&gt; products =
+
+    _productService.GetProducts(out totalRecords,
+
+                                pageSize: pageSize,
+
+                                pageIndex: page - 1,
+
+                                sort:sort,
+
+                                sortOrder:GetSortDirection(sortDir)
+
+                                );
+
+ 
+
+  PagedProductsModel model = new PagedProductsModel
+
+  {
+
+    PageSize = pageSize,
+
+    PageNumber = page,
+
+    Products = products,
+
+    TotalRows = totalRecords
+
+  };
+
+  return View(model);
+
+}</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><h2>AJAX: Client-Side Changes</h2><p> WebGrid supports asynchronously updating the grid content using AJAX. To take advantage of this, you just have to ensure the div that contains the grid has an id, and then pass this id in the ajaxUpdateContainerId parameter to the grid’s constructor. You also need a reference to jQuery, but that’s already included in the layout view. When the ajaxUpdateContainerId is specified, WebGrid modifies its behavior so that the links for paging and sorting use AJAX for the updates:</p><div class="CodeHighlighter"><pre><code class="html">&lt;div id="grid"&gt;
+
+ 
+
+@{
+
+  var grid = new WebGrid&lt;Product&gt;(null, rowsPerPage: Model.PageSize, 
+
+  defaultSort: "Name", ajaxUpdateContainerId: "grid");
+
+  grid.Bind(Model.Products, autoSortAndPage: false, rowCount: Model.TotalRows);
+
+}
+
+@grid.GetHtml(columns: grid.Columns(
+
+ grid.Column("Name", format: @&lt;text&gt;@Html.ActionLink(item.Name, 
+
+   "Details", "Product", new { id = item.ProductId }, null)&lt;/text&gt;),
+
+ grid.Column("ListPrice", header: "List Price", 
+
+   format: @&lt;text&gt;@item.ListPrice.ToString("0.00")&lt;/text&gt;)
+
+ )
+
+)
+
+ 
+
+&lt;/div&gt;</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> While the built-in functionality for using AJAX is good, the generated output doesn’t function if scripting is disabled. The reason for this is that, in AJAX mode, WebGrid renders anchor tags with the href set to “#,” and injects the AJAX behavior via the onclick handler.</p><p> I’m always keen to create pages that degrade gracefully when scripting is disabled, and generally find that the best way to achieve this is through <em> progressive enhancement</em> (basically having a page that functions without scripting that’s enriched with the addition of scripting). To achieve this, you can revert back to the non-AJAX WebGrid and create the script in <strong> Figure 9</strong> to reapply the AJAX behavior:</p><p> Figure 9 <strong>Reapplying the AJAX Behavior</strong></p><div class="CodeHighlighter"><pre><code class="js">$(document).ready(function () {
+
+ 
+
+  function updateGrid(e) {
+
+    e.preventDefault();
+
+    var url = $(this).attr('href');
+
+    var grid = $(this).parents('.ajaxGrid'); 
+
+    var id = grid.attr('id');
+
+    grid.load(url + ' #' + id);
+
+  };
+
+  $('.ajaxGrid table thead tr a').live('click', updateGrid);
+
+  $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+ });</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> To allow the script to be applied just to a WebGrid, it uses jQuery selectors to identify elements with the ajaxGrid class set. The script establishes click handlers for the sorting and paging links (identified via the table header or footer inside the grid container) using the jQuery live method (<a id="ctl00_MTContentSelector1_mainContentContainer_ctl22" href="http://api.jquery.com/live" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl22',this);">api.jquery.com/live</a>). This sets up the event handler for existing and future elements that match the selector, which is handy given the script will be replacing the content.</p><p> The updateGrid method is set as the event handler and the first thing it does is to call preventDefault to suppress the default behavior. After that it gets the URL to use (from the href attribute on the anchor tag) and then makes an AJAX call to load the updated content into the container element. To use this approach, ensure that the default WebGrid AJAX behavior is disabled, add the ajaxGrid class to the container div and then include the script from <strong> Figure 9</strong>.</p><h2>AJAX: Server-Side Changes</h2><p> One additional point to call out is that the script uses functionality in the jQuery load method to isolate a fragment from the returned document. Simply calling load(‘http://example.com/someurl’) will load the contents of the URL. However, load(‘http://example.com/someurl #someId’) will load the content from the specified URL and then return the fragment with the id of “someId.” This mirrors the default AJAX behavior of WebGrid and means that you don’t have to update your server code to add partial rendering behavior; WebGrid will load the full page and then strip out the new grid from it.</p><p> In terms of quickly getting AJAX functionality this is great, but it means you’re sending more data over the wire than is necessary, and potentially looking up more data on the server than you need to as well. Fortunately, ASP.NET MVC makes dealing with this pretty simple. The basic idea is to extract the rendering that you want to share in the AJAX and non-AJAX requests into a partial view. The List action in the controller can then either render just the partial view for AJAX calls or the full view (which in turn uses the partial view) for the non-AJAX calls.</p><p> The approach can be as simple as testing the result of the Request.IsAjaxRequest extension method from inside your action method. This can work well if there are only very minor differences between the AJAX and non-AJAX code paths. However, often there are more significant differences (for example, the full rendering requires more data than the partial rendering). In this scenario you’d probably write an AjaxAttribute so you could write separate methods and then have the MVC framework pick the right method based on whether the request is an AJAX request (in the same way that the HttpGet and HttpPost attributes work). For an example of this, see my blog post at <a id="ctl00_MTContentSelector1_mainContentContainer_ctl23" href="http://bit.ly/eMlIxU" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl23',this);"> bit.ly/eMlIxU</a>.</p><h2>WebGrid and the WebForms View Engine</h2><p> So far, all of the examples outlined have used the Razor view engine. In the simplest case, you don’t need to change anything to use WebGrid with the WebForms view engine (aside from differences in view engine syntax). In the preceding examples, I showed how you can customize the rendering of row data using the format parameter:</p><div class="CodeHighlighter"><pre><code class="csharp">grid.Column("Name", 
+
+  format: @&lt;text&gt;@Html.ActionLink((string)item.Name, 
+
+  "Details", "Product", new { id = item.ProductId }, null)&lt;/text&gt;),</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> The format parameter is actually a Func, but the Razor view engine hides that from us. But you’re free to pass a Func—for example, you could use a lambda expression:</p><div class="CodeHighlighter"><pre><code class="csharp">grid.Column("Name", 
+
+  format: item =&gt; Html.ActionLink((string)item.Name, 
+
+  "Details", "Product", new { id = item.ProductId }, null)),</code></pre></div><script type="text/javascript">ChiliBook.lineNumbers = true;ChiliBook.automatic = true;</script><p> Armed with this simple transition, you can now easily take advantage of WebGrid with the WebForms view engine!</p><h2>Wrapping Up</h2><p> In this article I showed how a few simple tweaks let you take advantage of the functionality that WebGrid brings without sacrificing strong typing, IntelliSense or efficient server-side paging. WebGrid has some great functionality to help make you productive when you need to render tabular data. I hope this article gave you a feel for how to make the most of it in an ASP.NET MVC application.</p><hr /><p><strong>Stuart Leeks</strong> <em>is an application development manager for the Premier Support for Development team in the United Kingdom. He has an unhealthy love of keyboard shortcuts. He maintains a blog at <a id="ctl00_MTContentSelector1_mainContentContainer_ctl26" href="http://blogs.msdn.com/b/stuartleeks" onclick="javascript:Track('ctl00_MTContentSelector1_mainContentContainer_ctl00|ctl00_MTContentSelector1_mainContentContainer_ctl26',this);">blogs.msdn.com/b/stuartleeks</a> where he talks about technical topics that interest him (including, but not limited to, ASP.NET MVC, Entity Framework and LINQ).</em></p><p><em>Thanks to the following technical experts for reviewing this article: <strong>Simon Ince</strong> and <strong>Carl Nolan</strong></em></p><div id="ctl00_MTContentSelector1_mainContentContainer_ctl27_rtgContainer" class="DivRatingsOnly">
+	
+              <table class="tableCss"  >
+                <tr>
+                  <td class="tableCellRateCss"><strong>
+                    <span id="ctl00_MTContentSelector1_mainContentContainer_ctl27_rateTitleLabel" class="tbFont">Rate: </span>&nbsp;</strong>
+                  </td>
+                  <td id="ctl00_MTContentSelector1_mainContentContainer_ctl27_tdRtg" class="tableCellRateControlCss">
+                      
+                  <a id="ctl00_MTContentSelector1_mainContentContainer_ctl27_ctl00_MTContentSelector1_mainContentContainer_ctl27_A" style="Style:text-decoration:none;" class="ratingsOnlyClass"><span><span id ='ctl00_MTContentSelector1_mainContentContainer_ctl27_Star_1' counter='1'class = 'ratingStar filledRatingStar ratingsOnlyStar'></span></span><span><span id ='ctl00_MTContentSelector1_mainContentContainer_ctl27_Star_2' counter='2'class = 'ratingStar filledRatingStar ratingsOnlyStar'></span></span><span><span id ='ctl00_MTContentSelector1_mainContentContainer_ctl27_Star_3' counter='3'class = 'ratingStar filledRatingStar ratingsOnlyStar'></span></span><span><span id ='ctl00_MTContentSelector1_mainContentContainer_ctl27_Star_4' counter='4'class = 'ratingStar filledRatingStar ratingsOnlyStar'></span></span><span><span id ='ctl00_MTContentSelector1_mainContentContainer_ctl27_Star_5' counter='5'class = 'ratingStar filledRatingStar ratingsOnlyStar'></span></span></a></td>
+	
+                </tr>
+              </table>
+            
+</div>
+
+         <div class="ShareThisButton4">
+	<div id="ctl00_MTContentSelector1_mainContentContainer_ctl28_ShareThis_rootDiv_1c51ef5b_ccd8_4ba4_b79e_d379c3913d68" class="ShareThis_RootButton" style="float:left;">
+		<a class="ShareThis_BtnLink" id="ShareThis_RootButton_Href" onmouseover="ShowShareThisChildPanels(this.id);"><span title="Share this content">Share this content</span></a>
+	</div><div id="ctl00_MTContentSelector1_mainContentContainer_ctl28_d586ed6c_aab8_4f4e_93dd_6cceafb31330" class="ShareThis_ChildRootPanel" style="float:left;">
+		<div id="ctl00_MTContentSelector1_mainContentContainer_ctl28_ShareThisBtnCollPanel_a314f254c017494f9925b2a65d5bbe5c" class="TierOneButtons1">
+			<div class="buttonPanel">
+				<a title="E-mail" class="iconsOnPanel" href="mailto:?subject=MSDN Magazine: ASP.NET WebGrid - Get the Most out of WebGrid in ASP.NET MVC&amp;Body=http://msdn.microsoft.com/en-gb/magazine/hh288075.aspx"><img title="E-mail" src="http://i.msdn.microsoft.com/platform/controls/sharethis/resources/email.gif" alt="" style="border-width:0px;" /></a><a title="E-mail" class="buttonPanelHyperLink" href="mailto:?subject=MSDN Magazine: ASP.NET WebGrid - Get the Most out of WebGrid in ASP.NET MVC&amp;Body=http://msdn.microsoft.com/en-gb/magazine/hh288075.aspx"></a>
+			</div><div class="buttonPanel">
+				<a title="Twitter" class="iconsOnPanel" href="http://twitter.com/home?status=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC : http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx"><img title="Twitter" src="http://i.msdn.microsoft.com/platform/controls/sharethis/resources/twitter.gif" alt="" style="border-width:0px;" /></a><a title="Twitter" class="buttonPanelHyperLink" href="http://twitter.com/home?status=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC : http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx"></a>
+			</div><div class="buttonPanel">
+				<a title="del.icio.us" class="iconsOnPanel" href="http://del.icio.us/post?url=http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx&amp;title=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC"><img title="del.icio.us" src="http://i.msdn.microsoft.com/platform/controls/sharethis/resources/delicious.gif" alt="" style="border-width:0px;" /></a><a title="del.icio.us" class="buttonPanelHyperLink" href="http://del.icio.us/post?url=http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx&amp;title=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC"></a>
+			</div><div class="buttonPanel">
+				<a title="Digg" class="iconsOnPanel" href="http://digg.com/submit?url=http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx&amp;title=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC"><img title="Digg" src="http://i.msdn.microsoft.com/platform/controls/sharethis/resources/digg.gif" alt="" style="border-width:0px;" /></a><a title="Digg" class="buttonPanelHyperLink" href="http://digg.com/submit?url=http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx&amp;title=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC"></a>
+			</div><div class="buttonPanel">
+				<a title="Facebook" class="iconsOnPanel" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx&amp;t=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC"><img title="Facebook" src="http://i.msdn.microsoft.com/platform/controls/sharethis/resources/facebook.gif" alt="" style="border-width:0px;" /></a><a title="Facebook" class="buttonPanelHyperLink" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fmsdn.microsoft.com%2Fen-gb%2Fmagazine%2Fhh288075.aspx&amp;t=MSDN%20Magazine%3A%20ASP.NET%20WebGrid%20-%20Get%20the%20Most%20out%20of%20WebGrid%20in%20ASP.NET%20MVC"></a>
+			</div>
+		</div>
+	</div>
+</div><p><br /><br /></p><div id="ctl00_MTContentSelector1_mainContentContainer_ctl29_outer" class="BostonPostCard">
+	
+    <div id="leftFloat">
+        <h3>
+            <span id="ctl00_MTContentSelector1_mainContentContainer_ctl29_commentsCount" class="cmtslblClass"><b>Comments</b> (17)</span>
+            <a href="http://msdn.microsoft.com/en-gb/magazine/community-edits.rss?topic=hh288075|en-us|10" id="ctl00_MTContentSelector1_mainContentContainer_ctl29_recentPageLink" style="float: right">
+                <img id="ctl00_MTContentSelector1_mainContentContainer_ctl29_imageRSS" src="http://i.msdn.microsoft.com/Global/Images/rss_button.gif" style="border-width:0px;" /></a>
+        </h3>
+    </div>
+    <div style="width: 99.5%">
+        <div id="rightFloat" style="float: right;">
+            <a id="ctl00_MTContentSelector1_mainContentContainer_ctl29_Add" href="javascript:__doPostBack(&#39;ctl00$MTContentSelector1$mainContentContainer$ctl29$Add&#39;,&#39;&#39;)"></a>
+            <a id="ctl00_MTContentSelector1_mainContentContainer_ctl29_leaveComment" class="toggleClass" href="javascript:__doPostBack(&#39;ctl00$MTContentSelector1$mainContentContainer$ctl29$leaveComment&#39;,&#39;&#39;)">Leave a Comment</a>
+            
+        </div>
+        <div id="ctl00_MTContentSelector1_mainContentContainer_ctl29_commentsDisplay" class="commentsDisplay">
+		<div class="Clear">
+
+		</div>
+            <div id="ctl00_MTContentSelector1_mainContentContainer_ctl29_userComments" class="usrComments">
+			
+            <div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=N. Eka Putra"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=N. Eka Putra" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=N. Eka Putra" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=N. Eka Putra"><b>N. Eka Putra</b>: </a><span>Monday, December 17, 2012 8:07 PM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Sorry, can you tell me about solve this problem. <br>I can&#39;t use Webgrid in my simple project ASP.NET MVC4 with Basic project template. I have add references System.Web.Helpers and add config assembly too. How fix it?.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=midix"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=midix" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=midix" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=midix"><b>midix</b>: </a><span>Thursday, October 11, 2012 5:10 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >I fixed the AJAX container issue, it was simple. Put &lt;div class="ajaxGrid&quot;&gt; in the main cshtml around the partial and remove it from the partial itself - we want the grid to be loaded inside of the static parent, not inside of the partial itself. <br>&nbsp; <br>Then replace: <br>&nbsp; var id = grid.attr(&#39;id&#39;); <br>&nbsp; grid.load(url + &#39; #&#39; + id); <br>with a single line: <br>grid.load(url); <br>&nbsp; <br>and now it will behave as expected, no nested &lt;div&gt;s anymore. <br>&nbsp; <br>If you are using latest jQuery (1.7 and on), I suggest replacing .live() with delegated .on(): <br>&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;    $(&#39;.ajaxGrid&#39;).on(&#39;click&#39;, &#39;table thead tr a&#39;, updateGrid); <br>&nbsp;&nbsp;&nbsp;&nbsp;    $(&#39;.ajaxGrid&#39;).on(&#39;click&#39;, &#39;table tfoot tr a&#39;, updateGrid); <br>&nbsp; <br>thus jQuery will not put event handler at the root of the HTML to filter events to the level deep in the HTLM, but instead it will just handle bubbled link clicks upto ajaxGrid.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=midix"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=midix" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=midix" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=midix"><b>midix</b>: </a><span>Thursday, October 11, 2012 3:57 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >I tried this on MVC 4. <br>&nbsp; <br>There is an issue: when sorting the AJAX grid, it suddenly creates the following <br>&nbsp; <br>&lt;div id="grid&quot; class=&quot;ajaxGrid&quot;&gt; <br>&nbsp;&nbsp;&nbsp;   &lt;div id=&quot;grid&quot; class=&quot;ajaxGrid&quot;&gt; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      &lt;table&gt; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           ... <br>&nbsp; <br>which is wrong - there shouldn&#39;t be multiple elements with the same id in a HTML document. <br>&nbsp; <br>I tried to fix it by putting &lt;div id=&quot;grid&quot; class=&quot;ajaxGrid&quot;&gt; in the outer cshtml, but then it suddenly stopped loading the table in the outer grid, which is completely awkward - why it cannot find the ajax container if there is no copy of it? Do I need somehow to specify replacement behaviour for AJAX container, and how do I do it? <br>&nbsp; <br>Another issue - the Column format: @&lt;text&gt;@Html.ActionLink method somehow did not work, it always threw &quot;cannot convert from &#39;lambda expression&#39;&quot; to &#39;System.Func.... <br>&nbsp; <br>but if I changed to simple @&lt;text&gt;@item.Name&lt;/text&gt;, then it started to work. It seems, somehow MVC could not find the custom Column method and was using the default WebGrid.Column instead.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=gaboxin"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=gaboxin" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=gaboxin" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=gaboxin"><b>gaboxin</b>: </a><span>Friday, July 13, 2012 7:16 PM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >How to correct Malcom Shridan&#180;s comment?: <br>"It&#39;s important to remember that paging in the WebGrid is not handled correctly out of the box. What I mean by that is if you have a WebGrid fetches it data from 10,000 records from a database, but it only displays 10 records per page, each time you click on a paging link, you’re not retrieving 10 records you want to display, you’re fetching the 10,000 records each time and only displaying 10. This is terribly inefficient when you hit a large scale system&quot;</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=anil503"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=anil503" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=anil503" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=anil503"><b>anil503</b>: </a><span>Friday, June 15, 2012 6:26 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Can we bind the nested list of models to the web grid, like <br>public class MyDataModel <br>&nbsp;&nbsp;&nbsp;&nbsp;    { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        public IList&lt;MyDataSubModel1&gt; SubModel1 { get; set; } <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        public IList&lt;MyDataSubModel2&gt; SubModel2 { get; set; } <br>&nbsp;&nbsp;&nbsp;&nbsp;    } <br>I have tried using this model and unfortunately i was unble to see the output. How can i bind the nested list of models to the web grid. <br>Thanks for your time</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=KarenHovhannisyan"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=KarenHovhannisyan" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=KarenHovhannisyan" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=KarenHovhannisyan"><b>KarenHovhannisyan</b>: </a><span>Friday, May 18, 2012 8:05 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Thank you for the article. The rare information concerning getting data portion by portion and seting paging in correspondence to the total records count was described very well. Thanks a lot.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=gby1985"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=gby1985" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=gby1985" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=gby1985"><b>gby1985</b>: </a><span>Wednesday, February 29, 2012 2:34 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Nice article but... please format code samples! MSDN Mag is a respectable thing so don&#39;t put code with CRAPPY formatting.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=cmanva"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=cmanva" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=cmanva" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=cmanva"><b>cmanva</b>: </a><span>Monday, November 21, 2011 6:46 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >This is a great example. I have asmall issue I tried to add filter in the "CustomAjax_Grid.cshtml&quot; page? How do get a search filter to work with the grid using ajax? Can you provide example. <br>&nbsp; <br>My simple search code: <br>&nbsp; <br>@using (Html.BeginForm(&quot;SearchIndex&quot;, &quot;User&quot;)) <br>&nbsp;&nbsp;&nbsp;&nbsp;    { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       &lt;p&gt;@Html.Label(&quot;UserName&quot;) @Html.TextBox(&quot;UserName&quot;) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       @Html.Label(&quot;LastName&quot;) @Html.TextBox(&quot;LastName&quot;) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        &lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;&lt;/p&gt; <br>&nbsp;&nbsp;&nbsp;&nbsp;    } <br></p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=NBelo"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=NBelo" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=NBelo" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=NBelo"><b>NBelo</b>: </a><span>Wednesday, October 26, 2011 6:28 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Very good! It saved me some hours. Thanks</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=Vijay Kardile"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=Vijay Kardile" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=Vijay Kardile" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=Vijay Kardile"><b>Vijay Kardile</b>: </a><span>Friday, August 26, 2011 2:12 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Thank You!!! <br>Very Nice Doc for Starters!!</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=Scott Findlater"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=Scott Findlater" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=Scott Findlater" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=Scott Findlater"><b>Scott Findlater</b>: </a><span>Tuesday, July 26, 2011 10:19 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Great article many thanks.  I have adopted the server side paging approach and since I am using NHibernate I have authored a blog post detailing the NHibernate Session extension I wrote - <a href="http://www.scottfindlater.co.uk/blog/mvc-webgrid-server-paging-and-sorting-nhibernate-datasource" target="_blank">http://www.scottfindlater.co.uk/blog/mvc-webgrid-server-paging-and-sor...</a>  <br>Any comments welcomed.  Thanks again, Scott.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=Ashraf TM"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=Ashraf TM" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=Ashraf TM" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=Ashraf TM"><b>Ashraf TM</b>: </a><span>Tuesday, July 19, 2011 3:47 PM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Nicely Presented. Thanks.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=marathon_man"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=marathon_man" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=marathon_man" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=marathon_man"><b>marathon_man</b>: </a><span>Tuesday, July 19, 2011 1:54 PM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Sorry, I&#39;m an idiot, just found the source link...</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=marathon_man"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=marathon_man" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=marathon_man" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=marathon_man"><b>marathon_man</b>: </a><span>Tuesday, July 19, 2011 12:40 PM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Thanks much for this article.  Very informative. <br>&nbsp; <br>Could you, however, post the source for the type-safe WebGrid (and maybe an example of it in action using the Bind() method)?  I couldn&#39;t get it to work.  Also your SafeCast extension would be helpful. <br>&nbsp; <br>What I found was, when using the WebGrid Bind() method, it is necessary to set the source to null on the constructor in the view, but when I try this it blows up saying that the source cannot be null...  If I do set the source in the constructor, I get "The WebGrid instance is already bound to a data source.&quot; when I get to the bind... <br>&nbsp; <br>Ideas? <br>&nbsp; <br>Thanks again. <br>&nbsp; <br> </p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=Malcolm Sheridan"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=Malcolm Sheridan" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=Malcolm Sheridan" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=Malcolm Sheridan"><b>Malcolm Sheridan</b>: </a><span>Thursday, July 14, 2011 7:30 PM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >It&#39;s important to remember that paging in the WebGrid is not handled correctly out of the box.  What I mean by that is if you have a WebGrid fetches it data from 10,000 records from a database, but it only displays 10 records per page, each time you click on a paging link, you’re not retrieving 10 records you want to display, you’re fetching the 10,000 records each time and only displaying 10. This is terribly inefficient when you hit a large scale system.</p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=Ronald Strijbosch"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=Ronald Strijbosch" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=Ronald Strijbosch" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=Ronald Strijbosch"><b>Ronald Strijbosch</b>: </a><span>Wednesday, July 13, 2011 10:18 AM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >Thanks for this great and complete article. I was searching for a solution like this a long time. Specialy how to do the sorting stuff. </p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div><div class="Clone">
+				<div class="avatar">
+					<a href="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&displayname=&user=Rick_Anderson"><img class="socialNav" targetUrl="http://social.msdn.microsoft.com/Profile/en-us/?user=Rick_Anderson" src="http://i1.social.s-msft.com/profile/u/avatar.jpg?size=small&amp;displayname=Rick_Anderson" style="border-width:0px;" /></a>
+				</div><div class="bodyComments">
+					<a href="http://social.msdn.microsoft.com/Profile/en-us/?user=Rick_Anderson"><b>Rick_Anderson</b>: </a><span>Tuesday, July 12, 2011 2:07 PM</span><span style="white-space:pre-line;"><p style='margin-top:5px; white-space:pre-line;' >This is a really great introduction to the WebGrid in ASP.NET MVC. Anyone with problems please post a question to the MVC Forums at <a href="http://forums.asp.net/1146.aspx" target="_blank">http://forums.asp.net/1146.aspx</a>  <br></p></span>
+				</div><div class="ClearBorder">
+
+				</div>
+			</div>
+		</div>
+            <div id="ctl00_MTContentSelector1_mainContentContainer_ctl29_errorSection" class="errorSection">
+			
+                <img id="ctl00_MTContentSelector1_mainContentContainer_ctl29_errorImage" src="http://i.msdn.microsoft.com/platform/Controls/MtpsComments/resources/erroricon.jpg" style="border-width:0px;" />
+                <label id="errorLbl">
+                </label>
+            
+		</div>
+            <div id="ctl00_MTContentSelector1_mainContentContainer_ctl29_lblSingInAbuse" class="fill">
+			
+                <div style="float: left">
+                    
+                    <a id="ctl00_MTContentSelector1_mainContentContainer_ctl29_lblleaveComment" class="cmtsCss" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MTContentSelector1$mainContentContainer$ctl29$lblleaveComment&quot;, &quot;&quot;, false, &quot;&quot;, &quot;http://msdn.microsoft.com/en-gb/magazine/Community-Signup.aspx?ru=http%253a%252f%252fmsdn.microsoft.com%252fen-gb%252fmagazine%252fhh288075(MSDN.10).aspx%253fwbi%253dnew#newComment&quot;, false, true))">Sign in to Leave a Comment</a>
+                </div>
+                <div id="ctl00_MTContentSelector1_mainContentContainer_ctl29_reportAbuseSection" style="float: right; margin-bottom: 10px;">
+                    <a id="ctl00_MTContentSelector1_mainContentContainer_ctl29_reportAbuse" targetUrl="https://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=http://msdn.microsoft.com/en-gb/magazine/hh288075.aspx" rel="reportAbuse" href="https://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=http://msdn.microsoft.com/en-gb/magazine/hh288075.aspx" target="_blank">Report Abuse</a>
+                </div>
+            
+		</div>
+            
+        
+	</div>
+        
+    </div>
+
+</div>
+</div></div>
+                                                        
+                                                </div>
+                                                <div class="FeatureSmallHeadWithLogo">&nbsp;</div>
+                                            </td>
+                                            <td style="width: 303px; vertical-align: top; padding-left: 3px;" valign="top">
+                                                <div id="RightContent">
+                                                    <div id="ctl00_RightSideBox">
+	<p:primary pcat:primaryFormat="Mtps.Xhtml"   xmlns:asp="http://msdn2.microsoft.com/aspnet" xmlns:pcat="urn:mtpg-com:mtps/2004/1/primary/category" xmlns:p="urn:mtpg-com:mtps/2004/1/primary"><div class="navpage"><div style="margin-bottom:10px;"><iframe frameBorder="0" frameSpacing="0" height="250" id="4f2320cbb2378" name="4f2320cbb2378" scrolling="no" src="http://ox-d.101m3.com/w/1.0/afr?auid=139281&amp;cb=INSERT_RANDOM_NUMBER_HERE" width="300"><a id="ctl00_ctl16" href="http://ox-d.101m3.com/w/1.0/rc?cs=4f2320cbb2378&cb=INSERT_RANDOM_NUMBER_HERE" onclick="javascript:Track('ctl00_ctl15|ctl00_ctl16',this);"><img alt="" border="0" src="http://ox-d.101m3.com/w/1.0/ai?auid=139281&amp;cs=4f2320cbb2378&amp;cb=INSERT_RANDOM_NUMBER_HERE" /></a></iframe></div><div style="margin-bottom:10px;"><iframe frameBorder="0" frameSpacing="0" height="250" id="4f2320971b57d" name="4f2320971b57d" scrolling="no" src="http://ox-d.101m3.com/w/1.0/afr?auid=139280&amp;cb=INSERT_RANDOM_NUMBER_HERE" width="300"><a id="ctl00_ctl17" href="http://ox-d.101m3.com/w/1.0/rc?cs=4f2320971b57d&cb=INSERT_RANDOM_NUMBER_HERE" onclick="javascript:Track('ctl00_ctl15|ctl00_ctl17',this);"><img alt="" border="0" src="http://ox-d.101m3.com/w/1.0/ai?auid=139280&amp;cs=4f2320971b57d&amp;cb=INSERT_RANDOM_NUMBER_HERE" /></a></iframe></div><div style="border-width:5px;border-color:black;border-style:solid;"><div style="margin-left:5px; margin-right:5px;"><h3><a id="ctl00_ctl18" href="http://blogs.msdn.com/msdnmagazine/" onclick="javascript:Track('ctl00_ctl15|ctl00_ctl18',this);">MSDN Magazine Blog</a></h3><p><!-- RSSURL : http://blogs.msdn.com/msdnmagazine/rss.xml | RSS GUID : 44CFFA5F-CCC2-14A2-2403-529DE793E787 --><div id="ctl00_ctl19_MtpsFeedViewerBasicPanelWebSlice" class="hslice">
+		
+	<p id="ctl00_ctl19_titlediv" class="entry-title"></p>
+	<div class="entry-content">
+			
+		<div id="ctl00_ctl19_MtpsFeedViewerBasicPanel" Class="MtpsFeedViewerBasicRootPanelClass">
+				
+			<div id="ctl00_ctl19_MtpsFeedViewerBasicHeaderPanel" Class="MtpsFeedViewerBasicHeaderStylePanel">
+					
+			
+				</div>
+		<div class="ColumnDiv">
+					<div id="ctl00_ctl19_ctl02" class="BasicHeadlinesItemPanelCssClass" style="width:99%;">
+						<a id="ctl00_ctl19_ctl03" title="Charles Petzold on his DirectX Factor Column" class="BasicHeadlinesTitleBold" href="http://blogs.msdn.com/b/msdnmagazine/archive/2013/01/08/10383228.aspx" onclick="javascript:Track('ctl00_ctl19_ctl02|ctl00_ctl19_ctl03',this);">Charles Petzold on his DirectX Factor Column</a><br/><span class="BasicHeadlinesDescLabelCssClass">Charles Petzold this month launches his new DirectX Factor column, which will explore the opportunities developers have in Windows 8 to write fast, na... </span><a id="ctl00_ctl19_ctl06" title="Charles Petzold on his DirectX Factor Column" href="http://blogs.msdn.com/b/msdnmagazine/archive/2013/01/08/10383228.aspx" onclick="javascript:Track('ctl00_ctl19_ctl02|ctl00_ctl19_ctl06',this);">More...</a><br/><span class="FVBPubDateLabel">Tuesday, Jan 8</span>
+					</div>
+				</div><div class="ColumnDiv">
+					<div id="ctl00_ctl19_ctl10" class="BasicHeadlinesItemPanelCssClass" style="width:99%;">
+						<a id="ctl00_ctl19_ctl11" title="Hurricane Sandy: Katrina’s Loud Echo" class="BasicHeadlinesTitleBold" href="http://blogs.msdn.com/b/msdnmagazine/archive/2012/10/30/10364076.aspx" onclick="javascript:Track('ctl00_ctl19_ctl10|ctl00_ctl19_ctl11',this);">Hurricane Sandy: Katrina’s Loud Echo</a><br/><span class="BasicHeadlinesDescLabelCssClass">Six and a half years ago I traveled down to post-Katrina New Orleans to write a feature story for Redmond Magazine titled Storm Warning. The article l... </span><a id="ctl00_ctl19_ctl14" title="Hurricane Sandy: Katrina’s Loud Echo" href="http://blogs.msdn.com/b/msdnmagazine/archive/2012/10/30/10364076.aspx" onclick="javascript:Track('ctl00_ctl19_ctl10|ctl00_ctl19_ctl14',this);">More...</a><br/><span class="FVBPubDateLabel">Tuesday, Oct 30</span>
+					</div>
+				</div><div class="EmptyPanel">
+
+				</div>
+			</div>
+	
+		</div>
+
+	</div></p><p><a id="ctl00_ctl20" href="http://blogs.msdn.com/msdnmagazine/" onclick="javascript:Track('ctl00_ctl15|ctl00_ctl20',this);">More MSDN Magazine Blog entries &gt;</a></p></div><div style="margin-left:5px; margin-right:5px; background-color:#5b6871;height:12px"><!--PublishThis!: An empty tag was encountered. This comment was inserted to prevent a self-closing tag.--></div><div style="margin-left:5px; margin-right:5px;"><p><br /></p><div style="text-align:left;font-family:Segoe UI;font-size:12pt;">Current Issue</div><div style="text-align:center;display:block;height:260px"><p><br /><a id="ctl00_ctl21" href="jj883946.aspx" onclick="javascript:Track('ctl00_ctl15|ctl00_ctl21',this);"><img align="Middle" alt="January 2013" height="239" src="http://i.msdn.microsoft.com/jj883946.cover_lrg(en-us,MSDN.10).jpg" title="January 2013" width="179" /></a></p></div><div style="text-align:right;"><p><a id="ctl00_ctl22" href="ee310108.aspx" onclick="javascript:Track('ctl00_ctl15|ctl00_ctl22',this);">Browse All MSDN Magazines</a><br /></p></div><div style="background-color:#5b6871;height:12px"><!--PublishThis!: An empty tag was encountered. This comment was inserted to prevent a self-closing tag.--></div></div><div style="margin-left:5px; margin-right:5px;"><div style="text-align:Right;font-family:Segoe UI;font-size:12pt;"><p><br /><a id="ctl00_ctl23" href="http://msdn.microsoft.com/en-US/aa570311.aspx?ocid=msdn_magazine" onclick="javascript:Track('ctl00_ctl15|ctl00_ctl23',this);"><img align="Left" alt="Subscribe to the MSDN Flash newsletter" src="http://i2.msdn.microsoft.com/dd799403.Question_opt(en-us,MSDN.10).png" title="Subscribe to the MSDN Flash newsletter" /> Subscribe to MSDN Flash newsletter</a></p></div><div style="text-align:left;"><p><br />Receive the MSDN Flash e-mail newsletter every other week, with news and information personalized to your interests and areas of focus.</p></div></div></div></div></p:primary>
+</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div id="ctl00_FooterAd" class="MsdnPage_ContentInclude" align="center"><div>
+	<div>
+		<div class="navpage" ><p> </p><div><iframe frameBorder="0" frameSpacing="0" height="90" id="4f2320f8e860a" name="4f2320f8e860a" scrolling="no" src="http://ox-d.101m3.com/w/1.0/afr?auid=139282&amp;cb=INSERT_RANDOM_NUMBER_HERE" width="728"><a id="ctl00_ctl32" href="http://ox-d.101m3.com/w/1.0/rc?cs=4f2320f8e860a&cb=INSERT_RANDOM_NUMBER_HERE" onclick="javascript:Track('ctl00_ctl31|ctl00_ctl32',this);"><img alt="" border="0" src="http://ox-d.101m3.com/w/1.0/ai?auid=139282&amp;cs=4f2320f8e860a&amp;cb=INSERT_RANDOM_NUMBER_HERE" /></a></iframe></div></div>
+	</div>
+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Clearbottom"> </div>
+                        <div class="bottomleftcorner"> </div>
+                        <div class="bottomrightcorner"> </div>
+                        <div id="Footer">
+                            
+
+<div class="FooterLinks">
+    <div id="ctl00_Footer1_SiteLinks">
+	<a id="ctl00_Footer1_LocalFooterLink0" title="Manage Your Profile" href="http://go.microsoft.com/?linkid=8786242&amp;lcid=2057">Manage Your Profile</a><span class='Pipe'>|</span><a id="ctl00_Footer1_LocalFooterLink1" title="Legal" href="http://www.microsoft.com/about/legal/">Legal</a><span class='Pipe'>|</span><a id="ctl00_Footer1_LocalFooterLink2" title="Contact Us" href="http://support.microsoft.com/contactus/cp_contactUsUK/?sd=gn&amp;ln=en-gb#tab0">Contact Us</a><span class='Pipe'>|</span><a id="ctl00_Footer1_LocalFooterLink3" title="Newsletter Registration" href="/en-gb/flash/default.aspx">Newsletter Registration</a>
+</div>
+    <span id="ctl00_Footer1_Copyright" title="© 2013 Microsoft. All rights reserved." class="FooterCopyright">&copy; 2013 Microsoft. All rights reserved.</span>
+    <a id="ctl00_Footer1_Terms" title="Terms of Use" href="/en-gb/cc300389.aspx">Terms of Use</a>
+    <span class="Pipe">|</span>
+    <a id="ctl00_Footer1_Trademarks" title="Trademarks" href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-gb.mspx">Trademarks</a>
+    <span class="Pipe">|</span>
+    <a id="ctl00_Footer1_PrivacyStatement" title="Privacy Statement" href="http://go.microsoft.com/fwlink/?LinkId=248681&amp;clcid=0x809">Privacy Statement</a>
+    
+    <a id="ctl00_Footer1_Feedback" rel="sitefeedback" target="_blank"></a>
+</div>
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&amp;TYPE=PV&amp;uri=%2fen-gb%2fmagazine(d%3dlightweight)%2fhh288075(l%3den-us%2cv%3dMSDN.10).aspx&amp;p=_en-gb_magazine(d=lightweight)_hh288075(l=en-us,v=MSDN.10).aspx&amp;r=http%3a%2f%2fstackoverflow.com%2fquestions%2f5138618%2fcreate-gridview-in-asp-net-mvc3-0" width="0" height="0" hspace="0" vspace="0" border="0" alt="Page view tracker" /></div>
+    
+<script src="http://i2.msdn.microsoft.com/platform/Controls/WebTrends/resources/webtrendsscript-bn1651.js" type="text/javascript"></script>
+<noscript>
+<div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div>
+</noscript>
+    <script type="text/javascript" src="http://i2.msdn.microsoft.com/en-gb/magazine/mtps-bn1651.js?l=en-gb&amp;i=magazine&amp;ct=AlternateSelector;CCEditor;CCSection;CCTagEditor;ContentFallback;EyebrowSimple;FeedViewerBasic;InstrumentedLink;InteractiveToolbar;MtpsComments;MtpsRating;MtViewDropDown;Omniture;RatingsOnly;RedVelvetInstrumentedLink;ShareThis;StoCodeHighlighter;StoFooter;StoLocaleManagementFlyout;StoMastheadMSDN;StoMtpsLoginStatus;StoProfileLink;StoSearch;StoTabStrip;SurveyLauncher;TemplatedFlyout;TransWikiPopupEditor;WebMetrix;WebTrends"></script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+ RegisterAutoSubmit('ctl00_tb1_Flyout_Rating1','ctl00_tb1_Flyout_btnSend','contentRatinghh288075MSDN.10en-us');
+//]]>
+</script>
+<script type="text/javascript" language="javascript">
+<!--
+ function GetContentWnd(){ return parent; } function OnInitPage(){var oWnd = GetContentWnd();}
+
+-->
+</script></form>
+</body>
+
+<script language="javascript" type="text/javascript" src="http://js.microsoft.com/library/svy/sto/broker.js"></script>
+</html>

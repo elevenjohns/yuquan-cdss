@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1F4B4370-45EB-4F63-AB29-6525C449AE2A}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SanQingShan</RootNamespace>
+    <AssemblyName>SanQingShan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="CPEntities-Deployment" Order="2">
+          <Destination Path="Data Source=.\SQLExpress%3bInitial Catalog=CP%3bIntegrated Security=True" />
+          <Object Type="dbFullSql" Enabled="True">
+            <PreSource Path="Data Source=.\SQLExpress%3bInitial Catalog=CP%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\CPEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <DeployIisAppPath>SanQingShan</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>SanQingShan</DeployIisAppPath>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="CPEntities-Deployment" Order="2">
+          <Destination Path="Data Source=.\SQLExpress%3bInitial Catalog=CP%3bIntegrated Security=True" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=.\SQLExpress%3bInitial Catalog=CP%3bIntegrated Security=True%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\CPEntities-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="QuestionnaireContainer-Deployment" Order="3">
+          <Destination Path="Data Source=.\SQLExpress%3bInitial Catalog=Questionnaire%3bIntegrated Security=True" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=.\SQLExpress%3bInitial Catalog=Questionnaire%3bIntegrated Security=True%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\QuestionnaireContainer-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuestionnaireController.cs" />
+    <Compile Include="Data\QuestionnaireInitializer.cs" />
+    <Compile Include="Helpers\AssociationHelper.cs" />
+    <Compile Include="Helpers\DictHelper.cs" />
+    <Compile Include="Helpers\ExcelImporter.cs" />
+    <Compile Include="Helpers\OracleDbHelper.cs" />
+    <Compile Include="Models\Answer.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AnswerPart.cs" />
+    <Compile Include="Models\Choice.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Concept.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CP_EXAM.cs">
+      <DependentUpon>CP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP_LAB_TEST.cs">
+      <DependentUpon>CP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP_MEDICAL_DOC.cs">
+      <DependentUpon>CP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP_MEDICAL_DOC_part.cs" />
+    <Compile Include="Models\CP_ORDER.cs">
+      <DependentUpon>CP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP_VISIT.cs">
+      <DependentUpon>CP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CP_VITAL_SIGN.cs">
+      <DependentUpon>CP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Feedback.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Option.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Question.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Questionnaire.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Questionnaire.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Questionnaire.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Questionnaire.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Questionnaire.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Questionnaire1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\CaseDict.txt" />
+    <EmbeddedResource Include="Data\OrderHeader.txt" />
+    <Content Include="Data\CP%28Complete%29.sql" />
+    <Content Include="Data\Visit.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\CP.edmx.sql" />
+    <Content Include="Models\Index.sql" />
+    <Content Include="Models\Questionnaire.edmx.sql" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\CP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\order_class_dict.tsv" />
+    <None Include="Data\医生信息.xls" />
+    <None Include="Data\诊断类型字典.xls" />
+    <None Include="!!! Deployment Readme.text" />
+    <None Include="Models\CP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CP.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\CP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CP.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Models\Questionnaire.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Questionnaire.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Questionnaire.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Questionnaire.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Questionnaire.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Questionnaire1.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Questionnaire\Index.cshtml" />
+    <Content Include="Views\Questionnaire\Create.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YuQuan.Untility\YuQuan.Untility.csproj">
+      <Project>{751998E0-373C-4DBD-83D5-ADC803A6CC66}</Project>
+      <Name>YuQuan.Untility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3584</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

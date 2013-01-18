@@ -1,0 +1,25 @@
+﻿http://stackoverflow.com/questions/8794906/textboxfor-mulitline
+
+You could use a TextAreaFor helper:
+
+@Html.TextAreaFor(
+    model => model.Headline, 
+    new { style = "width: 400px; height: 200px;" }
+)but a much better solution is to decorate your Headline view model property with the [DataType] attribute specifying that you want it to render as a <textarea>:
+
+public class MyViewModel
+{
+    [DataType(DataType.MultilineText)]
+    public string Headline { get; set; }
+
+    ...
+}and then use the EditorFor helper:
+
+<div class="headline">
+    @Html.EditorFor(model => model.Headline)
+</div>and finally in your CSS file specify its styling:
+
+div.headline {
+    width: 400px;
+    height: 200px;
+}Now you have a proper separation of concerns.

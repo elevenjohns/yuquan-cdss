@@ -1,0 +1,98 @@
+<Task xmlns="http://schemas.datacontract.org/2004/07/YuQuan.Models" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Id>0</Id>
+    <MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>按心脏病护理常规</Name>
+            <OrderType>护理</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>二级护理</Name>
+            <OrderType>护理</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>低盐普食</Name>
+            <OrderType>膳食</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage>20</Dosage>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>奥美沙坦酯片</Name>
+            <OrderType>药疗</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage>80</Dosage>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>接沙坦氢氯噻嗪片</Name>
+            <OrderType>药疗</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage>5</Dosage>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>苯磺酸氨氯地平片</Name>
+            <OrderType>药疗</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage>100</Dosage>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>氯沙坦钾片</Name>
+            <OrderType>药疗</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>拉西地平片</Name>
+            <OrderType>药疗</OrderType>
+            <TemporalType>长期</TemporalType>
+        </MedicalOrder>
+        <MedicalOrder>
+            <AdditionalInstruction i:nil="true"/>
+            <AdministrationRoute>0</AdministrationRoute>
+            <Dosage i:nil="true"/>
+            <Frequency i:nil="true"/>
+            <Id>0</Id>
+            <Name>心电图检查（多导）</Name>
+            <OrderType>检查</OrderType>
+            <TemporalType>临时</TemporalType>
+        </MedicalOrder>
+    </MedicalOrder>
+    <MultiSelect>true</MultiSelect>
+    <Name>高血压（全费）</Name>
+    <Optional>false</Optional>
+</Task>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "Test Rule Engine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Test Web Service</h2>
+
+@using (Html.BeginForm())
+{   
+    @Html.ValidationSummary(true)
+    <p>
+    肌钙蛋白T测定
+    <input type="text" name="CTnT" value="1.1"/>
+    ng/ml (参考范围 0-0.1 ng/ml)
+    </p>
+    
+    <p>
+    肌钙蛋白I测定
+    <input type="text" name="CTnI" value="11"/>
+    ug/ml (参考范围 0.2-1.0 ug/ml)
+    </p>
+    
+    <p>
+    肱动脉收缩压
+    <input type="text" name="BpSys" value="150"/>
+    mmHg (参考范围 140--90mmHg)
+    </p>
+    
+    <p>
+    肱动脉舒张压
+    <input type="text" name="BpDia" value="100"/>
+    mmHg (参考范围 90--60mmHg)
+    </p>
+    
+<input type="submit" value="Test Rule Engine" />
+}
+
+<br />
+@*If Model is not null, it means we have returned result *@
+@if (Model != null)
+{
+    <h2>Returned Result: </h2>
+    <p>@Model.Count() Problems Are Detected</p>
+<ul>
+@foreach (var item in Model)
+{
+    <li>@item</li>
+}
+</ul>
+
+if (string.IsNullOrEmpty(ViewBag.Performance) == false)
+{
+<p>
+    @ViewBag.Performance
+</p>
+}
+}
+
+<div>
+    @Html.ActionLink("Back to Home Page", "Index")
+</div>
